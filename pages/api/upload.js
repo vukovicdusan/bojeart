@@ -1,5 +1,5 @@
 import formidable from "formidable"
-import fs from "fs"
+import fs from "fs/promises"
 import path from "path"
 
 export const config = {
@@ -28,11 +28,11 @@ const readFile = (req, saveLocaly) => {
 const handler = async (req, res) => {
 	//!proveri sutra zasto ovo ne radi - https://nodejs.org/api/fs.html#fsreaddirpath-options-callback
 	//! https://stackoverflow.com/questions/72432428/i-am-getting-cb-argument-error-when-i-run-the-code
-	// try {
-	// 	await fs.readdir(path.join(process.cwd() + "/public", "/uploads"))
-	// } catch (error) {
-	// 	await fs.mkdir(path.join(process.cwd() + "/public", "/uploads"))
-	// }
+	try {
+		await fs.readdir(path.join(process.cwd() + "/public", "/uploads"))
+	} catch (error) {
+		await fs.mkdir(path.join(process.cwd() + "/public", "/uploads"))
+	}
 	await readFile(req, true)
 	res.json({ done: "ok" })
 }
