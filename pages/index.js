@@ -1,9 +1,13 @@
+import fs from "fs/promises"
+import path from "path"
 import Head from "next/head"
 import Image from "next/image"
 import UploadImage from "../components/UploadImage"
 import styles from "../styles/Home.module.css"
+import Link from "next/link"
 
-export default function Home() {
+export default function Home({ dirs }) {
+	console.log(dirs)
 	return (
 		<div className={styles.container}>
 			<Head>
@@ -15,6 +19,25 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<UploadImage></UploadImage>
+			<h2>There should go the images</h2>
+			{dirs.map((item) => (
+				<Link key={item} href={"/uploads/" + item}>
+					{item}
+				</Link>
+			))}
 		</div>
 	)
+}
+
+export const getServerSideProps = async () => {
+	const props = { dirs: [] }
+	try {
+		const dirs = await fs.readdir(
+			path.join(process.cwd(), "/public/uploads")
+		)
+		props.dirs = dirs
+		return { props }
+	} catch (error) {
+		return { props }
+	}
 }
