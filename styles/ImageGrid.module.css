@@ -1,0 +1,7 @@
+.gridStack {
+	--stack-align: stretch;
+}
+
+.gridWrap {
+	--wrap-justify: flex-start;
+}

@@ -1,15 +1,11 @@
-import fs from "fs/promises"
-import path from "path"
 import Head from "next/head"
-import Image from "next/image"
-import UploadImage from "../components/UploadImage"
-import styles from "../styles/Home.module.css"
-import Link from "next/link"
+import ImageGrid from "../components/ImageGrid"
+import { collection, getDocs } from "firebase/firestore"
+import { db } from "../public/firebase/firebase"
 
-export default function Home({ dirs }) {
-	console.log(dirs)
+export default function Home({ imgList }) {
 	return (
-		<div className={styles.container}>
+		<div>
 			<Head>
 				<title>Create Next App</title>
 				<meta
@@ -18,26 +14,24 @@ export default function Home({ dirs }) {
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<UploadImage></UploadImage>
-			<h2>There should go the images</h2>
-			{dirs.map((item) => (
-				<Link key={item} href={"/uploads/" + item}>
-					{item}
-				</Link>
-			))}
+			<ImageGrid imgList={imgList}></ImageGrid>
 		</div>
 	)
 }
 
-export const getServerSideProps = async () => {
-	const props = { dirs: [] }
+export const getServerSideProps = async (context) => {
+	let list = []
 	try {
-		const dirs = await fs.readdir(
-			path.join(process.cwd(), "/public/uploads")
-		)
-		props.dirs = dirs
-		return { props }
-	} catch (error) {
-		return { props }
+		const querySnapshot = await getDocs(collection(db, "slike"))
+		querySnapshot.forEach((doc) => {
+			list.push({ id: doc.id, ...doc.data() })
+		})
+
+		return {
+			props: { imgList: list },
+		}
+	} catch (err) {
+		console.log(err)
+		return { props: {} }
 	}
 }
