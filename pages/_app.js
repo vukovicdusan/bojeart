@@ -1,11 +1,14 @@
 import "../styles/globals.css"
 import Layout from "../components/layout/Layout"
+import { LoginContextProvider } from "../store/LoginCtx"
 
 function MyApp({ Component, pageProps }) {
 	return (
-		<Layout>
-			<Component {...pageProps} />
-		</Layout>
+		<LoginContextProvider>
+			<Layout>
+				<Component {...pageProps} />
+			</Layout>
+		</LoginContextProvider>
 	)
 }
 

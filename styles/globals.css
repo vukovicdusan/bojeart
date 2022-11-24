@@ -9,7 +9,7 @@
 }
 /** ==== MODULAR SCALE ==== */
 :root {
-	--ratio: 1.3;
+	--ratio: 1.5;
 	--s-5: calc(var(--s-4) / var(--ratio));
 	--s-4: calc(var(--s-3) / var(--ratio));
 	--s-3: calc(var(--s-2) / var(--ratio));
@@ -85,6 +85,7 @@ body {
 	min-height: 100vh;
 	text-rendering: optimizeSpeed;
 	line-height: 1.5;
+	font-size: var(--s1);
 }
 
 /* A elements that don't have a class get default styles */
@@ -195,8 +196,9 @@ button:disabled {
 }
 
 body {
-	font-family: var(--amaticregular), Times sans-serif;
+	font-family: var(--amaticbold), Times sans-serif;
 	color: var(--text-primary);
+	/* font-size: var(--s1); */
 }
 
 h1,
@@ -489,4 +491,25 @@ label {
 .stack > * + * {
 	--stack-space: var(--s0);
 	margin-block-start: var(--stack-space, --s0);
+}
+
+/** ==== CENTER ==== */
+.center {
+	box-sizing: content-box;
+	margin-inline: auto;
+	max-inline-size: var(--measure);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/*! ovo staviti u Login.module.css*/
+.signup-alert,
+.signup-success {
+	color: indianred;
+	font-weight: bold;
+}
+
+.signup-success {
+	color: green;
 }

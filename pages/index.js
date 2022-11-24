@@ -2,8 +2,12 @@ import Head from "next/head"
 import ImageGrid from "../components/ImageGrid"
 import { collection, getDocs } from "firebase/firestore"
 import { db } from "../public/firebase/firebase"
+import { useContext } from "react"
+import LoginContext from "../store/LoginCtx"
 
 export default function Home({ imgList }) {
+	const { user } = useContext(LoginContext)
+	console.log(user)
 	return (
 		<div>
 			<Head>

@@ -5,7 +5,7 @@ import { getStorage } from "firebase/storage"
 // import { getAnalytics } from "firebase/analytics"
 
 const firebaseConfig = {
-	apiKey: process.env.BOJEART_FIREBASE_KEY,
+	apiKey: "AIzaSyBGOdbm1wcqIbxvUjZQ3VMGSQLaQtIteDk",
 	authDomain: "bojeart-89dc8.firebaseapp.com",
 	projectId: "bojeart-89dc8",
 	storageBucket: "bojeart-89dc8.appspot.com",

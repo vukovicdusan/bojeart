@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-
 import Region from "../components/layout/Region"
 import Wrapper from "../components/layout/Wrapper"
 import Image from "next/image"
