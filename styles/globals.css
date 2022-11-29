@@ -234,7 +234,7 @@ h6 {
 
 @media (max-width: 450px) {
 	h1 {
-		font-size: var(--s2);
+		font-size: var(--s3);
 	}
 	h2 {
 		font-size: var(--s2);
@@ -412,13 +412,18 @@ label {
 	color: var(--text-primary);
 }
 
+.button-ghost {
+	border: none;
+	transition: all 0.5s ease;
+}
+
 @media (max-width: 900px) {
 	.button {
 		padding-block: var(--s-4, 0.8rem);
 	}
 }
 
-/*! === BACK TO TOP BUTTON === */
+/** === BACK TO TOP BUTTON === */
 .back-to-top {
 	background-color: transparent;
 	opacity: 0.3;
@@ -453,14 +458,14 @@ label {
 
 @supports (width: min(250px, 100%)) {
 	.grid {
-		grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
 	}
 }
 
 /** === FRAME === */
 
 .frame {
-	--n: 16;
+	--n: 12;
 	--d: 9;
 	aspect-ratio: var(--n) / var(--d);
 	overflow: hidden;
@@ -477,6 +482,7 @@ label {
 }
 
 /** ==== STACK ==== */
+
 .stack {
 	display: flex;
 	flex-direction: column;
@@ -494,6 +500,7 @@ label {
 }
 
 /** ==== CENTER ==== */
+
 .center {
 	box-sizing: content-box;
 	margin-inline: auto;
@@ -503,7 +510,8 @@ label {
 	align-items: center;
 }
 
-/*! ovo staviti u Login.module.css*/
+/** ==== ALL FORMS ==== */
+
 .signup-alert,
 .signup-success {
 	color: indianred;
@@ -512,4 +520,68 @@ label {
 
 .signup-success {
 	color: green;
+}
+
+.progress-bar--container {
+	min-inline-size: 15rem;
+}
+
+.progress-bar {
+	width: 0;
+	height: 3px;
+	background-color: green;
+	transition: all 0.4s ease;
+}
+
+/** ==== DROPDOWN ==== */
+
+.dropdown-toggle {
+	position: relative;
+	cursor: pointer;
+}
+.dropdown-menu {
+	position: absolute;
+	display: none;
+	right: 0;
+	top: 25px;
+	z-index: 99;
+	padding: 0.5rem 1rem;
+	margin-block-start: 0.5rem;
+	min-inline-size: max-content;
+	background-color: var(--text-secondary);
+}
+.dropdown-menu.stack {
+	--stack-align: flex-end;
+}
+.dropdown-toggle:hover .dropdown-menu,
+.dropdown-menu:hover,
+.dropdown-menu:focus .dropdown-menu {
+	display: flex;
+}
+
+.dropdown-menu.box {
+	border: dashed var(--text-primary);
+}
+
+.dropdown-toggle .icon {
+	margin-inline-end: 0.4rem;
+	width: 1em;
+	height: 1em;
+}
+
+/** ==== ICON ====*/
+.icon {
+	width: 2em;
+	width: 1cap;
+	height: 2em;
+	height: 1cap;
+}
+
+.with-icon {
+	display: inline-flex;
+	align-items: baseline;
+}
+
+.with-icon .icon {
+	margin-inline-start: 1rem;
 }

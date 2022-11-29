@@ -1,0 +1,75 @@
+.imgWrapper {
+	position: relative;
+	backface-visibility: hidden;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: flex-start;
+	margin-inline: auto;
+}
+
+.imgWrapper > * {
+	z-index: 1;
+}
+
+.imgWrapper > img {
+	object-fit: cover;
+}
+
+.painting {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	filter: grayscale(1);
+	transition: all 0.3s ease;
+	z-index: 0;
+}
+
+.imgWrapper h4 {
+	transition: 0.3s transform ease;
+}
+
+.imgWrapper p {
+	opacity: 0;
+	transition: opacity 0.3s linear, transform 0.3s ease-in-out;
+}
+
+.imgWrapper h4,
+.imgWrapper p {
+	color: var(--text-secondary);
+	transform: translateY(6ex);
+	text-transform: capitalize;
+}
+
+.imgWrapper:hover :is(h4, p),
+.imgWrapper:focus :is(h4, p) {
+	transform: none;
+}
+
+.imgWrapper:hover p,
+.imgWrapper:focus p,
+.imgWrapper:hover .imgInfo {
+	opacity: 1;
+	transition-delay: 200ms;
+}
+
+.imgWrapper p {
+	width: 45ch;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.imgWrapper:hover img,
+.imgWrapper:focus img {
+	filter: grayscale(0);
+	transform: scale(1.05) rotate(1deg);
+}
+
+.imgInfo {
+	opacity: 0;
+	min-inline-size: 100%;
+	min-block-size: max-content;
+	background-color: rgba(0, 0, 0, 0.5);
+	transition: opacity 0.2s ease;
+	padding: 0.5rem;
+}

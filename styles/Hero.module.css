@@ -1,0 +1,29 @@
+.heroTitle {
+	font-family: var(--comforter);
+	text-align: center;
+	position: relative;
+}
+
+.heroTitle span {
+	color: var(--main);
+}
+
+.heroTitle::after {
+	content: "";
+	position: absolute;
+	background-image: url("../public/images/brush-1.svg");
+	background-position: center;
+	background-size: 300px;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100%;
+	bottom: -55px;
+	left: 0;
+	z-index: -1;
+}
+@media (max-width: 450px) {
+	.heroTitle::after {
+		background-size: 200px;
+		bottom: -40px;
+	}
+}

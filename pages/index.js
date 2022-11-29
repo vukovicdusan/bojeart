@@ -1,13 +1,11 @@
 import Head from "next/head"
 import ImageGrid from "../components/ImageGrid"
-import { collection, getDocs } from "firebase/firestore"
+import Hero from "../components/Hero"
+import { collection, getDocs, query, orderBy } from "firebase/firestore"
 import { db } from "../public/firebase/firebase"
-import { useContext } from "react"
-import LoginContext from "../store/LoginCtx"
+import BackToTop from "../components/BackToTop"
 
 export default function Home({ imgList }) {
-	const { user } = useContext(LoginContext)
-	console.log(user)
 	return (
 		<div>
 			<Head>
@@ -18,6 +16,8 @@ export default function Home({ imgList }) {
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
+			<BackToTop></BackToTop>
+			<Hero></Hero>
 			<ImageGrid imgList={imgList}></ImageGrid>
 		</div>
 	)
@@ -26,7 +26,8 @@ export default function Home({ imgList }) {
 export const getServerSideProps = async (context) => {
 	let list = []
 	try {
-		const querySnapshot = await getDocs(collection(db, "slike"))
+		const q = query(collection(db, "slike"), orderBy("date"))
+		const querySnapshot = await getDocs(q)
 		querySnapshot.forEach((doc) => {
 			list.push({ id: doc.id, ...doc.data() })
 		})

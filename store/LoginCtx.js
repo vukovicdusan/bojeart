@@ -1,25 +1,32 @@
-import React, { useEffect, useReducer } from "react"
-import LoginReducer from "../reducers/LoginReducer"
+import { onAuthStateChanged } from "firebase/auth"
+import React, { useEffect, useState } from "react"
 
-const init_state = {
-	currentUser: JSON.parse(localStorage.getItem("currentUser")) || null,
-}
+import { auth } from "../public/firebase/firebase"
+
+const init_state = {}
 
 export const LoginContext = React.createContext(init_state)
 
 export const LoginContextProvider = (props) => {
-	useEffect(() => {
-		localStorage.setItem(
-			"currentUser",
-			JSON.stringify(currentUser.currentUser.email)
-		)
-	})
+	const [userState, setUserState] = useState(null)
+	const [loadingState, setLoadingState] = useState(false)
 
-	const [currentUser, dispatch] = useReducer(LoginReducer, init_state)
+	useEffect(() => {
+		setLoadingState(true)
+		onAuthStateChanged(auth, (user) => {
+			if (user) {
+				setUserState(user.email)
+				setLoadingState(false)
+			} else {
+				setUserState(null)
+				setLoadingState(false)
+			}
+		})
+	}, [])
 
 	const ctxValue = {
-		user: currentUser.email,
-		dispatch,
+		user: userState,
+		loader: loadingState,
 	}
 	return (
 		<LoginContext.Provider value={ctxValue}>

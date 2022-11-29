@@ -3,5 +3,13 @@
 }
 
 .gridWrap {
-	--wrap-justify: flex-start;
+	--wrap-justify: center;
+}
+
+.imgGrid {
+	justify-items: center;
+}
+
+.imgGridList.stack {
+	--stack-align: center;
 }
