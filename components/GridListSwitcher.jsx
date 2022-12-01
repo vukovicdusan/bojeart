@@ -14,7 +14,7 @@ const GridListSwitcher = (props) => {
 
 	return (
 		<button
-			className="[ button ] [ button-ghost ]"
+			className="[ button ] [ button-ghost ] [ button-icon ]"
 			onClick={gridListSwitcher}
 		>
 			{grid ? (

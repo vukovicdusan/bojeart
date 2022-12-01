@@ -24,7 +24,7 @@
 
 	/** ==== VARIABLES ==== */
 
-	--main: #97dad9;
+	--main: #01a4ad;
 	--secondary: #fbdd00;
 	--text-primary: #1c2334;
 	--text-secondary: #f8f8ff;
@@ -345,17 +345,17 @@ label {
     margin-left: calc(50% - 50vw);
   } */
 
-/* .visually-hidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: auto;
-    margin: 0;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-    white-space: nowrap;
-  } */
+.visually-hidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: auto;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	white-space: nowrap;
+}
 
 .display-none {
 	display: none !important;
@@ -404,7 +404,7 @@ label {
 	text-transform: capitalize;
 	/* font-family: var(--bold); */
 	/* font-size: var(--s1); */
-	transition: all 0.2s ease;
+	transition: all 0.3s ease;
 }
 
 .button:hover {
@@ -415,6 +415,12 @@ label {
 .button-ghost {
 	border: none;
 	transition: all 0.5s ease;
+}
+
+.button-icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 @media (max-width: 900px) {

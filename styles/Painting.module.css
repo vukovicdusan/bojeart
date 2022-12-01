@@ -5,6 +5,7 @@
 	justify-content: flex-end;
 	align-items: flex-start;
 	margin-inline: auto;
+	box-shadow: var(--box-shadow);
 }
 
 .imgWrapper > * {
@@ -22,6 +23,7 @@
 	filter: grayscale(1);
 	transition: all 0.3s ease;
 	z-index: 0;
+	text-decoration: none;
 }
 
 .imgWrapper h4 {
@@ -53,7 +55,7 @@
 }
 
 .imgWrapper p {
-	width: 45ch;
+	width: 30ch;
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;

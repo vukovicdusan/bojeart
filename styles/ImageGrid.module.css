@@ -6,10 +6,19 @@
 	--wrap-justify: center;
 }
 
+.gridWrap .activeBtn {
+	transform: scale(1.3);
+	transition: all 0.2s ease-in-out;
+}
+
 .imgGrid {
 	justify-items: center;
 }
 
 .imgGridList.stack {
 	--stack-align: center;
+}
+
+.imgGridList a {
+	text-decoration: none;
 }

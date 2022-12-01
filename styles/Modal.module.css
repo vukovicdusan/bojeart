@@ -1,0 +1,31 @@
+.modalWrapper {
+	position: fixed;
+	inset-block-start: 50%;
+	inset-inline-start: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	z-index: 100;
+}
+
+.modalWrapper button {
+	position: absolute;
+	top: 1.5rem;
+	right: 1.5rem;
+	z-index: 100;
+}
+.modalBody {
+	padding: 5%;
+}
+
+.modalImg {
+	--margin: 50px;
+	padding: var(--s0);
+	max-inline-size: calc(100% - (var(--margin) * 2));
+	min-inline-size: calc(100% - (var(--margin) * 2));
+	object-fit: contain;
+}
