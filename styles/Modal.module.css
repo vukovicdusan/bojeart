@@ -10,6 +10,7 @@
 	width: 100vw;
 	height: 100vh;
 	z-index: 100;
+	overflow: hidden;
 }
 
 .modalWrapper button {
@@ -20,12 +21,4 @@
 }
 .modalBody {
 	padding: 5%;
-}
-
-.modalImg {
-	--margin: 50px;
-	padding: var(--s0);
-	max-inline-size: calc(100% - (var(--margin) * 2));
-	min-inline-size: calc(100% - (var(--margin) * 2));
-	object-fit: contain;
 }

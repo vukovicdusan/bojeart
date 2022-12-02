@@ -1,9 +1,12 @@
-import React from "react"
+import { React, useContext } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import * as styles from "../styles/Painting.module.css"
+import EditIcon from "./EditIcon"
+import LoginCtx from "../store/LoginCtx"
 
 const Painting = (props) => {
+	const { user } = useContext(LoginCtx)
 	return (
 		<Link
 			href={"/?image=" + props.imgProp.image}
@@ -18,6 +21,11 @@ const Painting = (props) => {
 				className={`${styles.imgWrapper} [ frame ]`}
 			>
 				<div className={styles.imgInfo}>
+					{user && (
+						<div className={styles.editButton}>
+							<EditIcon></EditIcon>
+						</div>
+					)}
 					<h4>{props.imgProp.price}EUR</h4>
 					<p>
 						{props.imgProp.date + " - " + props.imgProp.description}

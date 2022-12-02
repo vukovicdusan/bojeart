@@ -22,3 +22,6 @@
 .imgGridList a {
 	text-decoration: none;
 }
+.modalImg {
+	box-shadow: var(--box-shadow);
+}

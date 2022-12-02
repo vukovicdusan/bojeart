@@ -4,7 +4,6 @@ import * as styles from "../styles/ImageGrid.module.css"
 import Painting from "./Painting"
 import GridListSwitcher from "./GridListSwitcher"
 import Modal from "./Modal"
-import Link from "next/link"
 import { useRouter } from "next/router"
 
 const ImageGrid = (props) => {
@@ -54,6 +53,7 @@ const ImageGrid = (props) => {
 			<div className={`${styles.gridStack} [ stack ]`}>
 				<div className={`${styles.gridWrap} [ wrap ]`}>
 					<button
+						aria-label="autor filter"
 						className={
 							filter === "jelena@gmail.com"
 								? `${styles.activeBtn} [ button ]`
@@ -64,6 +64,7 @@ const ImageGrid = (props) => {
 						Jelena
 					</button>
 					<button
+						aria-label="autor filter"
 						className={
 							filter === ""
 								? `${styles.activeBtn} [ button ]`
@@ -74,6 +75,7 @@ const ImageGrid = (props) => {
 						Zajedno
 					</button>
 					<button
+						aria-label="autor filter"
 						className={
 							filter === "bojan@gmail.com"
 								? `${styles.activeBtn} [ button ]`

@@ -1,6 +1,7 @@
 import React from "react"
 import * as styles from "../styles/Modal.module.css"
 import { useRouter } from "next/router"
+
 const Modal = (props) => {
 	let router = useRouter()
 	return (
