@@ -24,7 +24,7 @@ const GridListSwitcher = (props) => {
 					height="24"
 					viewBox="0 0 24 24"
 				>
-					<path d="M11 11h-11v-11h11v11zm13 0h-11v-11h11v11zm-13 13h-11v-11h11v11zm13 0h-11v-11h11v11z" />
+					<path d="M24 3h-24v-2h24v2zm0 3h-24v2h24v-2zm0 5h-24v2h24v-2zm0 5h-24v2h24v-2zm0 5h-24v2h24v-2z" />
 				</svg>
 			) : (
 				<svg
@@ -33,7 +33,7 @@ const GridListSwitcher = (props) => {
 					height="24"
 					viewBox="0 0 24 24"
 				>
-					<path d="M24 3h-24v-2h24v2zm0 3h-24v2h24v-2zm0 5h-24v2h24v-2zm0 5h-24v2h24v-2zm0 5h-24v2h24v-2z" />
+					<path d="M11 11h-11v-11h11v11zm13 0h-11v-11h11v11zm-13 13h-11v-11h11v11zm13 0h-11v-11h11v11z" />
 				</svg>
 			)}
 		</button>

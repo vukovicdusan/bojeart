@@ -4,13 +4,20 @@ import { useRouter } from "next/router"
 
 const Modal = (props) => {
 	let router = useRouter()
+	const closeEditModalHandler = (e) => {
+		e.preventDefault(e)
+		props.editImage && props.editImage(false)
+		router.push({ pathname: "/" }, undefined, {
+			scroll: false,
+			shallow: true,
+		})
+	}
+
 	return (
 		<dialog className={styles.modalWrapper}>
 			<button
-				onClick={() => {
-					router.push("/")
-				}}
-				className="[ button ] [ button-ghost ]"
+				onClick={closeEditModalHandler}
+				className={`${styles.modalClose} [ button ] [ button-ghost ]`}
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"

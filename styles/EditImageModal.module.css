@@ -1,0 +1,6 @@
+.editModalWrapper {
+	background-color: var(--text-secondary);
+	padding: var(--s4) var(--s2);
+	border-radius: 4px;
+	box-shadow: var(--box-shadow);
+}

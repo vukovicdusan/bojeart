@@ -31,7 +31,6 @@ const Dashboard = () => {
 				payload: init_state,
 			})
 		setImgUploaded(false)
-		console.log("useEffect roka")
 	}, [imgUploaded])
 
 	const uploadImageHandler = (e) => {

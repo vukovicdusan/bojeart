@@ -265,7 +265,7 @@ input,
 select,
 textarea {
 	border: 1px solid var(--text-gray);
-	border-radius: 5px;
+	border-radius: 4px;
 	min-inline-size: 15rem;
 	background: transparent;
 }
@@ -274,7 +274,7 @@ input::file-selector-button {
 	cursor: pointer;
 	font-family: var(--amaticregular);
 	border: 1px solid var(--main);
-	border-radius: 5px;
+	border-radius: 4px;
 	padding: var(--s-5) var(--s-1);
 }
 
@@ -361,6 +361,10 @@ label {
 	display: none !important;
 }
 
+.p-relative {
+	position: relative;
+}
+
 .mr-bs-1 {
 	margin-block-start: var(--s0, 1rem) !important;
 }
@@ -415,6 +419,7 @@ label {
 .button-ghost {
 	border: none;
 	transition: all 0.5s ease;
+	background-color: transparent;
 }
 
 .button-icon {

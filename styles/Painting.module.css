@@ -36,8 +36,7 @@
 }
 
 .imgWrapper h4,
-.imgWrapper p,
-.imgWrapper svg {
+.imgWrapper p {
 	color: var(--text-secondary);
 	transform: translateY(6ex);
 	text-transform: capitalize;
@@ -81,12 +80,12 @@
 }
 
 .editButton {
-	opacity: 0;
+	background-color: rgba(0, 0, 0, 0.5);
 	position: absolute;
-	bottom: 105px;
+	top: 15px;
 	right: 15px;
-	fill: var(--secondary);
-	z-index: 100;
+	fill: var(--text-secondary);
+	z-index: 99;
 	transition: opacity 0.2s ease;
 }
 
@@ -95,7 +94,12 @@
 	opacity: 1;
 }
 
+.editButton svg {
+	transition: transform 0.2s ease;
+}
+
 .editButton:hover svg,
 .editButton:focus svg {
-	fill: var(--main);
+	fill: var(--secondary);
+	transform: rotate(-15deg);
 }

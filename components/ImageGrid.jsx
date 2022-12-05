@@ -5,12 +5,16 @@ import Painting from "./Painting"
 import GridListSwitcher from "./GridListSwitcher"
 import Modal from "./Modal"
 import { useRouter } from "next/router"
+import EditImageModal from "./EditImageModal"
 
 const ImageGrid = (props) => {
 	const [filter, setFilter] = useState("")
 	const [grid, setGrid] = useState(true)
+	const [editModalData, setEditModalData] = useState("")
+	const [openEditModal, setOpenEditModal] = useState(false)
 
 	const changeAuthorHandler = (e) => {
+		console.log(props.imgList.id)
 		e.preventDefault()
 		switch (e.target.innerHTML.toLowerCase()) {
 			case "bojan":
@@ -26,13 +30,26 @@ const ImageGrid = (props) => {
 	const gridListSwitcherHandler = (e) => {
 		setGrid(e)
 	}
+
+	const editImage = (data, modalOpen) => {
+		setEditModalData(data)
+		setOpenEditModal(modalOpen)
+	}
+
 	let router = useRouter()
-	let filteredImgs = props.imgList.reverse()
 
 	return (
 		<Region>
+			{openEditModal && (
+				<Modal editImage={editImage}>
+					<EditImageModal
+						editImage={editImage}
+						editModalData={editModalData}
+					></EditImageModal>
+				</Modal>
+			)}
 			{router.query.image && (
-				<Modal oncloseHandler={""}>
+				<Modal>
 					<img
 						className={styles.modalImg}
 						src={router.query.image}
@@ -94,8 +111,9 @@ const ImageGrid = (props) => {
 						grid ? "[ grid ]" : "[ stack ]"
 					} [ mr-bs-4 ]`}
 				>
-					{filteredImgs.map((img) => (
+					{props.imgList.reverse().map((img) => (
 						<Painting
+							editImage={editImage}
 							filter={filter}
 							key={img.id}
 							imgWidth={grid ? "100%" : "700px"}
