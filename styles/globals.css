@@ -9,7 +9,7 @@
 }
 /** ==== MODULAR SCALE ==== */
 :root {
-	--ratio: 1.5;
+	--ratio: 1.6;
 	--s-5: calc(var(--s-4) / var(--ratio));
 	--s-4: calc(var(--s-3) / var(--ratio));
 	--s-3: calc(var(--s-2) / var(--ratio));
@@ -152,15 +152,6 @@ button:disabled {
 	font-style: normal;
 }
 
-/* @font-face {
-	font-family: "alumni_sans_pinstripeitalic";
-	src: url("../public/fonts/alumnisanspinstripe-italic-webfont.woff2")
-	format("woff2"),
-	url("alumnisanspinstripe-italic-webfont.woff") format("woff");
-	font-weight: normal;
-	font-style: normal;
-} */
-
 @font-face {
 	font-family: "alumni_sans_pinstriperegular";
 	src: url("../public/fonts/alumnisanspinstripe-regular-webfont.woff2")
@@ -207,7 +198,7 @@ h3,
 h4,
 h5,
 h6 {
-	max-width: 35ch;
+	/* max-width: 35ch; */
 	font-family: var(--amaticbold), Times, serif;
 	line-height: 1.1;
 	font-weight: normal;
@@ -388,6 +379,10 @@ label {
 .d-flex-c {
 	display: flex;
 	flex-direction: column;
+}
+
+.main-color {
+	color: var(--main);
 }
 
 /** ==== BUTTON ==== */

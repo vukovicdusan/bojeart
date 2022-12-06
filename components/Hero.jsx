@@ -5,7 +5,7 @@ const Hero = () => {
 	return (
 		<Region>
 			<h1 className={styles.heroTitle}>
-				БоЈе<span>Арт</span>
+				BoJe<span className="main-color">Art</span>
 			</h1>
 		</Region>
 	)

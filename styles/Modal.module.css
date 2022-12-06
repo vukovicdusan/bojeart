@@ -20,5 +20,7 @@
 	z-index: 100;
 }
 .modalBody {
-	padding: 5%;
+	position: relative;
+	/* width: 800px;
+	height: 500px; */
 }

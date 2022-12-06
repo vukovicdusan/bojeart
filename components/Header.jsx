@@ -28,15 +28,17 @@ const Header = () => {
 			<Wrapper>
 				<div className="wrap">
 					<Link className="logo" href={"/"}>
-						<div>БоЈеАрт</div>
+						<div>
+							BoJe<span className="main-color">Art</span>
+						</div>
 					</Link>
 					<nav>
 						<ul className="wrap">
 							<li>
-								<Link href={"/about"}>О нама</Link>
+								<Link href={"/about"}>O nama</Link>
 							</li>
 							<li>
-								<Link href={"/contact"}>Контакт</Link>
+								<Link href={"/contact"}>Kontakt</Link>
 							</li>
 							<li>
 								{loginContext.user && (
@@ -48,7 +50,7 @@ const Header = () => {
 										<ul className="[ dropdown-menu ] [ stack ] [ box ]">
 											<li>
 												<Link href={"/autor"}>
-													Постави слику
+													Postavi sliku
 												</Link>
 											</li>
 											<li>
@@ -56,7 +58,7 @@ const Header = () => {
 													onClick={logoutHandler}
 													className="button"
 												>
-													Одјави се
+													Odjavi se
 												</button>
 											</li>
 										</ul>

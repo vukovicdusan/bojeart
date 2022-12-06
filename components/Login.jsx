@@ -18,7 +18,7 @@ const Login = () => {
 			.then((userCredential) => {
 				// Signed in
 				const user = userCredential.user
-				router.push("/autor")
+				router.push("/autor", undefined, { shallow: true })
 			})
 			.catch((error) => {
 				const errorCode = error.code
@@ -50,7 +50,7 @@ const Login = () => {
 					/>
 				</div>
 				<div className="d-flex-c">
-					<label htmlFor="password"></label>
+					<label htmlFor="password">Password</label>
 					<input
 						// ref={passRef}
 						type="password"
@@ -63,14 +63,14 @@ const Login = () => {
 						value={password}
 					/>
 				</div>
-				<button className="button">Пријава</button>
+				<button className="button">Prijava</button>
 				{loginError && (
 					<div
 						aria-atomic="true"
 						role="alert"
 						className="signup-alert"
 					>
-						Погрешан усернаме или пасворд. Покушај поново.
+						Pogrešan username ili password. Pokušajte ponovo.
 					</div>
 				)}
 			</form>

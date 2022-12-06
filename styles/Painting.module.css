@@ -8,6 +8,10 @@
 	box-shadow: var(--box-shadow);
 }
 
+.imgContainer {
+	max-width: 500px;
+	width: 100%;
+}
 .imgWrapper > * {
 	z-index: 1;
 }

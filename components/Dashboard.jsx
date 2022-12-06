@@ -107,7 +107,7 @@ const Dashboard = () => {
 			</h1>
 			<form onSubmit={uploadImageHandler} className="stack">
 				<div className="d-flex-c">
-					<label htmlFor="file">Постави нову слику</label>
+					<label htmlFor="file">Postavi novu sliku</label>
 					<input
 						value={imageState.file}
 						name="file"
@@ -119,7 +119,7 @@ const Dashboard = () => {
 					/>
 				</div>
 				<div className="d-flex-c">
-					<label htmlFor="description">Опис</label>
+					<label htmlFor="description">Opis</label>
 					<textarea
 						value={imageState.description}
 						name="description"
@@ -131,7 +131,7 @@ const Dashboard = () => {
 					/>
 				</div>
 				<div className="d-flex-c">
-					<label htmlFor="price">Цена</label>
+					<label htmlFor="price">Cena</label>
 					<input
 						value={imageState.price}
 						name="price"
@@ -143,7 +143,7 @@ const Dashboard = () => {
 					/>
 				</div>
 
-				<button className="button">Уплоадуј</button>
+				<button className="button">Uploaduj</button>
 				{progress && (
 					<div className="[ d-flex-c ] progress-bar--container">
 						<span

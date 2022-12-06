@@ -15,13 +15,19 @@
 	justify-items: center;
 }
 
-.imgGridList.stack {
+.imgGridList > * + * {
+	--stack-space: var(--s4);
+}
+
+.imgGridList {
 	--stack-align: center;
+	--stack-justify: start;
 }
 
 .imgGridList a {
 	text-decoration: none;
 }
 .modalImg {
-	box-shadow: var(--box-shadow);
+	object-fit: contain;
+	/* box-shadow: var(--box-shadow); */
 }

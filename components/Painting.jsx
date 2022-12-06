@@ -14,11 +14,11 @@ const Painting = (props) => {
 
 	return (
 		<div
-			className={
+			className={`${styles.imgContainer} ${
 				props.filter === props.imgProp.author || props.filter === ""
 					? "p-relative"
-					: `[ display-none ]`
-			}
+					: "[ display-none ]"
+			}`}
 		>
 			{user && (
 				<button
@@ -35,15 +35,15 @@ const Painting = (props) => {
 				className={
 					props.filter === props.imgProp.author || props.filter === ""
 						? ""
-						: `[ display-none ]`
+						: "[ display-none ]"
 				}
 			>
 				<div
-					style={{ maxWidth: props.imgWidth }}
+					// style={{ maxWidth: props.imgWidth }}
 					className={`${styles.imgWrapper} [ frame ]`}
 				>
 					<div className={styles.imgInfo}>
-						<h4>{props.imgProp.price}EUR</h4>
+						<h4>{props.imgProp.price} EUR</h4>
 						<p>
 							{props.imgProp.date +
 								" - " +
@@ -54,8 +54,8 @@ const Painting = (props) => {
 						className={styles.painting}
 						fill
 						sizes="(max-width: 768px) 100vw,
-					(max-width: 1200px) 50vw,
-					33vw"
+						(max-width: 1200px) 50vw,
+						33vw"
 						src={props.imgProp.image}
 						alt="slika"
 						quality={100}

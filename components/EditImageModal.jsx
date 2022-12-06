@@ -46,7 +46,7 @@ const EditImageModal = (props) => {
 		>
 			<h3>Izmeni informacije</h3>
 			<div className="d-flex-c">
-				<label htmlFor="description">Опис</label>
+				<label htmlFor="description">opis</label>
 				<textarea
 					placeholder={props.editModalData.description}
 					name="description"
@@ -57,7 +57,7 @@ const EditImageModal = (props) => {
 				/>
 			</div>
 			<div className="d-flex-c">
-				<label htmlFor="price">Цена</label>
+				<label htmlFor="price">Cena</label>
 				<input
 					placeholder={props.editModalData.price}
 					name="price"
