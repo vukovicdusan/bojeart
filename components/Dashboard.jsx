@@ -4,6 +4,7 @@ import { collection, addDoc } from "firebase/firestore"
 import ImageReducer from "../reducers/ImageReducer"
 import LoginCtx from "../store/LoginCtx"
 import { storage, db } from "../public/firebase/firebase"
+import { useRouter } from "next/router"
 
 const date = new Date()
 const writeDate = date.toLocaleDateString("sr-RS")
@@ -14,6 +15,7 @@ const init_state = {
 	description: "",
 	image: "",
 	price: "",
+	category: "",
 }
 
 const Dashboard = () => {
@@ -21,6 +23,7 @@ const Dashboard = () => {
 	const [progress, setProgress] = useState(null)
 	const [imageState, dispatch] = useReducer(ImageReducer, init_state)
 	const { user } = useContext(LoginCtx)
+	const router = useRouter()
 
 	const author = user === "jelena@gmail.com" ? "jelena" : "bojan"
 
@@ -32,7 +35,6 @@ const Dashboard = () => {
 			})
 		setImgUploaded(false)
 	}, [imgUploaded])
-
 	const uploadImageHandler = (e) => {
 		e.preventDefault()
 		try {
@@ -68,12 +70,20 @@ const Dashboard = () => {
 					getDownloadURL(uploadTask.snapshot.ref).then(
 						async (downloadURL) => {
 							await addDoc(collection(db, "slike"), {
-								author: imageState.author,
+								author: author,
 								date: imageState.date,
 								description: imageState.description,
 								image: downloadURL,
 								price: imageState.price,
+								category:
+									!imageState.category && author === "bojan"
+										? "brodovi"
+										: !imageState.category &&
+										  author === "jelena"
+										? "crtezi"
+										: imageState.category,
 							})
+							router.reload()
 						}
 					)
 				}
@@ -88,7 +98,7 @@ const Dashboard = () => {
 			type: "IMAGE_INFO",
 			payload: e.target.value,
 			field: e.target.name,
-			author: user,
+			author: author,
 		})
 	}
 
@@ -141,6 +151,29 @@ const Dashboard = () => {
 						required
 						autoCorrect="off"
 					/>
+				</div>
+				<div className="d-flex-c">
+					<label htmlFor="category">Kategorija</label>
+					<select
+						value={imageState.category}
+						name="category"
+						id="category"
+						onChange={inputChangeHandler}
+						required
+					>
+						{author === "bojan" ? (
+							<>
+								<option value="brodovi">Brodovi</option>
+								<option value="ptice">Ptičice</option>
+								<option value="apstrakcije">Apstrakcije</option>
+							</>
+						) : (
+							<>
+								<option value="crtezi">Crteži</option>
+								<option value="slike">Slike</option>
+							</>
+						)}
+					</select>
 				</div>
 
 				<button className="button">Uploaduj</button>

@@ -14,6 +14,12 @@ const LoginReducer = (state, action) => {
 						price: action.payload,
 						author: action.author,
 					}
+				case "category":
+					return {
+						...state,
+						category: action.payload,
+						author: action.author,
+					}
 				default:
 					return state
 			}

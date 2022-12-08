@@ -12,12 +12,17 @@ const Painting = (props) => {
 		props.editImage(props.imgProp, true)
 	}
 
+	//FILTER VARIABLES
+	let showAuthor = props.filter && props.filter === props.imgProp.author
+	let showCat = props.catFilter && props.catFilter === props.imgProp.category
+	let showImages = showCat === "" ? showAuthor : showAuthor && showCat
+
 	return (
 		<div
 			className={`${styles.imgContainer} ${
-				props.filter === props.imgProp.author || props.filter === ""
+				showImages || props.filter === ""
 					? "p-relative"
-					: "[ display-none ]"
+					: "display-none"
 			}`}
 		>
 			{user && (
@@ -32,11 +37,6 @@ const Painting = (props) => {
 				href={"/?image=" + props.imgProp.image}
 				scroll={false}
 				shallow={true}
-				className={
-					props.filter === props.imgProp.author || props.filter === ""
-						? ""
-						: "[ display-none ]"
-				}
 			>
 				<div
 					// style={{ maxWidth: props.imgWidth }}

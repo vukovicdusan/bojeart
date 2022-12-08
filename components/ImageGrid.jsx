@@ -6,6 +6,7 @@ import GridListSwitcher from "./GridListSwitcher"
 import Modal from "./Modal"
 import { useRouter } from "next/router"
 import EditImageModal from "./EditImageModal"
+import CategoryFilter from "./CategoryFilter"
 import Image from "next/image"
 
 const ImageGrid = (props) => {
@@ -13,21 +14,27 @@ const ImageGrid = (props) => {
 	const [grid, setGrid] = useState(true)
 	const [editModalData, setEditModalData] = useState("")
 	const [openEditModal, setOpenEditModal] = useState(false)
+	const [categoriesFilter, setCategoriesFilter] = useState("")
 
-	const changeAuthorHandler = (e) => {
-		console.log(props.imgList.id)
+	const authorFilterHandler = (e) => {
 		e.preventDefault()
+		setCategoriesFilter("")
 		switch (e.target.innerHTML.toLowerCase()) {
 			case "bojan":
-				setFilter("bojan@gmail.com")
+				setFilter("bojan")
 				break
 			case "jelena":
-				setFilter("jelena@gmail.com")
+				setFilter("jelena")
 				break
-			case "zajedno":
+			case "sve":
 				setFilter("")
 		}
 	}
+
+	const catFilterHandler = (category) => {
+		setCategoriesFilter(category)
+	}
+	console.log(categoriesFilter)
 	const gridListSwitcherHandler = (e) => {
 		setGrid(e)
 	}
@@ -38,7 +45,6 @@ const ImageGrid = (props) => {
 	}
 
 	let router = useRouter()
-
 	return (
 		<Region>
 			{openEditModal && (
@@ -68,11 +74,11 @@ const ImageGrid = (props) => {
 					<button
 						aria-label="autor filter"
 						className={
-							filter === "jelena@gmail.com"
+							filter === "jelena"
 								? `${styles.activeBtn} [ button ]`
 								: "[ button ]"
 						}
-						onClick={changeAuthorHandler}
+						onClick={authorFilterHandler}
 					>
 						Jelena
 					</button>
@@ -83,25 +89,31 @@ const ImageGrid = (props) => {
 								? `${styles.activeBtn} [ button ]`
 								: "[ button ]"
 						}
-						onClick={changeAuthorHandler}
+						onClick={authorFilterHandler}
 					>
-						Zajedno
+						Sve
 					</button>
 					<button
 						aria-label="autor filter"
 						className={
-							filter === "bojan@gmail.com"
+							filter === "bojan"
 								? `${styles.activeBtn} [ button ]`
 								: "[ button ]"
 						}
-						onClick={changeAuthorHandler}
+						onClick={authorFilterHandler}
 					>
 						Bojan
 					</button>
-					<GridListSwitcher
-						switcher={gridListSwitcherHandler}
-					></GridListSwitcher>
 				</div>
+				{filter !== "" && (
+					<CategoryFilter
+						catFilterHandler={catFilterHandler}
+						filter={filter}
+					></CategoryFilter>
+				)}
+				<GridListSwitcher
+					switcher={gridListSwitcherHandler}
+				></GridListSwitcher>
 				<div
 					className={`${styles.imgGridList} ${
 						grid ? "[ grid ]" : "[ stack ]"
@@ -111,6 +123,7 @@ const ImageGrid = (props) => {
 						<Painting
 							editImage={editImage}
 							filter={filter}
+							catFilter={categoriesFilter}
 							key={img.id}
 							// imgWidth={grid ? "100%" : "700px"}
 							imgProp={img}

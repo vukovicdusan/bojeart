@@ -12,13 +12,14 @@ const Header = () => {
 	const loginContext = useContext(LoginContext)
 	const router = useRouter()
 	const logoutHandler = () => {
-		signOut(auth)
-			.then(() => {
-				router.push("/")
-			})
-			.catch((error) => {
-				console.log(error)
-			})
+		router.push("/")
+		setTimeout(() => {
+			signOut(auth)
+				.then(() => {})
+				.catch((error) => {
+					console.log(error)
+				})
+		}, 500)
 	}
 
 	const author = loginContext.user === "jelena@gmail.com" ? "jelena" : "bojan"

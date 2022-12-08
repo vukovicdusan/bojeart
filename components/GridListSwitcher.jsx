@@ -1,5 +1,5 @@
-import React, { useEffect } from "react"
-import { useState } from "react"
+import React, { useState, useEffect } from "react"
+import * as styles from "../styles/GridListSwitcher.module.css"
 
 const GridListSwitcher = (props) => {
 	const [grid, setGrid] = useState(true)
@@ -14,7 +14,7 @@ const GridListSwitcher = (props) => {
 
 	return (
 		<button
-			className="[ button ] [ button-ghost ] [ button-icon ]"
+			className={`${styles.gridListSwitcher} [ button ] [ button-ghost ] [ button-icon ]`}
 			onClick={gridListSwitcher}
 		>
 			{grid ? (

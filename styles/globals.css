@@ -242,9 +242,9 @@ h6 {
 	h6 {
 		font-size: var(--s0);
 	}
-	body {
+	/* body {
 		font-size: var(--s-1);
-	}
+	} */
 }
 
 :focus {
@@ -385,6 +385,11 @@ label {
 	color: var(--main);
 }
 
+.spacer {
+	height: 30px;
+	width: 1px;
+	background-color: var(--main);
+}
 /** ==== BUTTON ==== */
 .button {
 	-webkit-appearance: none;
@@ -423,11 +428,11 @@ label {
 	align-items: center;
 }
 
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
 	.button {
 		padding-block: var(--s-4, 0.8rem);
 	}
-}
+} */
 
 /** === BACK TO TOP BUTTON === */
 .back-to-top {
