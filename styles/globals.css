@@ -400,14 +400,12 @@ label {
 	border: 1px solid var(--main);
 	border-radius: 4px;
 	color: var(--text-primary);
-	background-color: transparent;
+	background-color: #fff;
 	cursor: pointer;
 	line-height: 1;
 	text-align: center;
 	text-decoration: none !important;
 	text-transform: capitalize;
-	/* font-family: var(--bold); */
-	/* font-size: var(--s1); */
 	transition: all 0.3s ease;
 }
 
@@ -426,6 +424,28 @@ label {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.splatter {
+	position: absolute;
+	z-index: -1;
+	width: 500px;
+}
+
+.splatter1 {
+	top: 15%;
+	left: -15%;
+}
+
+.splatter2 {
+	bottom: -20%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+@media (max-width: 501px) {
+	.splatter {
+		width: 300px;
+	}
 }
 
 /* @media (max-width: 900px) {

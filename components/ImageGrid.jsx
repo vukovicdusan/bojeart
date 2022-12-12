@@ -8,6 +8,8 @@ import { useRouter } from "next/router"
 import EditImageModal from "./EditImageModal"
 import CategoryFilter from "./CategoryFilter"
 import Image from "next/image"
+import Splatter from "./Splatter"
+import Splatter2 from "./Splatter2"
 
 const ImageGrid = (props) => {
 	const [filter, setFilter] = useState("")
@@ -114,12 +116,14 @@ const ImageGrid = (props) => {
 				<GridListSwitcher
 					switcher={gridListSwitcherHandler}
 				></GridListSwitcher>
+				{/* <Splatter className="[ splatter ] [ splatter1 ]"></Splatter> */}
 				<div
 					className={`${styles.imgGridList} ${
 						grid ? "[ grid ]" : "[ stack ]"
 					} [ mr-bs-4 ]`}
 				>
-					{props.imgList.reverse().map((img) => (
+					{/* {filter && <h2 className="main-color">{filter}</h2>} */}
+					{props.imgList?.reverse().map((img) => (
 						<Painting
 							editImage={editImage}
 							filter={filter}
@@ -131,6 +135,7 @@ const ImageGrid = (props) => {
 					))}
 				</div>
 			</div>
+			<Splatter2 className="[ splatter ] [ splatter2 ]"></Splatter2>
 		</Region>
 	)
 }

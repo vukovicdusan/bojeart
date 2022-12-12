@@ -38,10 +38,7 @@ const Painting = (props) => {
 				scroll={false}
 				shallow={true}
 			>
-				<div
-					// style={{ maxWidth: props.imgWidth }}
-					className={`${styles.imgWrapper} [ frame ]`}
-				>
+				<div className={`${styles.imgWrapper} [ frame ]`}>
 					<div className={styles.imgInfo}>
 						<h4>{props.imgProp.price} EUR</h4>
 						<p>
