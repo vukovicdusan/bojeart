@@ -5,7 +5,8 @@ import { collection, getDocs, query, orderBy } from "firebase/firestore"
 import { db } from "../public/firebase/firebase"
 import BackToTop from "../components/BackToTop"
 
-export default function Home({ imgList }) {
+export default function Home({ imgList, blogList }) {
+	console.log("ovo je blog lista:", blogList)
 	return (
 		<div>
 			<Head>
@@ -19,22 +20,27 @@ export default function Home({ imgList }) {
 			<BackToTop></BackToTop>
 
 			<Hero></Hero>
-			<ImageGrid imgList={imgList}></ImageGrid>
+			<ImageGrid imgList={imgList} blogList={blogList}></ImageGrid>
 		</div>
 	)
 }
 
 export const getServerSideProps = async (context) => {
-	let list = []
+	let paintingsList = []
+	let projectsList = []
 	try {
-		const q = query(collection(db, "slike"), orderBy("date"))
-		const querySnapshot = await getDocs(q)
-		querySnapshot.forEach((doc) => {
-			list.push({ id: doc.id, ...doc.data() })
+		const imageQuery = query(collection(db, "slike"), orderBy("date"))
+		const blogQuery = query(collection(db, "blog"), orderBy("date"))
+		const imageQuerySnapshot = await getDocs(imageQuery)
+		imageQuerySnapshot.forEach((doc) => {
+			paintingsList.push({ id: doc.id, ...doc.data() })
 		})
-
+		const blogQuerySnapshot = await getDocs(blogQuery)
+		blogQuerySnapshot.forEach((doc) => {
+			projectsList.push({ id: doc.id, ...doc.data() })
+		})
 		return {
-			props: { imgList: list },
+			props: { imgList: paintingsList, blogList: projectsList },
 		}
 	} catch (err) {
 		console.log(err)

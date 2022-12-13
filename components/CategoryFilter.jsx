@@ -13,9 +13,9 @@ const CategoryFilter = (props) => {
 			case "apstrakcije":
 				props.catFilterHandler("apstrakcije")
 				break
-			// case "projekti":
-			// 	props.catFilterHandler("projekti")
-			// 	break
+			case "projekti":
+				props.catFilterHandler("projekti")
+				break
 			case "crteži":
 				props.catFilterHandler("crtezi")
 				break
@@ -56,7 +56,7 @@ const CategoryFilter = (props) => {
 					<span className="spacer"></span>
 					<li>
 						<button
-							// onClick={changeFilterHandler}
+							onClick={changeFilterHandler}
 							className="[ button ] [ button-ghost ]"
 						>
 							Projekti

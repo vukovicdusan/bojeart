@@ -1,5 +1,4 @@
 import React from "react"
-import Wrapper from "../../components/layout/Wrapper"
 import Region from "../../components/layout/Region"
 import Login from "../../components/Login"
 import Dashboard from "../../components/Dashboard"
@@ -11,11 +10,9 @@ const Autor = () => {
 
 	return (
 		<Region>
-			<Wrapper>
-				<div className="center">
-					{user === null ? <Login></Login> : <Dashboard></Dashboard>}
-				</div>
-			</Wrapper>
+			<div className="center">
+				{user === null ? <Login></Login> : <Dashboard></Dashboard>}
+			</div>
 		</Region>
 	)
 }

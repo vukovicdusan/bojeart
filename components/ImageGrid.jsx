@@ -7,6 +7,7 @@ import Modal from "./Modal"
 import { useRouter } from "next/router"
 import EditImageModal from "./EditImageModal"
 import CategoryFilter from "./CategoryFilter"
+import ProjectItem from "./projects/ProjectItem"
 import Image from "next/image"
 import Splatter from "./Splatter"
 
@@ -35,7 +36,7 @@ const ImageGrid = (props) => {
 	const catFilterHandler = (category) => {
 		setCategoriesFilter(category)
 	}
-	console.log(categoriesFilter)
+
 	const gridListSwitcherHandler = (e) => {
 		setGrid(e)
 	}
@@ -46,6 +47,7 @@ const ImageGrid = (props) => {
 	}
 
 	let router = useRouter()
+
 	return (
 		<Region>
 			{openEditModal && (
@@ -118,20 +120,30 @@ const ImageGrid = (props) => {
 				{/* <Splatter className="[ splatter ] [ splatter1 ]"></Splatter> */}
 				<div
 					className={`${styles.imgGridList} ${
-						grid ? "[ grid ]" : "[ stack ]"
+						grid && categoriesFilter !== "projekti"
+							? "[ grid ]"
+							: "[ stack ]"
 					} [ mr-bs-4 ]`}
 				>
 					{/* {filter && <h2 className="main-color">{filter}</h2>} */}
-					{props.imgList?.reverse().map((img) => (
-						<Painting
-							editImage={editImage}
-							filter={filter}
-							catFilter={categoriesFilter}
-							key={img.id}
-							// imgWidth={grid ? "100%" : "700px"}
-							imgProp={img}
-						></Painting>
-					))}
+					{categoriesFilter === "projekti"
+						? props.blogList
+								?.reverse()
+								.map((post) => (
+									<ProjectItem
+										postContent={post}
+									></ProjectItem>
+								))
+						: props.imgList?.reverse().map((img) => (
+								<Painting
+									editImage={editImage}
+									filter={filter}
+									catFilter={categoriesFilter}
+									key={img.id}
+									// imgWidth={grid ? "100%" : "700px"}
+									imgProp={img}
+								></Painting>
+						  ))}
 				</div>
 			</div>
 			<Splatter className="[ splatter ] [ splatter2 ]"></Splatter>

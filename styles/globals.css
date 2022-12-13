@@ -601,6 +601,25 @@ label {
 	height: 1em;
 }
 
+/** === BOX === */
+.box {
+	padding: var(--s1);
+	border: 1px solid var(--main);
+	--color-light: var(--text-secondary);
+	--color-dark: var(--text-primary);
+	color: var(--color-dark);
+	background-color: var(--color-light);
+}
+
+.box * {
+	color: inherit;
+}
+
+.box.transparent {
+	border: none;
+	background-color: transparent;
+}
+
 /** ==== ICON ====*/
 .icon {
 	width: 2em;
@@ -616,4 +635,21 @@ label {
 
 .with-icon .icon {
 	margin-inline-start: 1rem;
+}
+
+/** === QUILL === */
+.quill {
+	max-inline-size: 30rem;
+	min-inline-size: 15rem;
+}
+.ql-container.ql-snow {
+	border: 1px dashed var(--main) !important;
+}
+.ql-toolbar.ql-snow {
+	border: 1px dashed var(--main) !important;
+	border-block-end: none !important;
+}
+
+.ql-editor {
+	min-block-size: 300px;
 }
