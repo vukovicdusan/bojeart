@@ -9,7 +9,6 @@ import EditImageModal from "./EditImageModal"
 import CategoryFilter from "./CategoryFilter"
 import Image from "next/image"
 import Splatter from "./Splatter"
-import Splatter2 from "./Splatter2"
 
 const ImageGrid = (props) => {
 	const [filter, setFilter] = useState("")
@@ -135,7 +134,7 @@ const ImageGrid = (props) => {
 					))}
 				</div>
 			</div>
-			<Splatter2 className="[ splatter ] [ splatter2 ]"></Splatter2>
+			<Splatter className="[ splatter ] [ splatter2 ]"></Splatter>
 		</Region>
 	)
 }

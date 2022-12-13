@@ -51,7 +51,7 @@ const Header = () => {
 										<ul className="[ dropdown-menu ] [ stack ] [ box ]">
 											<li>
 												<Link href={"/autor"}>
-													Postavi sliku
+													Radionica
 												</Link>
 											</li>
 											<li>

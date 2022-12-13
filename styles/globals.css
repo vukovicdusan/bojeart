@@ -208,7 +208,7 @@ h1 {
 	font-size: var(--s4);
 }
 h2 {
-	font-size: var(--s4);
+	font-size: var(--s3);
 }
 h3 {
 	font-size: var(--s2);
@@ -428,7 +428,7 @@ label {
 
 .splatter {
 	position: absolute;
-	z-index: -1;
+	z-index: 0;
 	width: 500px;
 }
 
@@ -438,7 +438,8 @@ label {
 }
 
 .splatter2 {
-	bottom: -20%;
+	/* bottom: 45%; */
+	bottom: -5%;
 	left: 50%;
 	transform: translateX(-50%);
 }

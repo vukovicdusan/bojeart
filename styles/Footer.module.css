@@ -1,0 +1,26 @@
+.footer {
+	background-color: var(--text-secondary);
+}
+
+.footer svg {
+	fill: var(--main);
+	transition: fill 0.2s ease-in-out;
+}
+
+.footer svg:hover {
+	fill: var(--secondary);
+}
+.footerBottom {
+	display: flex;
+	justify-content: space-between !important;
+}
+
+.footerBottom > * {
+	display: flex;
+}
+.footerBottom > *:nth-child(2),
+.footerBottom > *:nth-child(3) {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
