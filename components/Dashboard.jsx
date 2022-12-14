@@ -2,9 +2,9 @@ import React, { useContext, useState } from "react"
 
 import LoginCtx from "../store/LoginCtx"
 
-import Blog from "./Blog"
+import UploadBlog from "./BlogUpload"
 import UploadPainting from "./UploadPainting"
-import SetNewImage from "./SetNewImage"
+// import SetNewImage from "./SetNewImage"
 
 const Dashboard = () => {
 	const [dashboardContent, setDashboardContent] = useState("image")
@@ -34,7 +34,7 @@ const Dashboard = () => {
 				</div>
 			</div>
 			{dashboardContent === "blog" ? (
-				<Blog></Blog>
+				<UploadBlog></UploadBlog>
 			) : (
 				<UploadPainting></UploadPainting>
 			)}

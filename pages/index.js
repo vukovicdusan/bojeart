@@ -6,7 +6,6 @@ import { db } from "../public/firebase/firebase"
 import BackToTop from "../components/BackToTop"
 
 export default function Home({ imgList, blogList }) {
-	console.log("ovo je blog lista:", blogList)
 	return (
 		<div>
 			<Head>
