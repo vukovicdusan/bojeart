@@ -19,20 +19,24 @@ const Dashboard = () => {
 					? "Dobrodošla Jelena"
 					: "Dobrodošao Bojane"}
 			</h2>
-			<div className="wrap">
-				<div
-					className="button"
-					onClick={() => setDashboardContent("image")}
-				>
-					Postavi sliku
+			{author === "jelena" ? (
+				""
+			) : (
+				<div className="wrap">
+					<div
+						className="button"
+						onClick={() => setDashboardContent("image")}
+					>
+						Postavi sliku
+					</div>
+					<div
+						className="button"
+						onClick={() => setDashboardContent("blog")}
+					>
+						Piši malo
+					</div>
 				</div>
-				<div
-					className="button"
-					onClick={() => setDashboardContent("blog")}
-				>
-					Piši malo
-				</div>
-			</div>
+			)}
 			{dashboardContent === "blog" ? (
 				<UploadBlog></UploadBlog>
 			) : (

@@ -36,10 +36,20 @@ const Header = () => {
 					<nav>
 						<ul className="wrap">
 							<li>
-								<Link href={"/about"}>O nama</Link>
+								<Link
+									className={styles.navbarLink}
+									href={"/about"}
+								>
+									O nama
+								</Link>
 							</li>
 							<li>
-								<Link href={"/contact"}>Kontakt</Link>
+								<Link
+									className={styles.navbarLink}
+									href={"/contact"}
+								>
+									Kontakt
+								</Link>
 							</li>
 							<li>
 								{loginContext.user && (
@@ -50,7 +60,12 @@ const Header = () => {
 										</span>
 										<ul className="[ dropdown-menu ] [ stack ] [ box ]">
 											<li>
-												<Link href={"/autor"}>
+												<Link
+													className={
+														styles.navbarLink
+													}
+													href={"/autor"}
+												>
 													Radionica
 												</Link>
 											</li>

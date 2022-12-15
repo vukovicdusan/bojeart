@@ -1,3 +1,7 @@
 .header {
 	padding-block: var(--s0);
 }
+
+.navbarLink {
+	font-family: var(--amaticbold);
+}
