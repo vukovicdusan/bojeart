@@ -1,10 +1,7 @@
 import React, { useContext, useState } from "react"
-
 import LoginCtx from "../store/LoginCtx"
-
 import UploadBlog from "./BlogUpload"
 import UploadPainting from "./UploadPainting"
-// import SetNewImage from "./SetNewImage"
 
 const Dashboard = () => {
 	const [dashboardContent, setDashboardContent] = useState("image")

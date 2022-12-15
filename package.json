@@ -9,13 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@plaiceholder/next": "^2.5.0",
     "firebase": "^9.15.0",
     "next": "^13.0.6",
-    "plaiceholder": "^2.5.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-quill": "^2.0.0",
-    "sharp": "^0.31.2"
+    "react-quill": "^2.0.0"
   }
 }
