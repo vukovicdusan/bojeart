@@ -13,12 +13,27 @@ const writeDate = date.toLocaleDateString("sr-RS")
 
 const UploadBlog = () => {
 	const [quillValue, setQuillValue] = useState("")
+	const [titleValue, setTitleValue] = useState("")
 	const [blogImage, setBlogImage] = useState("")
 	const [progress, setProgress] = useState(null)
 	const { user } = useContext(LoginCtx)
 	const router = useRouter()
 
 	const author = user === "jelena@gmail.com" ? "jelena" : "bojan"
+
+	const quillModules = {
+		toolbar: [
+			[{ header: [1, 2, 3, 4, 5, 6, false] }],
+			["bold", "italic", "underline", "strike"],
+			["blockquote"],
+			[{ color: [] }],
+			[{ list: "ordered" }],
+			[{ list: "bullet" }],
+			["link", "image", "video"],
+			[{ align: [] }],
+			// [{ script: "sub" }, { script: "super" }],
+		],
+	}
 
 	const contentInputHandler = (e) => {
 		e.preventDefault()
@@ -56,6 +71,7 @@ const UploadBlog = () => {
 								date: writeDate,
 								image: downloadURL,
 								content: quillValue,
+								title: titleValue,
 							})
 							router.reload()
 						}
@@ -70,17 +86,31 @@ const UploadBlog = () => {
 	const imageInputHandler = (e) => {
 		setBlogImage(e.target.files[0])
 	}
-
+	console.log(titleValue)
 	return (
 		<div className="stack">
 			<ReactQuill
 				theme="snow"
 				value={quillValue}
 				onChange={setQuillValue}
+				modules={quillModules}
+				placeholder={"Piši ovde..."}
 			/>
 			<form onSubmit={contentInputHandler} className="stack">
 				<div className="d-flex-c">
-					<label htmlFor="file">Postavi novu sliku</label>
+					<label htmlFor="title">Naslov</label>
+					<input
+						// value={imageState.description}
+						name="title"
+						id="title"
+						onChange={(e) => setTitleValue(e.target.value)}
+						type="text"
+						required
+						autoCorrect="off"
+					/>
+				</div>
+				<div className="d-flex-c">
+					<label htmlFor="file">Dodaj sliku</label>
 					<input
 						name="file"
 						id="file"

@@ -1,3 +1,73 @@
 .projectItem {
-	background-color: var(--text-secondary);
+	background-color: rgba(255, 255, 255, 0.9);
+	align-self: flex-start;
+	padding: 0;
+	border: none;
+	border-radius: 4px;
+	box-shadow: var(--box-shadow);
+	transition: box-shadow 0.2s linear;
+}
+
+.projectItem:hover {
+	--color-shadow: rgba(23, 11, 41, 0.9);
+	box-shadow: 0 2px 15px var(--color-shadow);
+}
+
+.projectItem > *:nth-child(1):hover {
+	cursor: pointer;
+}
+
+.accordionTitle {
+	padding: var(--s0);
+	justify-content: space-between;
+}
+
+.accordionTitle > * {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.accordionTitle > *:nth-child(1) {
+	justify-content: flex-start;
+}
+
+.projectItemFrame {
+	position: relative;
+	--n: 16;
+	--d: 9;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
+.postImg {
+	object-fit: cover;
+}
+
+.quillContentContainer {
+	padding: 0 var(--s0);
+}
+
+.quillContentContainer a {
+	color: var(--main) !important;
+	text-decoration: underline;
+}
+
+.quillContentContainer a:hover {
+	color: var(--secondary) !important;
+}
+
+.quillContentContainer ol,
+.quillContentContainer ul {
+	display: block;
+	list-style-type: decimal;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+	padding-inline-start: 40px;
+}
+
+.quillContentContainer ul {
+	list-style-type: disc;
 }

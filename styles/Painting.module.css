@@ -63,13 +63,6 @@
 	transition-delay: 200ms;
 }
 
-.imgWrapper p {
-	width: 30ch;
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-}
-
 .imgWrapper:hover img,
 .imgWrapper:focus img {
 	filter: grayscale(0);

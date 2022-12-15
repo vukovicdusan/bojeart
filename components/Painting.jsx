@@ -41,7 +41,7 @@ const Painting = (props) => {
 				<div className={`${styles.imgWrapper} [ frame ]`}>
 					<div className={styles.imgInfo}>
 						<h4>{props.imgProp.price} EUR</h4>
-						<p>
+						<p className="text-clamp">
 							{props.imgProp.date +
 								" - " +
 								props.imgProp.description}

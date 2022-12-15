@@ -390,6 +390,14 @@ label {
 	width: 1px;
 	background-color: var(--main);
 }
+
+.text-clamp {
+	--clamp-w: 30ch;
+	width: var(--clamp-w);
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
 /** ==== BUTTON ==== */
 .button {
 	-webkit-appearance: none;
@@ -626,6 +634,7 @@ label {
 	width: 1cap;
 	height: 2em;
 	height: 1cap;
+	transition: transform 0.3s ease-in-out;
 }
 
 .with-icon {
@@ -652,4 +661,27 @@ label {
 
 .ql-editor {
 	min-block-size: 300px;
+}
+/** ==== ACCORDION ==== */
+
+.accordion-toggle {
+	position: relative;
+	cursor: pointer;
+}
+
+.accordion-toggle .icon {
+	margin-inline-end: 0.4rem;
+	width: 1em;
+	height: 1em;
+	transition: transform 0.3s ease-in-out;
+}
+
+.accordion-open .icon {
+	transform: rotate(180deg) translateY(-3px);
+}
+
+.accordion-content {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-in-out;
 }
