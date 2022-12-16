@@ -1,0 +1,15 @@
+.aboutSwitcher > *:nth-child(1) {
+	min-block-size: 50vh;
+}
+.aboutSwitcher img {
+	object-fit: cover;
+}
+
+.activeBtn {
+	transform: scale(1.3);
+	transition: all 0.2s ease-in-out;
+}
+
+.rowReverse {
+	flex-direction: row-reverse;
+}

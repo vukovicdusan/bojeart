@@ -1,7 +1,7 @@
 import React from "react"
 import Wrapper from "./layout/Wrapper"
 import Region from "./layout/Region"
-// import Splatter from "./Splatter"
+import Splatter from "./Splatter"
 import Link from "next/link"
 import * as styles from "../styles/Footer.module.css"
 
@@ -10,7 +10,7 @@ const Footer = () => {
 		<footer className={styles.footer}>
 			<Wrapper>
 				<Region>
-					{/* <Splatter className="[ splatter ] [ splatter2 ]"></Splatter> */}
+					<Splatter className="[ splatter ] [ splatter2 ]"></Splatter>
 					<div>
 						<nav>
 							<ul className="stack">

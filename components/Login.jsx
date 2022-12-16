@@ -31,7 +31,7 @@ const Login = () => {
 
 	return (
 		<div className="center">
-			<form className="stack" onSubmit={loginHandler}>
+			<form className="[ stack ] [ z-top ]" onSubmit={loginHandler}>
 				<div className="d-flex-c">
 					<label htmlFor="email">Email</label>
 					<input

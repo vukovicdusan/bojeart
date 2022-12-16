@@ -1,5 +1,6 @@
 .footer {
 	background-color: var(--text-secondary);
+	margin-block-start: var(--s4);
 }
 
 .footer svg {

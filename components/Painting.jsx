@@ -50,8 +50,8 @@ const Painting = (props) => {
 					<Image
 						className={styles.painting}
 						fill
-						sizes="(max-width: 768px) 100vw,
-						(max-width: 1200px) 50vw,
+						sizes="(max-width: 695px) 100vw,
+						(max-width: 1030px) 50vw,
 						33vw"
 						src={props.imgProp.image}
 						alt="slika"

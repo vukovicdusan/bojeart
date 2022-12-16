@@ -111,7 +111,7 @@ const UploadImage = () => {
 	const author = user === "jelena@gmail.com" ? "jelena" : "bojan"
 
 	return (
-		<form onSubmit={uploadImageHandler} className="stack">
+		<form onSubmit={uploadImageHandler} className="[ stack ] [ z-top ]">
 			<div className="d-flex-c">
 				<label htmlFor="file">Postavi novu sliku</label>
 				<input

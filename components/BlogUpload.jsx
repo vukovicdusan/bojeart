@@ -96,7 +96,10 @@ const UploadBlog = () => {
 				modules={quillModules}
 				placeholder={"Piši ovde..."}
 			/>
-			<form onSubmit={contentInputHandler} className="stack">
+			<form
+				onSubmit={contentInputHandler}
+				className="[ stack ] [ z-top ]"
+			>
 				<div className="d-flex-c">
 					<label htmlFor="title">Naslov</label>
 					<input

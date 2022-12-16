@@ -1,4 +1,4 @@
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
 	html {
 		color-scheme: dark;
 	}
@@ -6,7 +6,7 @@
 		color: white;
 		background: black;
 	}
-}
+} */
 /** ==== MODULAR SCALE ==== */
 :root {
 	--ratio: 1.6;
@@ -238,7 +238,7 @@ textarea {
 	border: 1px solid var(--text-gray);
 	border-radius: 4px;
 	min-inline-size: 15rem;
-	background: transparent;
+	background: #fff;
 }
 
 input::file-selector-button {
@@ -271,11 +271,6 @@ select:-webkit-autofill:focus {
 	-webkit-text-fill-color: inherit;
 }
 
-label {
-	/* color: var(--text-gray); */
-	/* font-size: 0.9rem; */
-}
-
 ::placeholder {
 	color: var(--text-gray);
 }
@@ -283,7 +278,6 @@ label {
 /** === UTILITIES === */
 
 .logo {
-	/* max-inline-size: 45px; */
 	font-family: var(--comforter);
 	font-size: var(--s1);
 	text-decoration: none;
@@ -310,11 +304,6 @@ label {
 	padding-top: clamp(2.67rem, 2.07rem + 3vw, 4.21rem);
 	padding-bottom: clamp(2.67rem, 2.07rem + 3vw, 4.21rem);
 }
-
-/* .full-bleed {
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-  } */
 
 .visually-hidden {
 	border: 0;
@@ -378,6 +367,10 @@ label {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
+
+.z-top {
+	z-index: 100;
+}
 /** ==== BUTTON ==== */
 .button {
 	-webkit-appearance: none;
@@ -406,7 +399,7 @@ label {
 .button-ghost {
 	border: none;
 	transition: all 0.5s ease;
-	background-color: transparent;
+	background-color: #fff;
 }
 
 .button-icon {
@@ -427,8 +420,7 @@ label {
 }
 
 .splatter2 {
-	/* bottom: 45%; */
-	bottom: -5%;
+	bottom: 40%;
 	left: 50%;
 	transform: translateX(-50%);
 }
@@ -437,12 +429,6 @@ label {
 		width: 300px;
 	}
 }
-
-/* @media (max-width: 900px) {
-	.button {
-		padding-block: var(--s-4, 0.8rem);
-	}
-} */
 
 /** === BACK TO TOP BUTTON === */
 .back-to-top {
@@ -520,6 +506,23 @@ label {
 	margin-block-start: var(--stack-space, --s0);
 }
 
+/** ==== SWITCHER ==== */
+.switcher {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--s1);
+}
+
+.switcher > * {
+	flex-grow: 1;
+	flex-basis: calc((40rem - 100%) * 999);
+}
+
+.switcher > :nth-last-child(n + 3),
+.switcher > :nth-last-child(n + 3) ~ * {
+	flex-basis: 100%;
+}
+
 /** ==== CENTER ==== */
 
 .center {
@@ -529,6 +532,10 @@ label {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+.center.center-row {
+	flex-direction: row;
 }
 
 /** ==== ALL FORMS ==== */
