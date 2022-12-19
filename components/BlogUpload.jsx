@@ -86,7 +86,7 @@ const UploadBlog = () => {
 	const imageInputHandler = (e) => {
 		setBlogImage(e.target.files[0])
 	}
-	console.log(titleValue)
+
 	return (
 		<div className="stack">
 			<ReactQuill
@@ -103,7 +103,6 @@ const UploadBlog = () => {
 				<div className="d-flex-c">
 					<label htmlFor="title">Naslov</label>
 					<input
-						// value={imageState.description}
 						name="title"
 						id="title"
 						onChange={(e) => setTitleValue(e.target.value)}
@@ -136,7 +135,7 @@ const UploadBlog = () => {
 									(progress > 65 && "green"),
 							}}
 						></span>
-						<span>{Math.floor(progress)}%</span>
+						<p>{Math.floor(progress)}%</p>
 					</div>
 				)}
 			</form>

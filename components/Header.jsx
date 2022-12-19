@@ -29,9 +29,7 @@ const Header = () => {
 			<Wrapper>
 				<div className="wrap">
 					<Link className="logo" href={"/"}>
-						<div>
-							BoJe<span className="main-color">Art</span>
-						</div>
+						BoJe<span className="main-color">Art</span>
 					</Link>
 					<nav>
 						<ul className="wrap">
@@ -65,12 +63,7 @@ const Header = () => {
 										</span>
 										<ul className="[ dropdown-menu ] [ stack ] [ box ]">
 											<li>
-												<Link
-													className={
-														styles.navbarLink
-													}
-													href={"/autor"}
-												>
+												<Link href={"/autor"}>
 													Radionica
 												</Link>
 											</li>

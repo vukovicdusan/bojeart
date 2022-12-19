@@ -9,7 +9,7 @@ const contact = () => {
 		loading: false,
 		touched: false,
 	})
-	// const [test, setTest] = useState(false)
+
 	const onSubmitHandler = async (e) => {
 		e.preventDefault()
 		try {
@@ -20,7 +20,6 @@ const contact = () => {
 				success: true,
 				loading: false,
 			}))
-			// setTest(true)
 		} catch (err) {
 			console.log(err)
 			setContactFormProccess((prev) => ({
@@ -40,13 +39,14 @@ const contact = () => {
 			  })
 	}
 
-	// console.log(contactFormProccess)1
 	return (
 		<div className="stack">
 			<div className="center">
 				<h1>Ne budi stranac!</h1>
 				{!contactFormProccess.success && contactFormProccess.error ? (
-					<p className="signup-alert">Nesto se useralo.</p>
+					<p className="signup-alert">
+						Došlo je do greške. Poruka nije poslata.
+					</p>
 				) : !contactFormProccess.success &&
 				  !contactFormProccess.error ? (
 					""
