@@ -124,7 +124,7 @@ const ImageGrid = (props) => {
 				<div
 					className={`${styles.imgGridList} ${
 						grid ? "[ grid ]" : "[ stack ]"
-					} [ mr-bs-4 ]`}
+					} [ mr-bs-2 ]`}
 				>
 					{categoriesFilter === "projekti"
 						? props.blogList

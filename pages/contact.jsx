@@ -1,22 +1,60 @@
 import React, { useState } from "react"
+import { sendContactForm } from "../lib/api"
 
 const contact = () => {
-	const [mailInfo, setMailInfo] = useState("")
-	const [message, setMessage] = useState("")
-
-	const onSubmitHandler = () => {
+	const [contactFormData, setContactFormData] = useState({})
+	const [contactFormProccess, setContactFormProccess] = useState({
+		success: false,
+		error: false,
+		loading: false,
+		touched: false,
+	})
+	// const [test, setTest] = useState(false)
+	const onSubmitHandler = async (e) => {
 		e.preventDefault()
+		try {
+			setContactFormData((prev) => ({ ...prev, loading: true }))
+			await sendContactForm(contactFormData)
+			setContactFormProccess((prev) => ({
+				...prev,
+				success: true,
+				loading: false,
+			}))
+			// setTest(true)
+		} catch (err) {
+			console.log(err)
+			setContactFormProccess((prev) => ({
+				...prev,
+				error: true,
+				loading: false,
+			}))
+		}
 	}
+
 	const inputHandler = (e) => {
 		e.target.name === "email"
-			? setMailInfo(e.target.value)
-			: setMessage(e.target.value)
+			? setContactFormData({ ...contactFormData, email: e.target.value })
+			: setContactFormData({
+					...contactFormData,
+					message: e.target.value,
+			  })
 	}
-	console.log(mailInfo, message)
+
+	console.log(contactFormProccess)
 	return (
 		<div className="stack">
 			<div className="center">
 				<h1>Ne budi stranac!</h1>
+				{!contactFormProccess.success && contactFormProccess.error ? (
+					<p className="signup-alert">Nesto se useralo.</p>
+				) : !contactFormProccess.success &&
+				  !contactFormProccess.error ? (
+					""
+				) : (
+					<p className="signup-success">
+						Hvala na poruci! Javljamo se!
+					</p>
+				)}
 			</div>
 			<div className="center">
 				<form
@@ -47,7 +85,7 @@ const contact = () => {
 							onChange={inputHandler}
 						/>
 					</div>
-					<button className="button">Pošalji.</button>
+					<button className="button">Pošalji</button>
 				</form>
 			</div>
 		</div>
