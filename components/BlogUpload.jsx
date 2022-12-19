@@ -89,7 +89,7 @@ const UploadBlog = () => {
 
 	return (
 		<div className="stack">
-			<ReactQuill
+			{/* <ReactQuill
 				theme="snow"
 				value={quillValue}
 				onChange={setQuillValue}
@@ -138,7 +138,7 @@ const UploadBlog = () => {
 						<p>{Math.floor(progress)}%</p>
 					</div>
 				)}
-			</form>
+			</form> */}
 		</div>
 	)
 }
