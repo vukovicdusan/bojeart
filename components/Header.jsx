@@ -36,6 +36,11 @@ const Header = () => {
 					<nav>
 						<ul className="wrap">
 							<li>
+								<Link className={styles.navbarLink} href={"/"}>
+									Slike
+								</Link>
+							</li>
+							<li>
 								<Link
 									className={styles.navbarLink}
 									href={"/about"}
