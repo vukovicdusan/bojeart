@@ -3,6 +3,7 @@ import Image from "next/image"
 // import Link from "next/link"
 // import { useRouter } from "next/router"
 import * as styles from "../../styles/ProjectItem.module.css"
+import ChevronDown from "../ChevronDown"
 
 const ProjectItem = (props) => {
 	const [accordionOpen, setAccordionOpen] = useState(false)
@@ -46,16 +47,7 @@ const ProjectItem = (props) => {
 				<div className={`${styles.accordionTitle} [ wrap ]`}>
 					<h4 className="text-clamp">{props.postContent.title}</h4>
 					<div className="icon">
-						<svg
-							width="24"
-							height="24"
-							xmlns="http://www.w3.org/2000/svg"
-							fillRule="evenodd"
-							clipRule="evenodd"
-							fill="#fbdd00"
-						>
-							<path d="M23.245 4l-11.245 14.374-11.219-14.374-.781.619 12 15.381 12-15.391-.755-.609z" />
-						</svg>
+						<ChevronDown width={24} height={24}></ChevronDown>
 					</div>
 				</div>
 			</div>

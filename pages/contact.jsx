@@ -40,7 +40,7 @@ const contact = () => {
 			  })
 	}
 
-	console.log(contactFormProccess)
+	// console.log(contactFormProccess)1
 	return (
 		<div className="stack">
 			<div className="center">
