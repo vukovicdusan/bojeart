@@ -19,6 +19,8 @@ const Painting = (props) => {
 	let showImages = showCat === "" ? showAuthor : showAuthor && showCat
 
 	return (
+		// <ClientOnly>
+		// 	</ClientOnly>
 		<div
 			className={`${styles.imgContainer} ${
 				showImages || props.filter === ""
@@ -27,14 +29,12 @@ const Painting = (props) => {
 			}`}
 		>
 			{user && (
-				<ClientOnly>
-					<button
-						onClick={openEditImageModalHandler}
-						className={`${styles.editButton} [ button ] [ button-ghost ]`}
-					>
-						<EditIcon></EditIcon>
-					</button>
-				</ClientOnly>
+				<button
+					onClick={openEditImageModalHandler}
+					className={`${styles.editButton} [ button ] [ button-ghost ]`}
+				>
+					<EditIcon></EditIcon>
+				</button>
 			)}
 			<Link
 				href={"/?image=" + props.imgProp.image}
@@ -43,12 +43,14 @@ const Painting = (props) => {
 			>
 				<div className={`${styles.imgWrapper} [ frame ]`}>
 					<div className={styles.imgInfo}>
-						<h4>{props.imgProp.price} EUR</h4>
-						<p className="text-clamp">
-							{props.imgProp.date +
-								" - " +
-								props.imgProp.description}
-						</p>
+						<ClientOnly>
+							<h4>{props.imgProp.price} EUR</h4>
+							<p className="text-clamp">
+								{props.imgProp.date +
+									" - " +
+									props.imgProp.description}
+							</p>
+						</ClientOnly>
 					</div>
 					<Image
 						className={styles.painting}
