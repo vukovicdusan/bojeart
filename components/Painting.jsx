@@ -4,6 +4,7 @@ import Link from "next/link"
 import * as styles from "../styles/Painting.module.css"
 import EditIcon from "./EditIcon"
 import LoginCtx from "../store/LoginCtx"
+import ClientOnly from "./ClientOnly"
 
 const Painting = (props) => {
 	const { user } = useContext(LoginCtx)
@@ -26,12 +27,14 @@ const Painting = (props) => {
 			}`}
 		>
 			{user && (
-				<button
-					onClick={openEditImageModalHandler}
-					className={`${styles.editButton} [ button ] [ button-ghost ]`}
-				>
-					<EditIcon></EditIcon>
-				</button>
+				<ClientOnly>
+					<button
+						onClick={openEditImageModalHandler}
+						className={`${styles.editButton} [ button ] [ button-ghost ]`}
+					>
+						<EditIcon></EditIcon>
+					</button>
+				</ClientOnly>
 			)}
 			<Link
 				href={"/?image=" + props.imgProp.image}

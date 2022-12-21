@@ -7,6 +7,7 @@ import { collection, addDoc } from "firebase/firestore"
 import { storage, db } from "../public/firebase/firebase"
 import { useRouter } from "next/router"
 import LoginCtx from "../store/LoginCtx"
+import ClientOnly from "./ClientOnly"
 
 const date = new Date()
 const writeDate = date.toLocaleDateString("sr-RS")
@@ -88,13 +89,15 @@ const UploadBlog = () => {
 
 	return (
 		<div className="stack">
-			<ReactQuill
-				theme="snow"
-				value={quillValue}
-				onChange={setQuillValue}
-				modules={quillModules}
-				placeholder={"Piši ovde..."}
-			/>
+			<ClientOnly>
+				<ReactQuill
+					theme="snow"
+					value={quillValue}
+					onChange={setQuillValue}
+					modules={quillModules}
+					placeholder={"Piši ovde..."}
+				/>
+			</ClientOnly>
 			<form
 				onSubmit={contentInputHandler}
 				className="[ stack ] [ z-top ]"

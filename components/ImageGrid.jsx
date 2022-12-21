@@ -9,6 +9,7 @@ import EditImageModal from "./EditImageModal"
 import CategoryFilter from "./CategoryFilter"
 import ProjectItem from "./projects/ProjectItem"
 import Image from "next/image"
+import ClientOnly from "./ClientOnly"
 // import Splatter from "./Splatter"
 
 const ImageGrid = (props) => {

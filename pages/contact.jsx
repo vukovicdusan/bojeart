@@ -1,7 +1,8 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { sendContactForm } from "../lib/api"
 
 const contact = () => {
+	const [hasMounted, setHasMounted] = useState(false)
 	const [contactFormData, setContactFormData] = useState({})
 	const [contactFormProccess, setContactFormProccess] = useState({
 		success: false,
@@ -9,6 +10,14 @@ const contact = () => {
 		loading: false,
 		touched: false,
 	})
+
+	useEffect(() => {
+		setHasMounted(true)
+	}, [])
+
+	if (!hasMounted) {
+		return null
+	}
 
 	const onSubmitHandler = async (e) => {
 		e.preventDefault()
