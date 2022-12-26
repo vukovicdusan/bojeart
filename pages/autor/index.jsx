@@ -11,7 +11,7 @@ const Autor = () => {
 	return (
 		<Region>
 			<div className="center">
-				{user === null ? <Login></Login> : <Dashboard></Dashboard>}
+				{!user ? <Login></Login> : <Dashboard></Dashboard>}
 			</div>
 		</Region>
 	)

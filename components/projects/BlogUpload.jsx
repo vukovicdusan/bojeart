@@ -4,10 +4,9 @@ const ReactQuill = dynamic(import("react-quill"), { ssr: false })
 import "react-quill/dist/quill.snow.css"
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage"
 import { collection, addDoc } from "firebase/firestore"
-import { storage, db } from "../public/firebase/firebase"
+import { storage, db } from "../../public/firebase/firebase"
 import { useRouter } from "next/router"
-import LoginCtx from "../store/LoginCtx"
-import ClientOnly from "./ClientOnly"
+import LoginCtx from "../../store/LoginCtx"
 
 const date = new Date()
 const writeDate = date.toLocaleDateString("sr-RS")
@@ -89,15 +88,14 @@ const UploadBlog = () => {
 
 	return (
 		<div className="stack">
-			<ClientOnly>
-				<ReactQuill
-					theme="snow"
-					value={quillValue}
-					onChange={setQuillValue}
-					modules={quillModules}
-					placeholder={"Piši ovde..."}
-				/>
-			</ClientOnly>
+			<ReactQuill
+				theme="snow"
+				value={quillValue}
+				onChange={setQuillValue}
+				modules={quillModules}
+				placeholder={"Piši ovde..."}
+			/>
+
 			<form
 				onSubmit={contentInputHandler}
 				className="[ stack ] [ z-top ]"

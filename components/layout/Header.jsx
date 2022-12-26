@@ -1,13 +1,13 @@
-import Wrapper from "./layout/Wrapper"
-import * as styles from "../styles/Header.module.css"
-import Link from "next/link"
 import { useContext, React } from "react"
-import LoginContext from "../store/LoginCtx"
+import Wrapper from "./Wrapper"
+import * as styles from "../../styles/Header.module.css"
+import Link from "next/link"
+import LoginContext from "../../store/LoginCtx"
 import { useRouter } from "next/router"
-import { auth } from "../public/firebase/firebase"
+import { auth } from "../../public/firebase/firebase"
 import { signOut } from "firebase/auth"
-import ChevronDown from "./ChevronDown"
-import ClientOnly from "./ClientOnly"
+import ChevronDown from "../svg/ChevronDown"
+import ClientOnly from "../ClientOnly"
 
 const Header = () => {
 	const loginContext = useContext(LoginContext)
@@ -59,7 +59,7 @@ const Header = () => {
 								<ClientOnly>
 									{loginContext.user && (
 										<div className="dropdown-toggle">
-											<span className="with-icon">
+											<span className="[ with-icon ] [ bold ]">
 												<ChevronDown className="icon"></ChevronDown>
 												{author}
 											</span>

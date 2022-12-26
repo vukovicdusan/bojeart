@@ -1,22 +1,36 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import * as styles from "../styles/Modal.module.css"
-import { useRouter } from "next/router"
 
 const Modal = (props) => {
-	let router = useRouter()
-	const closeEditModalHandler = (e) => {
+	const [isOpen, setIsOpen] = useState(props.isOpenProp)
+	const [animateCloseOpen, setAnimateCloseOpen] = useState(false)
+
+	const modalCloseHandler = (e) => {
 		e.preventDefault(e)
-		props.editImage && props.editImage(false)
-		router.push({ pathname: "/" }, undefined, {
-			scroll: false,
-			shallow: true,
-		})
+		setIsOpen(false)
+		setTimeout(() => {
+			props.closeModal(false)
+		}, 500)
 	}
 
+	useEffect(() => {
+		isOpen
+			? setTimeout(() => {
+					setAnimateCloseOpen(true)
+			  }, 100)
+			: setAnimateCloseOpen(false)
+	}, [isOpen])
+
 	return (
-		<dialog className={styles.modalWrapper}>
+		<dialog
+			className={`${styles.modalWrapper} ${
+				animateCloseOpen
+					? styles.modalOpenAnimation
+					: styles.modalCloseAnimation
+			}`}
+		>
 			<button
-				onClick={closeEditModalHandler}
+				onClick={modalCloseHandler}
 				className={`${styles.modalClose} [ button ] [ button-ghost ]`}
 			>
 				<svg

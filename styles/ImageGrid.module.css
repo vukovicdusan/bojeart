@@ -29,7 +29,50 @@
 .imgGridList a {
 	text-decoration: none;
 }
+
+.modalImgContainer {
+	position: relative;
+	inline-size: 100vw;
+	block-size: 70vh;
+}
+
 .modalImg {
 	object-fit: contain;
 	/* box-shadow: var(--box-shadow); */
+}
+
+.modalImgDescription {
+	color: var(--text-secondary);
+	position: absolute;
+	bottom: -500px;
+	left: 50%;
+	inline-size: 100%;
+	text-align: center;
+	opacity: 0;
+	transform: translateX(-50%);
+	transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.modalImgDescriptionOpen {
+	bottom: -50px;
+	opacity: 1;
+}
+
+.modalLoader {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50% -50%);
+}
+
+@media (max-width: 750px) {
+	.modalImgDescription {
+		bottom: 0;
+	}
+}
+
+@media (max-width: 450px) {
+	.modalImgDescription {
+		bottom: 140px;
+	}
 }

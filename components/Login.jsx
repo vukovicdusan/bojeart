@@ -3,27 +3,30 @@ import { useState } from "react"
 import { auth } from "../public/firebase/firebase"
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { useRouter } from "next/router"
+import Loader from "./Loader"
 
 const Login = () => {
 	const [loginError, setLoginError] = useState(false)
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
-	// const formRef = useRef()
-	// const passRef = useRef()
+	const [loading, setLoading] = useState(false)
 	const router = useRouter()
 
 	const loginHandler = (e) => {
+		setLoading(true)
 		e.preventDefault()
 		signInWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
 				// Signed in
 				const user = userCredential.user
 				router.push("/autor", undefined, { shallow: true })
+				setLoading(false)
 			})
 			.catch((error) => {
 				const errorCode = error.code
 				const errorMessage = error.message
 				setLoginError(true)
+				setLoading(false)
 			})
 		setEmail("")
 		setPassword("")
@@ -64,6 +67,7 @@ const Login = () => {
 					/>
 				</div>
 				<button className="button">Prijava</button>
+				<div className="center">{loading ? <Loader></Loader> : ""}</div>
 				{loginError && (
 					<div
 						aria-atomic="true"

@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import Head from "next/head"
 import Image from "next/image"
 import * as styles from "../styles/About.module.css"
 import portrait1 from "../public/images/dushawn-jovic-2w7qbVHOqYU-unsplash.jpg"
@@ -27,6 +28,14 @@ const about = () => {
 
 	return (
 		<Region>
+			<Head>
+				<title>BojeArt</title>
+				<meta
+					name="description"
+					content="Dobrodošli u svet umetnosti."
+				/>
+				<link rel="icon" href="/favicon.ico" />
+			</Head>
 			<div className="stack">
 				<h1 className="center">Ovo smo mi.</h1>
 				<div className="[ wrap ] [ center ] [ center-row ]">

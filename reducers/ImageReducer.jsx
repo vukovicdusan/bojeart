@@ -2,16 +2,28 @@ const LoginReducer = (state, action) => {
 	switch (action.type) {
 		case "IMAGE_INFO":
 			switch (action.field) {
-				case "description":
+				case "imgName":
 					return {
 						...state,
-						description: action.payload,
+						imgName: action.payload,
 						author: action.author === "jelena" ? "jelena" : "bojan",
 					}
-				case "price":
+				case "year":
 					return {
 						...state,
-						price: action.payload,
+						year: action.payload,
+						author: action.author,
+					}
+				case "material":
+					return {
+						...state,
+						material: action.payload,
+						author: action.author,
+					}
+				case "dimensions":
+					return {
+						...state,
+						dimensions: action.payload,
 						author: action.author,
 					}
 				case "category":

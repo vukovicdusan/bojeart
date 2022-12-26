@@ -205,7 +205,7 @@ h6 {
 
 @media (max-width: 450px) {
 	h1 {
-		font-size: var(--s3);
+		font-size: var(--s2);
 	}
 	h2 {
 		font-size: var(--s2);
@@ -222,9 +222,9 @@ h6 {
 	h6 {
 		font-size: var(--s0);
 	}
-	/* body {
-		font-size: var(--s-1);
-	} */
+	body {
+		font-size: var(--s0);
+	}
 }
 
 :focus {
@@ -237,8 +237,16 @@ select,
 textarea {
 	border: 1px solid var(--text-gray);
 	border-radius: 4px;
-	min-inline-size: 15rem;
+	min-inline-size: 25rem;
 	background: #fff;
+}
+
+@media (max-width: 450px) {
+	input,
+	select,
+	textarea {
+		min-inline-size: 15rem;
+	}
 }
 
 input::file-selector-button {
@@ -371,6 +379,11 @@ select:-webkit-autofill:focus {
 .z-top {
 	z-index: 100;
 }
+
+.bold {
+	font-family: var(--amaticbold);
+}
+
 /** ==== BUTTON ==== */
 .button {
 	-webkit-appearance: none;
@@ -424,6 +437,7 @@ select:-webkit-autofill:focus {
 	left: 50%;
 	transform: translateX(-50%);
 }
+
 @media (max-width: 501px) {
 	.splatter {
 		width: 300px;
@@ -528,10 +542,15 @@ select:-webkit-autofill:focus {
 .center {
 	box-sizing: content-box;
 	margin-inline: auto;
+	margin-block: auto;
 	max-inline-size: var(--measure);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+.center-horizontal {
+	transform: translateY(50%);
 }
 
 .center.center-row {
@@ -672,4 +691,38 @@ select:-webkit-autofill:focus {
 	max-height: 0;
 	overflow: hidden;
 	transition: max-height 0.2s ease-in-out;
+}
+
+/** ==== EDIT MODAL  ==== */
+
+.edit-modal-wrapper {
+	background-color: var(--text-secondary);
+	padding: var(--s4) var(--s2);
+	border-radius: 4px;
+	box-shadow: var(--box-shadow);
+}
+
+.edit-content-button {
+	background-color: rgba(0, 0, 0, 0.5);
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	fill: var(--text-secondary);
+	z-index: 99;
+	transition: opacity 0.2s ease;
+}
+
+.edit-content-button:hover,
+.edit-content-button:focus {
+	opacity: 1;
+}
+
+.edit-content-button svg {
+	transition: transform 0.2s ease;
+}
+
+.edit-content-button:hover svg,
+.edit-content-button:focus svg {
+	fill: var(--secondary);
+	transform: rotate(-15deg);
 }

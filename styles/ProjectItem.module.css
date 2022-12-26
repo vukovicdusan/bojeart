@@ -13,7 +13,7 @@
 	box-shadow: 0 2px 15px var(--color-shadow);
 }
 
-.projectItem > *:nth-child(1):hover {
+.projectItem > *:nth-child(2):hover {
 	cursor: pointer;
 }
 

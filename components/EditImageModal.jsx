@@ -1,18 +1,26 @@
-import React, { useState } from "react"
-import * as styles from "../styles/EditImageModal.module.css"
+import React, { useState, useContext } from "react"
 import { doc, updateDoc, deleteDoc } from "firebase/firestore"
 import { db } from "../public/firebase/firebase"
 import { useRouter } from "next/router"
+import LoginContext from "../store/LoginCtx"
 
 const EditImageModal = (props) => {
-	const [description, setDescription] = useState("")
-	const [price, setPrice] = useState()
+	const [imgName, setImgName] = useState("")
+	const [year, setYear] = useState()
+	const [material, setMaterial] = useState()
+	const [dimensions, setDimensions] = useState()
+	const [category, setCategory] = useState()
+
+	const user = useContext(LoginContext)
 	let router = useRouter()
 
 	const inputChangeHandler = (e) => {
 		e.preventDefault()
-		e.target.name === "description" && setDescription(e.target.value)
-		e.target.name === "price" && setPrice(e.target.value)
+		e.target.name === "imgName" && setImgName(e.target.value)
+		e.target.name === "year" && setYear(e.target.value)
+		e.target.name === "material" && setMaterial(e.target.value)
+		e.target.name === "dimensions" && setDimensions(e.target.value)
+		e.target.name === "category" && setCategory(e.target.value)
 	}
 
 	const editImageSubmitHandler = async (e) => {
@@ -20,14 +28,17 @@ const EditImageModal = (props) => {
 		try {
 			const imageRef = doc(db, "slike", props.editModalData.id)
 			await updateDoc(imageRef, {
-				description: description,
-				price: price,
+				imgName: imgName,
+				year: year,
+				material: material,
+				dimensions: dimensions,
+				category: category,
 			})
 		} catch (err) {
 			console.log(err)
 		}
 		closeEditModalHandler(e)
-		router.reload()
+		router.reload({ shallow: true })
 	}
 
 	const deleteImageHandler = async () => {
@@ -39,33 +50,80 @@ const EditImageModal = (props) => {
 		props.editImage(false)
 	}
 
+	const author = user === "jelena@gmail.com" ? "jelena" : "bojan"
+
 	return (
 		<form
 			onSubmit={editImageSubmitHandler}
-			className={`${styles.editModalWrapper} [ stack ]`}
+			className="[ edit-modal-wrapper ] [ stack ]"
 		>
 			<h3>Izmeni informacije</h3>
 			<div className="d-flex-c">
-				<label htmlFor="description">opis</label>
+				<label htmlFor="imgName">Ime Slike</label>
 				<textarea
-					placeholder={props.editModalData.description}
-					name="description"
-					id="description"
+					placeholder={props.editModalData.imgName}
+					name="imgName"
+					id="imgName"
 					onChange={inputChangeHandler}
 					type="text"
 					autoCorrect="off"
 				/>
 			</div>
 			<div className="d-flex-c">
-				<label htmlFor="price">Cena</label>
+				<label htmlFor="year">Godina</label>
 				<input
-					placeholder={props.editModalData.price}
-					name="price"
-					id="price"
+					placeholder={props.editModalData.year}
+					name="year"
+					id="year"
 					onChange={inputChangeHandler}
 					type="text"
 					autoCorrect="off"
 				/>
+			</div>
+			<div className="d-flex-c">
+				<label htmlFor="material">Materijal</label>
+				<input
+					placeholder={props.editModalData.material}
+					name="material"
+					id="material"
+					onChange={inputChangeHandler}
+					type="text"
+					autoCorrect="off"
+				/>
+			</div>
+			<div className="d-flex-c">
+				<label htmlFor="dimensions">Dimenzije</label>
+				<input
+					placeholder={props.editModalData.dimensions}
+					name="dimensions"
+					id="dimensions"
+					onChange={inputChangeHandler}
+					type="text"
+					autoCorrect="off"
+				/>
+			</div>
+			<div className="d-flex-c">
+				<label htmlFor="category">Kategorija</label>
+				<select
+					value={props.editModalData.category}
+					name="category"
+					id="category"
+					onChange={inputChangeHandler}
+					required
+				>
+					{author === "bojan" ? (
+						<>
+							<option value="brodovi">Brodovi</option>
+							<option value="ptice">Ptičice</option>
+							<option value="apstrakcije">Apstrakcije</option>
+						</>
+					) : (
+						<>
+							<option value="crtezi">Crteži</option>
+							<option value="slike">Slike</option>
+						</>
+					)}
+				</select>
 			</div>
 			<div className="wrap">
 				<button className="button">Izmeni</button>

@@ -12,10 +12,11 @@ const writeDate = date.toLocaleDateString("sr-RS")
 const init_state = {
 	author: "",
 	date: writeDate,
-	description: "",
+	imgName: "",
 	image: "",
-	price: "",
-	category: "",
+	year: "",
+	material: "",
+	dimensions: "",
 }
 
 const UploadImage = () => {
@@ -71,9 +72,9 @@ const UploadImage = () => {
 							await addDoc(collection(db, "slike"), {
 								author: author,
 								date: imageState.date,
-								description: imageState.description,
+								imgName: imageState.imgName,
 								image: downloadURL,
-								price: imageState.price,
+								year: imageState.year,
 								category:
 									!imageState.category && author === "bojan"
 										? "brodovi"
@@ -81,6 +82,8 @@ const UploadImage = () => {
 										  author === "jelena"
 										? "crtezi"
 										: imageState.category,
+								material: imageState.material,
+								dimensions: imageState.dimensions,
 							})
 							router.reload()
 						}
@@ -125,11 +128,11 @@ const UploadImage = () => {
 				/>
 			</div>
 			<div className="d-flex-c">
-				<label htmlFor="description">Opis</label>
-				<textarea
-					value={imageState.description}
-					name="description"
-					id="description"
+				<label htmlFor="imgName">Ime Slike</label>
+				<input
+					value={imageState.imgName}
+					name="imgName"
+					id="imgName"
 					onChange={inputChangeHandler}
 					type="text"
 					required
@@ -137,11 +140,35 @@ const UploadImage = () => {
 				/>
 			</div>
 			<div className="d-flex-c">
-				<label htmlFor="price">Cena</label>
+				<label htmlFor="year">Godina</label>
 				<input
-					value={imageState.price}
-					name="price"
-					id="price"
+					defaultValue={imageState.year}
+					name="year"
+					id="year"
+					onChange={inputChangeHandler}
+					type="text"
+					required
+					autoCorrect="off"
+				/>
+			</div>
+			<div className="d-flex-c">
+				<label htmlFor="material">Materijal</label>
+				<input
+					value={imageState.material}
+					name="material"
+					id="material"
+					onChange={inputChangeHandler}
+					type="text"
+					required
+					autoCorrect="off"
+				/>
+			</div>
+			<div className="d-flex-c">
+				<label htmlFor="dimensions">Dimenzije</label>
+				<input
+					value={imageState.dimensions}
+					name="dimensions"
+					id="dimensions"
 					onChange={inputChangeHandler}
 					type="text"
 					required

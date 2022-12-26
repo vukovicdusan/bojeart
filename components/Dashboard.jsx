@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react"
 import LoginCtx from "../store/LoginCtx"
-import UploadBlog from "./BlogUpload"
+import UploadBlog from "./projects/BlogUpload"
 import UploadPainting from "./UploadPainting"
 
 const Dashboard = () => {
@@ -16,24 +16,21 @@ const Dashboard = () => {
 					? "Dobrodošla Jelena"
 					: "Dobrodošao Bojane"}
 			</h2>
-			{author === "jelena" ? (
-				""
-			) : (
-				<div className="wrap">
-					<div
-						className="button"
-						onClick={() => setDashboardContent("image")}
-					>
-						Postavi sliku
-					</div>
-					<div
-						className="button"
-						onClick={() => setDashboardContent("blog")}
-					>
-						Piši malo
-					</div>
+			<div className="wrap">
+				<div
+					className="button"
+					onClick={() => setDashboardContent("image")}
+				>
+					Postavi sliku
 				</div>
-			)}
+				<div
+					className="button"
+					onClick={() => setDashboardContent("blog")}
+				>
+					Piši malo
+				</div>
+			</div>
+
 			{dashboardContent === "blog" ? (
 				<UploadBlog></UploadBlog>
 			) : (

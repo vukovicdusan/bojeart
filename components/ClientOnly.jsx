@@ -1,8 +1,8 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 function ClientOnly({ children, ...delegated }) {
 	const [hasMounted, setHasMounted] = useState(false)
-	React.useEffect(() => {
+	useEffect(() => {
 		setHasMounted(true)
 	}, [])
 	if (!hasMounted) {

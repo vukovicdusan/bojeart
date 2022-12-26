@@ -1,5 +1,5 @@
-import Header from "../Header"
-import Footer from "../Footer"
+import Header from "./Header"
+import Footer from "./Footer"
 import Wrapper from "../layout/Wrapper"
 import * as styles from "../../styles/Layout.module.css"
 import { useRouter } from "next/router"
