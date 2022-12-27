@@ -5,3 +5,25 @@
 .navbarLink {
 	font-family: var(--amaticbold);
 }
+
+.hamburger:focus {
+	outline: none;
+}
+
+.desktopNav {
+	display: none;
+}
+
+.hamburger {
+	z-index: 101;
+}
+
+@media (min-width: 550px) {
+	.hamburger {
+		display: none;
+	}
+
+	.desktopNav {
+		display: block;
+	}
+}
