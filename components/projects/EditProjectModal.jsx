@@ -1,9 +1,11 @@
 import React, { useState } from "react"
 import { doc, updateDoc, deleteDoc } from "firebase/firestore"
 import { db } from "../../public/firebase/firebase"
-import dynamic from "next/dynamic"
 import { useRouter } from "next/router"
-const ReactQuill = dynamic(import("react-quill"), { ssr: false })
+// import dynamic from "next/dynamic"
+// const ReactQuill = dynamic(import("react-quill"), { ssr: false })
+const ReactQuill =
+	typeof window === "object" ? require("react-quill") : () => false
 import "react-quill/dist/quill.snow.css"
 
 const EditProjectModal = (props) => {
@@ -52,6 +54,7 @@ const EditProjectModal = (props) => {
 	return (
 		<div className="[ edit-modal-wrapper ] [ stack ]">
 			<h3>Izmeni sadržaj</h3>
+
 			<ReactQuill
 				theme="snow"
 				defaultValue={props.editProjectData.content}
@@ -72,18 +75,7 @@ const EditProjectModal = (props) => {
 						defaultValue={props.editProjectData.title}
 					/>
 				</div>
-				{/* <div className="d-flex-c">
-					<label htmlFor="file">Dodaj sliku</label>
-					<input
-						name="file"
-						id="file"
-						onChange={imageInputHandler}
-						type="file"
-						required
-						autoCorrect="off"
-                        
-					/>
-				</div> */}
+
 				<div className="wrap">
 					<button className="button">Postavi</button>
 					<button

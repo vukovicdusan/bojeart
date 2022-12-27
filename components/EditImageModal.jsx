@@ -5,11 +5,11 @@ import { useRouter } from "next/router"
 import LoginContext from "../store/LoginCtx"
 
 const EditImageModal = (props) => {
-	const [imgName, setImgName] = useState("")
-	const [year, setYear] = useState()
-	const [material, setMaterial] = useState()
-	const [dimensions, setDimensions] = useState()
-	const [category, setCategory] = useState()
+	const [imgName, setImgName] = useState(props.editModalData.imgName)
+	const [year, setYear] = useState(props.editModalData.year)
+	const [material, setMaterial] = useState(props.editModalData.material)
+	const [dimensions, setDimensions] = useState(props.editModalData.dimensions)
+	const [category, setCategory] = useState(props.editModalData.category)
 
 	const user = useContext(LoginContext)
 	let router = useRouter()
