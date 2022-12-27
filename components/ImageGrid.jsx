@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import Region from "../components/layout/Region"
 import * as styles from "../styles/ImageGrid.module.css"
 import Painting from "./Painting"
@@ -24,6 +24,12 @@ const ImageGrid = (props) => {
 	const [categoriesFilter, setCategoriesFilter] = useState("")
 	const [isLoaded, setIsLoaded] = useState(false)
 	const [animate, setAnimate] = useState(false)
+
+	useEffect(() => {
+		openEditModal || openImgModal || openProjectModal
+			? (document.body.style.overflow = "hidden")
+			: (document.body.style.overflow = "auto")
+	}, [openEditModal, openImgModal, openProjectModal])
 
 	const authorFilterHandler = (e) => {
 		e.preventDefault()

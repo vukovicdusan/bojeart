@@ -693,9 +693,11 @@ select:-webkit-autofill:focus {
 
 .edit-modal-wrapper {
 	background-color: var(--text-secondary);
-	padding: var(--s4) var(--s2);
+	padding: var(--s2) var(--s1);
 	border-radius: 4px;
 	box-shadow: var(--box-shadow);
+	overflow: scroll;
+	z-index: 101;
 }
 
 .edit-content-button {

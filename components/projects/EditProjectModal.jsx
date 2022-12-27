@@ -2,8 +2,6 @@ import React, { useState } from "react"
 import { doc, updateDoc, deleteDoc } from "firebase/firestore"
 import { db } from "../../public/firebase/firebase"
 import { useRouter } from "next/router"
-// import dynamic from "next/dynamic"
-// const ReactQuill = dynamic(import("react-quill"), { ssr: false })
 const ReactQuill =
 	typeof window === "object" ? require("react-quill") : () => false
 import "react-quill/dist/quill.snow.css"
