@@ -15,7 +15,8 @@
 }
 
 .hamburger {
-	z-index: 101;
+	display: flex;
+	z-index: 9;
 }
 
 @media (min-width: 550px) {

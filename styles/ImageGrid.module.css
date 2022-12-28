@@ -22,7 +22,7 @@
 .imgGridList {
 	--stack-align: center;
 	--stack-justify: start;
-	z-index: 99;
+	z-index: 8;
 	min-block-size: 60vh;
 }
 

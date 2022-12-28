@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react"
 import ClientOnly from "./ClientOnly"
+import ChevronDown from "./svg/ChevronDown"
 import * as styles from "../styles/MobileMenu.module.css"
 import Link from "next/link"
+import { useRouter } from "next/router"
+import { auth } from "../public/firebase/firebase"
+import { signOut } from "firebase/auth"
+
 const MobileMenu = (props) => {
 	const [animate, setAnimate] = useState(false)
 
@@ -14,6 +19,20 @@ const MobileMenu = (props) => {
 					setAnimate(false)
 			  }, 200)
 	}, [props.isOpen])
+
+	const router = useRouter()
+	const logoutHandler = () => {
+		router.push("/")
+		setTimeout(() => {
+			signOut(auth)
+				.then(() => {})
+				.catch((error) => {
+					console.log(error)
+				})
+		}, 500)
+	}
+
+	const author = props.user === "jelena@gmail.com" ? "jelena" : "bojan"
 
 	return (
 		<div
@@ -40,13 +59,13 @@ const MobileMenu = (props) => {
 					</li>
 					<li>
 						<ClientOnly>
-							{/* {loginContext.user && (
-								<div className="dropdown-toggle">
-									<span className="[ with-icon ] [ bold ]">
+							{props.user && (
+								<div className={styles.authorMenu}>
+									{/* <span className="[ with-icon ] [ bold ]">
 										<ChevronDown className="icon"></ChevronDown>
 										{author}
-									</span>
-									<ul className="[ dropdown-menu ] [ stack ] [ box ]">
+									</span> */}
+									<ul className="[ stack ]">
 										<li>
 											<Link href={"/autor"}>
 												Radionica
@@ -55,14 +74,14 @@ const MobileMenu = (props) => {
 										<li>
 											<button
 												onClick={logoutHandler}
-												className="button"
+												className="[ button ]"
 											>
 												Odjavi se
 											</button>
 										</li>
 									</ul>
 								</div>
-							)} */}
+							)}
 						</ClientOnly>
 					</li>
 				</ul>

@@ -9,8 +9,8 @@
 	align-items: center;
 	width: 100vw;
 	height: 100vh;
-	z-index: 100;
-	overflow: scroll;
+	z-index: 10;
+	overflow: auto;
 	opacity: 0;
 	transition: opacity 0.2s ease-in;
 }
@@ -27,7 +27,7 @@
 	position: absolute;
 	top: 1.5rem;
 	right: 1.5rem;
-	z-index: 100;
+	z-index: 10;
 }
 
 .modalClose svg {

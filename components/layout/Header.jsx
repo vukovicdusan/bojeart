@@ -47,7 +47,14 @@ const Header = () => {
 
 	return (
 		<div>
-			{animate ? <MobileMenu isOpen={menuOpen}></MobileMenu> : ""}
+			{animate ? (
+				<MobileMenu
+					isOpen={menuOpen}
+					user={loginContext.user}
+				></MobileMenu>
+			) : (
+				""
+			)}
 			<header className={styles.header}>
 				<Wrapper>
 					<div className="wrap">

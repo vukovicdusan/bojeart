@@ -373,7 +373,7 @@ select:-webkit-autofill:focus {
 }
 
 .z-top {
-	z-index: 100;
+	z-index: 2;
 }
 
 .bold {
@@ -450,7 +450,7 @@ select:-webkit-autofill:focus {
 	position: fixed;
 	bottom: 4rem;
 	right: 2rem;
-	z-index: 101;
+	z-index: 9;
 	transition: all 0.3s ease;
 }
 
@@ -587,7 +587,7 @@ select:-webkit-autofill:focus {
 	display: none;
 	right: 0;
 	top: 25px;
-	z-index: 99;
+	z-index: 9;
 	padding: 0.5rem 1rem;
 	margin-block-start: 0.5rem;
 	min-inline-size: max-content;
@@ -697,7 +697,7 @@ select:-webkit-autofill:focus {
 	border-radius: 4px;
 	box-shadow: var(--box-shadow);
 	overflow: scroll;
-	z-index: 101;
+	z-index: 10;
 }
 
 .edit-content-button {
@@ -706,7 +706,7 @@ select:-webkit-autofill:focus {
 	top: 15px;
 	right: 15px;
 	fill: var(--text-secondary);
-	z-index: 99;
+	z-index: 9;
 	transition: opacity 0.2s ease;
 }
 
