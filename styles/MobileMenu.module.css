@@ -1,11 +1,14 @@
 .mobileMenu {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
 	position: absolute;
 	width: 100vw;
 	height: 100vh;
 	backdrop-filter: blur(0);
 	z-index: 9;
 	transition: backdrop-filter 0.4s ease-in;
-	padding: var(--s0) var(--s2) var(--s4) var(--s2);
+	padding: var(--s2);
 }
 
 .mobileMenuOpen {
@@ -14,7 +17,7 @@
 
 .mobileNav {
 	--stack-justify: flex-end;
-	block-size: 100%;
+	/* block-size: 80%; */
 	display: flex;
 }
 
