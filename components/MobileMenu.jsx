@@ -32,7 +32,9 @@ const MobileMenu = (props) => {
 		}, 500)
 	}
 
-	const author = props.user === "jelena@gmail.com" ? "jelena" : "bojan"
+	const closeMenu = () => {
+		props.close(true)
+	}
 
 	return (
 		<div
@@ -41,21 +43,15 @@ const MobileMenu = (props) => {
 			}`}
 		>
 			<nav className={`${styles.mobileNav} [ stack ]`}>
-				<ul className="stack">
+				<ul onClick={closeMenu} className="stack">
 					<li>
-						<Link className="" href={"/"}>
-							Slike
-						</Link>
+						<Link href={"/"}>Slike</Link>
 					</li>
 					<li>
-						<Link className="" href={"/about"}>
-							O nama
-						</Link>
+						<Link href={"/about"}>O nama</Link>
 					</li>
 					<li>
-						<Link className="" href={"/contact"}>
-							Kontakt
-						</Link>
+						<Link href={"/contact"}>Kontakt</Link>
 					</li>
 					<li>
 						<ClientOnly>
@@ -86,7 +82,7 @@ const MobileMenu = (props) => {
 				<div className="logo" href={"/"}>
 					BoJe<span className="main-color">Art</span>
 				</div>
-				<ul className="wrap">
+				<ul onClick={closeMenu} className="wrap">
 					<li>
 						<a href="www.google.com">
 							<svg

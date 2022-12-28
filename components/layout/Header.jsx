@@ -43,6 +43,10 @@ const Header = () => {
 		menuOpen ? setMenuOpen(false) : setMenuOpen(true)
 	}
 
+	const menuCloseHandler = (e) => {
+		setMenuOpen(false)
+	}
+
 	const author = loginContext.user === "jelena@gmail.com" ? "jelena" : "bojan"
 
 	return (
@@ -51,6 +55,7 @@ const Header = () => {
 				<MobileMenu
 					isOpen={menuOpen}
 					user={loginContext.user}
+					close={menuCloseHandler}
 				></MobileMenu>
 			) : (
 				""
