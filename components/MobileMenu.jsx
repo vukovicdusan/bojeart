@@ -61,10 +61,6 @@ const MobileMenu = (props) => {
 						<ClientOnly>
 							{props.user && (
 								<div className={styles.authorMenu}>
-									{/* <span className="[ with-icon ] [ bold ]">
-										<ChevronDown className="icon"></ChevronDown>
-										{author}
-									</span> */}
 									<ul className="[ stack ]">
 										<li>
 											<Link href={"/autor"}>
