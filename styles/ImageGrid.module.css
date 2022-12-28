@@ -32,8 +32,8 @@
 
 .modalImgContainer {
 	position: relative;
-	inline-size: 100vw;
-	block-size: 70vh;
+	inline-size: 80vw;
+	block-size: 60vh;
 }
 
 .modalImg {
