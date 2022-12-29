@@ -3,7 +3,8 @@
 	inset-block-start: 50%;
 	inset-inline-start: 50%;
 	transform: translate(-50%, -50%);
-	background-color: rgba(0, 0, 0, 0.88);
+	background-color: rgba(0, 0, 0, 0.7);
+	backdrop-filter: blur(0);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -12,15 +13,17 @@
 	z-index: 10;
 	overflow: auto;
 	opacity: 0;
-	transition: opacity 0.2s ease-in;
+	transition: all 0.4s ease-in;
 }
 
 .modalOpenAnimation {
 	opacity: 1;
+	backdrop-filter: blur(10px);
 }
 
 .modalCloseAnimation {
 	opacity: 0;
+	backdrop-filter: blur(0);
 }
 
 .modalClose {

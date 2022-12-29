@@ -38,23 +38,22 @@
 
 .modalImg {
 	object-fit: contain;
-	/* box-shadow: var(--box-shadow); */
 }
 
 .modalImgDescription {
-	color: var(--text-secondary);
 	position: absolute;
-	bottom: -500px;
+	bottom: -10%;
 	left: 50%;
+	transform: translateX(-50%);
+	color: var(--text-secondary);
 	inline-size: 100%;
 	text-align: center;
 	opacity: 0;
-	transform: translateX(-50%);
-	transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+	transition: all 1s ease-in-out;
+	transition-delay: 0.2s;
 }
 
 .modalImgDescriptionOpen {
-	bottom: -50px;
 	opacity: 1;
 }
 
@@ -65,7 +64,7 @@
 	transform: translate(-50% -50%);
 }
 
-@media (max-width: 750px) {
+/* @media (max-width: 750px) {
 	.modalImgDescription {
 		bottom: 0;
 	}
@@ -75,4 +74,4 @@
 	.modalImgDescription {
 		bottom: 140px;
 	}
-}
+} */

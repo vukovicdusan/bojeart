@@ -122,11 +122,6 @@ const ImageGrid = (props) => {
 							fill
 							src={imgModalData.image}
 							alt="slika"
-							// onError={() =>
-							// 	setSrc(
-							// 		"../public/images/dushawn-jovic-2w7qbVHOqYU-unsplash.jpg"
-							// 	)
-							// }
 							quality={100}
 							onLoadingComplete={onLoadCallback}
 						></Image>
