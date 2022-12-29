@@ -45,10 +45,10 @@ const EditImageModal = (props) => {
 		await deleteDoc(doc(db, "slike", props.editModalData.id))
 	}
 
-	const closeEditModalHandler = (e) => {
-		e.preventDefault(e)
-		props.editImage(false)
-	}
+	// const closeEditModalHandler = (e) => {
+	// 	e.preventDefault(e)
+	// 	props.editImage(false)
+	// }
 
 	const author = user === "jelena@gmail.com" ? "jelena" : "bojan"
 

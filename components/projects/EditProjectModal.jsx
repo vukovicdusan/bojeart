@@ -44,10 +44,10 @@ const EditProjectModal = (props) => {
 		await deleteDoc(doc(db, "blog", props.editProjectData.id))
 	}
 
-	const closeEditModalHandler = (e) => {
-		e.preventDefault(e)
-		props.editProject(false)
-	}
+	// const closeEditModalHandler = (e) => {
+	// 	e.preventDefault(e)
+	// 	props.editProject(false)
+	// }
 
 	return (
 		<div className="[ edit-modal-wrapper ] [ stack ]">

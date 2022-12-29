@@ -26,7 +26,7 @@ const ProjectItem = (props) => {
 	}
 
 	const openModalHandler = () => {
-		props.editProject(props.postContent, true)
+		props.openModal(props.postContent, true, "editProject")
 	}
 
 	return (

@@ -15,21 +15,25 @@ import EditProjectModal from "./projects/EditProjectModal"
 const ImageGrid = (props) => {
 	const [filter, setFilter] = useState("")
 	const [grid, setGrid] = useState(true)
-	const [editModalData, setEditModalData] = useState("")
-	const [openEditModal, setOpenEditModal] = useState(false)
-	const [imgModalData, setImgModalData] = useState("")
-	const [openImgModal, setOpenImgModal] = useState("")
-	const [openProjectModal, setOpenProjectModal] = useState(false)
-	const [projectModalData, setProjectModalData] = useState("")
+	// const [editModalData, setEditModalData] = useState("")
+	// const [openEditModal, setOpenEditModal] = useState(false)
+	// const [imgModalData, setImgModalData] = useState("")
+	// const [openImgModal, setOpenImgModal] = useState("")
+	// const [openProjectModal, setOpenProjectModal] = useState(false)
+	// const [projectModalData, setProjectModalData] = useState("")
 	const [categoriesFilter, setCategoriesFilter] = useState("")
 	const [isLoaded, setIsLoaded] = useState(false)
 	const [animate, setAnimate] = useState(false)
 
+	const [openGeneralModal, setOpenGeneralModal] = useState(false)
+	const [modalData, setModalData] = useState("")
+	const [modalType, setModalType] = useState("")
+
 	useEffect(() => {
-		openEditModal || openImgModal || openProjectModal
+		openGeneralModal
 			? (document.body.style.overflow = "hidden")
 			: (document.body.style.overflow = "auto")
-	}, [openEditModal, openImgModal, openProjectModal])
+	}, [openGeneralModal])
 
 	const authorFilterHandler = (e) => {
 		e.preventDefault()
@@ -54,25 +58,27 @@ const ImageGrid = (props) => {
 		setGrid(e)
 	}
 
-	const editImage = (data, modalOpen) => {
-		setEditModalData(data)
-		setOpenEditModal(modalOpen)
-	}
+	// const editImage = (data, modalOpen) => {
+	// 	setEditModalData(data)
+	// 	setOpenEditModal(modalOpen)
+	// }
 
-	const editProject = (data, modalOpen) => {
-		setProjectModalData(data)
-		setOpenProjectModal(modalOpen)
-	}
+	// const editProject = (data, modalOpen) => {
+	// 	setProjectModalData(data)
+	// 	setOpenProjectModal(modalOpen)
+	// }
 
-	const openModal = (imgPropModal, isOpen) => {
-		setImgModalData(imgPropModal)
-		setOpenImgModal(isOpen)
+	const openModal = (modalData, isOpen, modalType) => {
+		setModalData(modalData)
+		setOpenGeneralModal(isOpen)
+		setModalType(modalType)
 	}
 
 	const closeModal = (isOpen) => {
-		setOpenImgModal(isOpen)
-		setOpenEditModal(isOpen)
-		setOpenProjectModal(isOpen)
+		// setOpenImgModal(isOpen)
+		// setOpenEditModal(isOpen)
+		// setOpenProjectModal(isOpen)
+		setOpenGeneralModal(false)
 		setIsLoaded(false)
 		setAnimate(false)
 	}
@@ -84,9 +90,81 @@ const ImageGrid = (props) => {
 		}, 200)
 	}
 
+	let modalContent = ""
+	switch (modalType) {
+		case "editProject":
+			modalContent = (
+				<EditProjectModal
+					// editProject={editProject}
+					editProjectData={modalData}
+				></EditProjectModal>
+			)
+			break
+
+		case "editPainting":
+			modalContent = (
+				<EditImageModal
+					// editImage={editImage}
+					editModalData={modalData}
+				></EditImageModal>
+			)
+			break
+
+		case "paintingModal":
+			modalContent = (
+				<div className={styles.modalImgContainer}>
+					{!isLoaded ? (
+						<div className={styles.modalLoader}>
+							<Loader></Loader>
+						</div>
+					) : (
+						""
+					)}
+
+					<Image
+						className={styles.modalImg}
+						fill
+						src={modalData.image}
+						alt="slika"
+						quality={100}
+						onLoadingComplete={onLoadCallback}
+					></Image>
+					{isLoaded ? (
+						<ClientOnly>
+							<div
+								className={`${
+									styles.modalImgDescription
+								} + '[ bold ]' + [ wrap ] ${
+									animate
+										? styles.modalImgDescriptionOpen
+										: ""
+								}`}
+							>
+								<p>{"Godina: " + modalData.year}</p>
+								<span className="spacer"></span>
+								<p>{"Materijal: " + modalData.material}</p>
+								<span className="spacer"></span>
+								<p>{"Dimenzije: " + modalData.dimensions}</p>
+							</div>
+						</ClientOnly>
+					) : (
+						""
+					)}
+				</div>
+			)
+			break
+		default:
+			""
+	}
+	console.log(modalType)
 	return (
 		<Region>
-			{openProjectModal ? (
+			{openGeneralModal ? (
+				<Modal isOpenProp={openGeneralModal} closeModal={closeModal}>
+					{modalContent}
+				</Modal>
+			) : null}
+			{/* {openProjectModal ? (
 				<Modal isOpenProp={openProjectModal} closeModal={closeModal}>
 					<EditProjectModal
 						editProject={editProject}
@@ -155,7 +233,7 @@ const ImageGrid = (props) => {
 				</Modal>
 			) : (
 				""
-			)}
+			)} */}
 
 			<div className={`${styles.gridStack} [ stack ]`}>
 				<div className={`${styles.gridWrap} [ wrap ]`}>
@@ -216,13 +294,14 @@ const ImageGrid = (props) => {
 									key={post.id}
 									filter={filter}
 									postContent={post}
-									editProject={editProject}
+									// editProject={editProject}
+									openModal={openModal}
 								></ProjectItem>
 						  ))
 						: props.imgList?.map((img) => (
 								<Painting
 									openModal={openModal}
-									editImage={editImage}
+									// editImage={editImage}
 									filter={filter}
 									catFilter={categoriesFilter}
 									key={img.id}
