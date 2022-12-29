@@ -133,11 +133,18 @@ const ImageGrid = (props) => {
 						<ClientOnly>
 							<div
 								className={`${
+									styles.modalImgTitle
+								} + '[ bold ]' + [ wrap ] ${
+									animate ? styles.modalImgOpen : ""
+								}`}
+							>
+								<h3>{modalData.imgName}</h3>
+							</div>
+							<div
+								className={`${
 									styles.modalImgDescription
 								} + '[ bold ]' + [ wrap ] ${
-									animate
-										? styles.modalImgDescriptionOpen
-										: ""
+									animate ? styles.modalImgOpen : ""
 								}`}
 							>
 								<p>{"Godina: " + modalData.year}</p>
@@ -210,7 +217,7 @@ const ImageGrid = (props) => {
 										styles.modalImgDescription
 									} + '[ bold ]' + [ wrap ] ${
 										animate
-											? styles.modalImgDescriptionOpen
+											? styles.modalImgOpen
 											: ""
 									}`}
 								>

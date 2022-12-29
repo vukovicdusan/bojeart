@@ -40,9 +40,10 @@
 	object-fit: contain;
 }
 
-.modalImgDescription {
+.modalImgDescription,
+.modalImgTitle {
 	position: absolute;
-	bottom: -10%;
+	bottom: -15%;
 	left: 50%;
 	transform: translateX(-50%);
 	color: var(--text-secondary);
@@ -55,7 +56,10 @@
 	gap: 0.5rem;
 }
 
-.modalImgDescriptionOpen {
+.modalImgTitle {
+	bottom: 110%;
+}
+.modalImgOpen {
 	opacity: 1;
 }
 
