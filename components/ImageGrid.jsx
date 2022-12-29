@@ -206,28 +206,24 @@ const ImageGrid = (props) => {
 					} [ mr-bs-2 ]`}
 				>
 					{categoriesFilter === "projekti"
-						? props.blogList
-								?.reverse()
-								.map((post) => (
-									<ProjectItem
-										key={post.id}
-										filter={filter}
-										postContent={post}
-										editProject={editProject}
-									></ProjectItem>
-								))
-						: props.imgList
-								?.reverse()
-								.map((img) => (
-									<Painting
-										openModal={openModal}
-										editImage={editImage}
-										filter={filter}
-										catFilter={categoriesFilter}
-										key={img.id}
-										imgProp={img}
-									></Painting>
-								))}
+						? props.blogList?.map((post) => (
+								<ProjectItem
+									key={post.id}
+									filter={filter}
+									postContent={post}
+									editProject={editProject}
+								></ProjectItem>
+						  ))
+						: props.imgList?.map((img) => (
+								<Painting
+									openModal={openModal}
+									editImage={editImage}
+									filter={filter}
+									catFilter={categoriesFilter}
+									key={img.id}
+									imgProp={img}
+								></Painting>
+						  ))}
 				</div>
 			</div>
 		</Region>

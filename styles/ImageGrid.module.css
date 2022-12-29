@@ -63,15 +63,3 @@
 	left: 50%;
 	transform: translate(-50% -50%);
 }
-
-/* @media (max-width: 750px) {
-	.modalImgDescription {
-		bottom: 0;
-	}
-}
-
-@media (max-width: 450px) {
-	.modalImgDescription {
-		bottom: 140px;
-	}
-} */

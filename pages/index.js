@@ -24,12 +24,15 @@ export default function Home({ imgList, blogList }) {
 	)
 }
 
-export const getServerSideProps = async (context) => {
+export const getServerSideProps = async () => {
 	let paintingsList = []
 	let projectsList = []
 	try {
-		const imageQuery = query(collection(db, "slike"), orderBy("date"))
-		const blogQuery = query(collection(db, "blog"), orderBy("date"))
+		const imageQuery = query(
+			collection(db, "slike"),
+			orderBy("date", "desc")
+		)
+		const blogQuery = query(collection(db, "blog"), orderBy("date", "desc"))
 		const imageQuerySnapshot = await getDocs(imageQuery)
 		imageQuerySnapshot.forEach((doc) => {
 			paintingsList.push({ id: doc.id, ...doc.data() })
