@@ -127,21 +127,26 @@ const ImageGrid = (props) => {
 						></Image>
 						{isLoaded ? (
 							<ClientOnly>
-								<p
+								<div
 									className={`${
 										styles.modalImgDescription
-									} + '[ bold ]' + ${
+									} + '[ bold ]' + [ wrap ] ${
 										animate
 											? styles.modalImgDescriptionOpen
 											: ""
 									}`}
 								>
-									{imgModalData.year +
-										" - " +
-										imgModalData.material +
-										" - " +
-										imgModalData.dimensions}
-								</p>
+									<p>{"Godina: " + imgModalData.year}</p>
+									<span className="spacer"></span>
+									<p>
+										{"Materijal: " + imgModalData.material}
+									</p>
+									<span className="spacer"></span>
+									<p>
+										{"Dimenzije: " +
+											imgModalData.dimensions}
+									</p>
+								</div>
 							</ClientOnly>
 						) : (
 							""
