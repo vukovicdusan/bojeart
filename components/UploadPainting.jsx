@@ -149,6 +149,7 @@ const UploadImage = () => {
 					type="text"
 					required
 					autoCorrect="off"
+					pattern="\d+"
 				/>
 			</div>
 			<div className="d-flex-c">
