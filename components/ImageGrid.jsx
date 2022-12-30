@@ -15,16 +15,9 @@ import EditProjectModal from "./projects/EditProjectModal"
 const ImageGrid = (props) => {
 	const [filter, setFilter] = useState("")
 	const [grid, setGrid] = useState(true)
-	// const [editModalData, setEditModalData] = useState("")
-	// const [openEditModal, setOpenEditModal] = useState(false)
-	// const [imgModalData, setImgModalData] = useState("")
-	// const [openImgModal, setOpenImgModal] = useState("")
-	// const [openProjectModal, setOpenProjectModal] = useState(false)
-	// const [projectModalData, setProjectModalData] = useState("")
 	const [categoriesFilter, setCategoriesFilter] = useState("")
 	const [isLoaded, setIsLoaded] = useState(false)
 	const [animate, setAnimate] = useState(false)
-
 	const [openGeneralModal, setOpenGeneralModal] = useState(false)
 	const [modalData, setModalData] = useState("")
 	const [modalType, setModalType] = useState("")

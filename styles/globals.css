@@ -724,3 +724,11 @@ select:-webkit-autofill:focus {
 	fill: var(--secondary);
 	transform: rotate(-15deg);
 }
+
+.full-loader {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50% -50%);
+	z-index: 10;
+}

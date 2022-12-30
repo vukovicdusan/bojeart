@@ -3,17 +3,19 @@ import Wrapper from "./Wrapper"
 import * as styles from "../../styles/Header.module.css"
 import Link from "next/link"
 import LoginContext from "../../store/LoginCtx"
-import { useRouter } from "next/router"
+import Router, { useRouter } from "next/router"
 import { auth } from "../../public/firebase/firebase"
 import { signOut } from "firebase/auth"
 import ChevronDown from "../svg/ChevronDown"
 import ClientOnly from "../ClientOnly"
 import MobileMenu from "../MobileMenu"
+import Loader from "../Loader"
 
 const Header = () => {
 	const [menuOpen, setMenuOpen] = useState(false)
 	const [animate, setAnimate] = useState(false)
 	const loginContext = useContext(LoginContext)
+	const [loading, setLoading] = useState(false)
 
 	useEffect(() => {
 		menuOpen
@@ -26,6 +28,17 @@ const Header = () => {
 					setAnimate(false)
 			  }, 400)
 	}, [menuOpen])
+
+	useEffect(() => {
+		Router.events.on("routeChangeStart", () => setLoading(true))
+		Router.events.on("routeChangeComplete", () => setLoading(false))
+		Router.events.on("routeChangeError", () => setLoading(false))
+		return () => {
+			Router.events.off("routeChangeStart", () => setLoading(true))
+			Router.events.off("routeChangeComplete", () => setLoading(false))
+			Router.events.off("routeChangeError", () => setLoading(false))
+		}
+	}, [Router.events])
 
 	const router = useRouter()
 	const logoutHandler = () => {
@@ -48,9 +61,14 @@ const Header = () => {
 	}
 
 	const author = loginContext.user === "jelena@gmail.com" ? "jelena" : "bojan"
-
+	console.log(loading)
 	return (
 		<div>
+			{loading ? (
+				<div className="full-loader">
+					<Loader></Loader>
+				</div>
+			) : null}
 			{animate ? (
 				<MobileMenu
 					isOpen={menuOpen}
