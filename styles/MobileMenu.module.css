@@ -55,19 +55,23 @@
 	transition: transform 0.8s ease-in-out;
 }
 
-.mobileNavSocials {
+.mobileNavFooter {
 	margin-block-start: var(--s2);
 }
 
-.mobileNavSocials > * {
+.mobileNavFooter > * {
 	transform: translateY(1000px);
 	transition: transform 0.4s ease-in-out;
 }
 
-.mobileMenuOpen .mobileNavSocials > * {
+.mobileMenuOpen .mobileNavFooter > * {
 	transform: translateY(0);
 	transition: transform 0.4s ease-in-out;
 	transition-delay: 1s;
+}
+
+.mobileNavSocials {
+	inline-size: 100%;
 }
 
 .authorMenu {

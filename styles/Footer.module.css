@@ -3,14 +3,24 @@
 	margin-block-start: var(--s4);
 }
 
-.footer svg {
+.bojanSocials svg {
 	fill: var(--main);
 	transition: fill 0.2s ease-in-out;
 }
 
-.footer svg:hover {
+.bojanSocials svg:hover {
 	fill: var(--secondary);
 }
+
+.jelenaSocials svg {
+	fill: var(--secondary);
+	transition: fill 0.2s ease-in-out;
+}
+
+.jelenaSocials svg:hover {
+	fill: var(--main);
+}
+
 .footerBottom {
 	display: flex;
 	justify-content: space-between !important;

@@ -37,7 +37,7 @@ const EditImageModal = (props) => {
 		} catch (err) {
 			console.log(err)
 		}
-		closeEditModalHandler(e)
+		// closeEditModalHandler(e)
 		router.reload({ shallow: true })
 	}
 

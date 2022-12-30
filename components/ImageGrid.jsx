@@ -58,26 +58,13 @@ const ImageGrid = (props) => {
 		setGrid(e)
 	}
 
-	// const editImage = (data, modalOpen) => {
-	// 	setEditModalData(data)
-	// 	setOpenEditModal(modalOpen)
-	// }
-
-	// const editProject = (data, modalOpen) => {
-	// 	setProjectModalData(data)
-	// 	setOpenProjectModal(modalOpen)
-	// }
-
 	const openModal = (modalData, isOpen, modalType) => {
 		setModalData(modalData)
 		setOpenGeneralModal(isOpen)
 		setModalType(modalType)
 	}
 
-	const closeModal = (isOpen) => {
-		// setOpenImgModal(isOpen)
-		// setOpenEditModal(isOpen)
-		// setOpenProjectModal(isOpen)
+	const closeModal = () => {
 		setOpenGeneralModal(false)
 		setIsLoaded(false)
 		setAnimate(false)
@@ -95,7 +82,6 @@ const ImageGrid = (props) => {
 		case "editProject":
 			modalContent = (
 				<EditProjectModal
-					// editProject={editProject}
 					editProjectData={modalData}
 				></EditProjectModal>
 			)
@@ -103,10 +89,7 @@ const ImageGrid = (props) => {
 
 		case "editPainting":
 			modalContent = (
-				<EditImageModal
-					// editImage={editImage}
-					editModalData={modalData}
-				></EditImageModal>
+				<EditImageModal editModalData={modalData}></EditImageModal>
 			)
 			break
 
@@ -126,7 +109,7 @@ const ImageGrid = (props) => {
 						fill
 						src={modalData.image}
 						alt="slika"
-						quality={100}
+						quality={90}
 						onLoadingComplete={onLoadCallback}
 					></Image>
 					{isLoaded ? (
@@ -163,7 +146,7 @@ const ImageGrid = (props) => {
 		default:
 			""
 	}
-	console.log(modalType)
+
 	return (
 		<Region>
 			{openGeneralModal ? (
@@ -171,76 +154,6 @@ const ImageGrid = (props) => {
 					{modalContent}
 				</Modal>
 			) : null}
-			{/* {openProjectModal ? (
-				<Modal isOpenProp={openProjectModal} closeModal={closeModal}>
-					<EditProjectModal
-						editProject={editProject}
-						editProjectData={projectModalData}
-					></EditProjectModal>
-				</Modal>
-			) : (
-				""
-			)}
-			{openEditModal ? (
-				<Modal isOpenProp={openEditModal} closeModal={closeModal}>
-					<EditImageModal
-						editImage={editImage}
-						editModalData={editModalData}
-					></EditImageModal>
-				</Modal>
-			) : (
-				""
-			)}
-			{openImgModal ? (
-				<Modal isOpenProp={openImgModal} closeModal={closeModal}>
-					<div className={styles.modalImgContainer}>
-						{!isLoaded ? (
-							<div className={styles.modalLoader}>
-								<Loader></Loader>
-							</div>
-						) : (
-							""
-						)}
-
-						<Image
-							className={styles.modalImg}
-							fill
-							src={imgModalData.image}
-							alt="slika"
-							quality={100}
-							onLoadingComplete={onLoadCallback}
-						></Image>
-						{isLoaded ? (
-							<ClientOnly>
-								<div
-									className={`${
-										styles.modalImgDescription
-									} + '[ bold ]' + [ wrap ] ${
-										animate
-											? styles.modalImgOpen
-											: ""
-									}`}
-								>
-									<p>{"Godina: " + imgModalData.year}</p>
-									<span className="spacer"></span>
-									<p>
-										{"Materijal: " + imgModalData.material}
-									</p>
-									<span className="spacer"></span>
-									<p>
-										{"Dimenzije: " +
-											imgModalData.dimensions}
-									</p>
-								</div>
-							</ClientOnly>
-						) : (
-							""
-						)}
-					</div>
-				</Modal>
-			) : (
-				""
-			)} */}
 
 			<div className={`${styles.gridStack} [ stack ]`}>
 				<div className={`${styles.gridWrap} [ wrap ]`}>

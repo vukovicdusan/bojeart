@@ -696,7 +696,7 @@ select:-webkit-autofill:focus {
 	padding: var(--s2) var(--s1);
 	border-radius: 4px;
 	box-shadow: var(--box-shadow);
-	overflow: scroll;
+	overflow-y: auto;
 	z-index: 10;
 }
 
