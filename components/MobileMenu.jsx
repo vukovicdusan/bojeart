@@ -79,11 +79,8 @@ const MobileMenu = (props) => {
 				</ul>
 			</nav>
 			<div className={`${styles.mobileNavFooter} [ wrap ]`}>
-				<div className="logo" href={"/"}>
-					BoJe<span className="main-color">Art</span>
-				</div>
 				<div className={`${styles.mobileNavSocials} [ wrap ]`}>
-					<div className={styles.bojanSocials}>
+					<div>
 						<p>Bojan Savić</p>
 						<ul onClick={closeMenu} className="wrap">
 							<li>
@@ -124,7 +121,7 @@ const MobileMenu = (props) => {
 							</li>
 						</ul>
 					</div>
-					<div className={styles.jelenaSocials}>
+					<div>
 						<p>Jelena Tijanić Savić</p>
 						<ul onClick={closeMenu} className="wrap">
 							<li>
@@ -152,7 +149,7 @@ const MobileMenu = (props) => {
 								</a>
 							</li>
 							<li>
-								<a href="https://www.facebook.com/profile.php?id=100063528998678">
+								<a href="https://www.facebook.com/JelenaTijanicSavicOfficial/">
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										width="24"
@@ -165,6 +162,9 @@ const MobileMenu = (props) => {
 							</li>
 						</ul>
 					</div>
+				</div>
+				<div className="logo" href={"/"}>
+					BoJe<span className="main-color">Art</span>
 				</div>
 			</div>
 		</div>
