@@ -107,7 +107,7 @@ const Footer = () => {
 										</a>
 									</li>
 									<li>
-										<a href="https://www.facebook.com/profile.php?id=100063528998678">
+										<a href="https://www.facebook.com/JelenaTijanicSavicOfficial/">
 											<svg
 												xmlns="http://www.w3.org/2000/svg"
 												width="24"
