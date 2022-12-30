@@ -28,7 +28,7 @@
 
 .modalClose {
 	position: absolute;
-	top: 1.5rem;
+	top: 2.5rem;
 	right: 1.5rem;
 	z-index: 10;
 }

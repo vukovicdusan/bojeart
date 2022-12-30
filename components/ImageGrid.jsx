@@ -90,7 +90,7 @@ const ImageGrid = (props) => {
 			modalContent = (
 				<div className={styles.modalImgContainer}>
 					{!isLoaded ? (
-						<div className={styles.modalLoader}>
+						<div className="full-loader">
 							<Loader></Loader>
 						</div>
 					) : (
