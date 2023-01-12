@@ -16,6 +16,7 @@ const GridListSwitcher = (props) => {
 		<button
 			className={`${styles.gridListSwitcher} [ button ] [ button-ghost ] [ button-icon ]`}
 			onClick={gridListSwitcher}
+			role="button"
 		>
 			{grid ? (
 				<svg
