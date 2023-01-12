@@ -102,7 +102,7 @@ const ImageGrid = (props) => {
 						fill
 						src={modalData.image}
 						alt="slika"
-						quality={90}
+						// quality={90}
 						onLoadingComplete={onLoadCallback}
 					></Image>
 					{isLoaded ? (
