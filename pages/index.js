@@ -17,7 +17,6 @@ export default function Home({ imgList, blogList }) {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<BackToTop></BackToTop>
-
 			<Hero></Hero>
 			<ImageGrid imgList={imgList} blogList={blogList}></ImageGrid>
 		</div>
