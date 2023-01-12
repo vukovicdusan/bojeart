@@ -12,7 +12,7 @@ export default function Home({ imgList, blogList }) {
 				<title>BojeArt</title>
 				<meta
 					name="description"
-					content="Dobrodošli u svet umetnosti."
+					content="Dobrodošli u svet umetnosti Jelene Tijanić Savić i Bojana Savića."
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>

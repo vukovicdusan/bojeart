@@ -52,10 +52,10 @@ const contact = () => {
 	return (
 		<div>
 			<Head>
-				<title>BojeArt</title>
+				<title>BojeArt - Kontakt</title>
 				<meta
 					name="description"
-					content="Dobrodošli u svet umetnosti."
+					content="Kontakt stranica BojeArt.com"
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
