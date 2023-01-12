@@ -60,6 +60,7 @@ const Painting = (props) => {
 					sizes="(max-width: 695px) 100vw,
 						(max-width: 1030px) 50vw,
 						33vw"
+					quality={50}
 					src={props.imgProp.image}
 					alt="slika"
 					placeholder="blur"
