@@ -42,7 +42,10 @@ export const getServerSideProps = async () => {
 			projectsList.push({ id: doc.id, ...doc.data() })
 		})
 		return {
-			props: { imgList: paintingsList, blogList: projectsList },
+			props: {
+				imgList: paintingsList.reverse(),
+				blogList: projectsList.reverse(),
+			},
 		}
 	} catch (err) {
 		console.log(err)

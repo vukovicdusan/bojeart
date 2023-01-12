@@ -61,7 +61,7 @@ const Header = () => {
 	}
 
 	const author = loginContext.user === "jelena@gmail.com" ? "jelena" : "bojan"
-	console.log(loading)
+
 	return (
 		<div>
 			{loading ? (
