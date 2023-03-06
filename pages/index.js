@@ -34,7 +34,7 @@ export const getServerSideProps = async () => {
 		const blogQuery = query(collection(db, "blog"), orderBy("date", "desc"))
 		const imageQuerySnapshot = await getDocs(imageQuery)
 		imageQuerySnapshot.forEach((doc) => {
-			paintingsList.push({ id: doc.id, ...doc.data() })
+			paintingsList.reverse().push({ id: doc.id, ...doc.data() })
 		})
 		const blogQuerySnapshot = await getDocs(blogQuery)
 		blogQuerySnapshot.forEach((doc) => {
