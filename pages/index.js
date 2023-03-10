@@ -29,21 +29,24 @@ export const getServerSideProps = async () => {
 	try {
 		const imageQuery = query(
 			collection(db, "slike"),
-			orderBy("date", "desc")
+			orderBy("created_at", "desc")
 		)
-		const blogQuery = query(collection(db, "blog"), orderBy("date", "desc"))
+		const blogQuery = query(
+			collection(db, "blog"),
+			orderBy("created_at", "desc")
+		)
 		const imageQuerySnapshot = await getDocs(imageQuery)
 		imageQuerySnapshot.forEach((doc) => {
-			paintingsList.reverse().push({ id: doc.id, ...doc.data() })
+			paintingsList.push({ id: doc.id, ...doc.data(), created_at: "" })
 		})
 		const blogQuerySnapshot = await getDocs(blogQuery)
 		blogQuerySnapshot.forEach((doc) => {
-			projectsList.push({ id: doc.id, ...doc.data() })
+			projectsList.push({ id: doc.id, ...doc.data(), created_at: "" })
 		})
 		return {
 			props: {
-				imgList: paintingsList.reverse(),
-				blogList: projectsList.reverse(),
+				imgList: paintingsList,
+				blogList: projectsList,
 			},
 		}
 	} catch (err) {

@@ -1,6 +1,6 @@
 import React, { useReducer, useContext, useEffect, useState } from "react"
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage"
-import { collection, addDoc } from "firebase/firestore"
+import { collection, addDoc, serverTimestamp } from "firebase/firestore"
 import { storage, db } from "../public/firebase/firebase"
 import ImageReducer from "../reducers/ImageReducer"
 import { useRouter } from "next/router"
@@ -72,6 +72,7 @@ const UploadImage = () => {
 							await addDoc(collection(db, "slike"), {
 								author: author,
 								date: imageState.date,
+								created_at: serverTimestamp(),
 								imgName: imageState.imgName,
 								image: downloadURL,
 								year: imageState.year,

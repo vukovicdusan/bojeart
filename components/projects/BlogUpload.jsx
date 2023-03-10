@@ -5,6 +5,7 @@ import "react-quill/dist/quill.snow.css"
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage"
 import { collection, addDoc } from "firebase/firestore"
 import { storage, db } from "../../public/firebase/firebase"
+import { serverTimestamp } from "firebase/firestore"
 import { useRouter } from "next/router"
 import LoginCtx from "../../store/LoginCtx"
 
@@ -68,6 +69,7 @@ const UploadBlog = () => {
 							await addDoc(collection(db, "blog"), {
 								author: author,
 								date: writeDate,
+								created_at: serverTimestamp(),
 								image: downloadURL,
 								content: quillValue,
 								title: titleValue,
