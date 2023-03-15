@@ -54,6 +54,11 @@
 	transform: none;
 }
 
+.colorize .imgWrapper :is(h4, p),
+.colorize .imgWrapper :is(h4, p) {
+	transform: none;
+}
+
 .imgWrapper:hover p,
 .imgWrapper:focus p,
 .imgWrapper:hover .imgInfo,
@@ -64,8 +69,20 @@
 	transition-delay: 200ms;
 }
 
+.colorize .imgWrapper p,
+.colorize .imgWrapper .imgInfo,
+.colorize .imgWrapper .editButton {
+	opacity: 1;
+	transition-delay: 200ms;
+}
+
 .imgWrapper:hover img,
 .imgWrapper:focus img {
+	filter: grayscale(0);
+	transform: scale(1.05) rotate(1deg);
+}
+
+.colorize .imgWrapper img {
 	filter: grayscale(0);
 	transform: scale(1.05) rotate(1deg);
 }

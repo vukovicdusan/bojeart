@@ -1,4 +1,4 @@
-import { React, useContext } from "react"
+import { React, useContext, useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import * as styles from "../styles/Painting.module.css"
 import EditIcon from "./svg/EditIcon"
@@ -7,6 +7,28 @@ import ClientOnly from "./ClientOnly"
 
 const Painting = (props) => {
 	const { user } = useContext(LoginCtx)
+	const [colorize, setColorize] = useState(false)
+	let paintingRef = useRef()
+
+	useEffect(() => {
+		let config = {
+			threshold: 1,
+		}
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					setColorize(true)
+				} else {
+					setColorize(false)
+				}
+			})
+		}, config)
+		observer.observe(paintingRef.current)
+
+		return () => {
+			observer.disconnect()
+		}
+	}, [])
 
 	const openEditModal = () => {
 		props.openModal(props.imgProp, true, "editPainting")
@@ -22,11 +44,12 @@ const Painting = (props) => {
 
 	return (
 		<div
+			ref={paintingRef}
 			className={`${styles.imgContainer} ${
 				showImages || props.filter === ""
 					? "p-relative"
 					: "display-none"
-			}`}
+			} ${colorize ? styles.colorize : ""}`}
 		>
 			{user && (
 				<button
