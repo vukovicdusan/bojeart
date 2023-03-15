@@ -11,22 +11,26 @@ const Painting = (props) => {
 	let paintingRef = useRef()
 
 	useEffect(() => {
-		let config = {
-			threshold: 1,
-		}
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					setColorize(true)
-				} else {
-					setColorize(false)
+		if (typeof window !== "undefined") {
+			const mediaQuery = window.matchMedia("(max-width: 768px)")
+			let config = {
+				threshold: 1,
+			}
+			if (mediaQuery.matches) {
+				const observer = new IntersectionObserver((entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							setColorize(true)
+						} else {
+							setColorize(false)
+						}
+					})
+				}, config)
+				observer.observe(paintingRef.current)
+				return () => {
+					observer.disconnect()
 				}
-			})
-		}, config)
-		observer.observe(paintingRef.current)
-
-		return () => {
-			observer.disconnect()
+			}
 		}
 	}, [])
 
