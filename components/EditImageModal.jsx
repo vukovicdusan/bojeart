@@ -11,7 +11,7 @@ const EditImageModal = (props) => {
 	const [dimensions, setDimensions] = useState(props.editModalData.dimensions)
 	const [category, setCategory] = useState(props.editModalData.category)
 
-	const user = useContext(LoginContext)
+	const ctx = useContext(LoginContext)
 	let router = useRouter()
 
 	const inputChangeHandler = (e) => {
@@ -50,8 +50,7 @@ const EditImageModal = (props) => {
 	// 	props.editImage(false)
 	// }
 
-	const author = user === "jelena@gmail.com" ? "jelena" : "bojan"
-
+	const author = ctx.user === "jelena@gmail.com" ? "jelena" : "bojan"
 	return (
 		<form
 			onSubmit={editImageSubmitHandler}
