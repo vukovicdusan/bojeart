@@ -3,8 +3,10 @@ import { getFirestore } from "firebase/firestore"
 import { getAuth } from "firebase/auth"
 import { getStorage } from "firebase/storage"
 
+let api = process.env.BOJEART_FIREBASE_KEY
+
 const firebaseConfig = {
-	apiKey: "AIzaSyBGOdbm1wcqIbxvUjZQ3VMGSQLaQtIteDk",
+	apiKey: `'${api}'`,
 	authDomain: "bojeart-89dc8.firebaseapp.com",
 	databaseURL:
 		"https://bojeart-89dc8-default-rtdb.europe-west1.firebasedatabase.app",
