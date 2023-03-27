@@ -5,6 +5,11 @@ const nextConfig = {
 	images: {
 		domains: ["firebasestorage.googleapis.com"],
 	},
+	env: {
+		BOJEART_FIREBASE_KEY: process.env.BOJEART_FIREBASE_KEY,
+		EMAIL: process.env.EMAIL,
+		EMAIL_PASS: process.env.EMAIL_PASS,
+	},
 	async headers() {
 		return [
 			{
