@@ -37,18 +37,12 @@ const EditImageModal = (props) => {
 		} catch (err) {
 			console.log(err)
 		}
-		// closeEditModalHandler(e)
 		router.reload({ shallow: true })
 	}
 
 	const deleteImageHandler = async () => {
 		await deleteDoc(doc(db, "slike", props.editModalData.id))
 	}
-
-	// const closeEditModalHandler = (e) => {
-	// 	e.preventDefault(e)
-	// 	props.editImage(false)
-	// }
 
 	const author = ctx.user === "jelena@gmail.com" ? "jelena" : "bojan"
 	return (
