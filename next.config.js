@@ -6,9 +6,9 @@ const nextConfig = {
 		domains: ["firebasestorage.googleapis.com"],
 	},
 	env: {
-		BOJEART_FIREBASE_KEY: process.env.BOJEART_FIREBASE_KEY,
-		EMAIL: process.env.EMAIL,
-		EMAIL_PASS: process.env.EMAIL_PASS,
+		NEXT_BOJEART_FIREBASE_KEY: process.env.NEXT_BOJEART_FIREBASE_KEY,
+		NEXT_EMAIL: process.env.NEXT_EMAIL,
+		NEXT_EMAIL_PASS: process.env.NEXT_EMAIL_PASS,
 	},
 	async headers() {
 		return [
