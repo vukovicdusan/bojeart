@@ -21,10 +21,10 @@ const about = () => {
 		}
 	}
 	const bojanAbout =
-		"Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur tempora tenetur velit illo voluptatem expedit anatus numquam veritatis porro ipsam delectusnecessitatibus rerum, eligendi aperiam. Officia facilisanimi atque aperiam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat modi excepturi consequatur consequuntur cupiditate itaque odit, ullamdolor aut. Digniss imos aperiam, quaerat ducimus,voluptate consequ untur ipsa odio sapiente veritatisnihil laudantium voluptatibus harum vero quis autem cum! Nam, expedita in."
+		"Bojan je rođen 1975. godine u Beogradu. Diplomirao je na Fakultetu primenjenih umetnosti 2001. na odseku za slikarstvo. Od 2018. godine radi kao stamostalni umetnik. Ostvario je više od 25 samostalnih i oko 100 grupnih izložbi. Njegove slike iz raznih opusa se nalaze u mnogim zemljama Evrope i sveta. Osim slikanja, bavi se i pedagoškim radom. Trenutno je posvećen art terapiji i radu sa ljudima obolelim od cerebralne paralize. Bojan živi i radi u Beogradu."
 
 	const jelenaAbout =
-		"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus id soluta fuga inventore et natus possimus provident doloribus animi cupiditate maiores quasi, omnis perferendis voluptate nobis ipsam? Cupiditate vel ipsa earum aliquam officia voluptatum dicta quae explicabo quas dolore nihil harum assumenda natus quisquam atque tempora, distinctio fugiat. Tenetur molestias praesentium nihil eum repudiandae eius ex, veritatis quae nostrum earum laboriosam. Incidunt veniam voluptatibus explicabo optio excepturi deleniti, iusto, quia ad laudantium culpa recusandae? Ut quis quisquam distinctio quaerat voluptatibus?"
+		"Jelena je rođena u Užicu, 1976.godine. Diplomirala je na Fakultetu primenjenih umetnosti u Beogradu 2001.na odseku zidnog slikarstva, i magistrirala 2005. na istom fakultetu. Izlagala je na više samostalnih i grupnih izložbi u zemlji i inostranstvu. Učesnica je većeg broja likovnih kolonija i međunarodnih kampova. Živi i radi u Beogradu."
 
 	return (
 		<Region>
