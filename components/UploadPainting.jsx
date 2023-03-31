@@ -5,6 +5,7 @@ import { storage, db } from "../public/firebase/firebase"
 import ImageReducer from "../reducers/ImageReducer"
 import { useRouter } from "next/router"
 import LoginCtx from "../store/LoginCtx"
+import Resizer from "react-image-file-resizer"
 
 const date = new Date()
 const writeDate = date.toLocaleDateString("sr-RS")
@@ -24,6 +25,7 @@ const UploadImage = () => {
 	const [progress, setProgress] = useState(null)
 	const [imageState, dispatch] = useReducer(ImageReducer, init_state)
 	const { user } = useContext(LoginCtx)
+	const [resizedImage, setResizedImage] = useState("")
 	const router = useRouter()
 
 	useEffect(() => {
@@ -35,8 +37,16 @@ const UploadImage = () => {
 		setImgUploaded(false)
 	}, [imgUploaded])
 
+	useEffect(() => {
+		dispatch({
+			type: "IMAGE_INPUT",
+			payload: resizedImage,
+		})
+	}, [resizedImage])
+
 	const uploadImageHandler = (e) => {
 		e.preventDefault()
+		console.log(imageState)
 		try {
 			const imgName = date.getTime() + author
 			const storageRef = ref(storage, imgName)
@@ -49,24 +59,20 @@ const UploadImage = () => {
 				(snapshot) => {
 					const progress =
 						(snapshot.bytesTransferred / snapshot.totalBytes) * 100
-					// console.log("Upload is " + progress + "% done")
+
 					setProgress(progress)
 					switch (snapshot.state) {
 						case "paused":
-							// console.log("Upload is paused")
-							break
+
 						case "running":
-							// console.log("Upload is running")
 							break
 					}
 					setImgUploaded(true)
 				},
 				(error) => {
-					// Handle unsuccessful uploads
 					console.log(error)
 				},
 				() => {
-					// Handle successful uploads on complete
 					getDownloadURL(uploadTask.snapshot.ref).then(
 						async (downloadURL) => {
 							await addDoc(collection(db, "slike"), {
@@ -105,11 +111,24 @@ const UploadImage = () => {
 		})
 	}
 
-	const imageInputHandler = (e) => {
-		dispatch({
-			type: "IMAGE_INPUT",
-			payload: e.target.files[0],
-		})
+	const imageInputHandler = async (e) => {
+		try {
+			Resizer.imageFileResizer(
+				e.target.files[0],
+				800,
+				800,
+				"JPEG",
+				85,
+				0,
+				(uri) => {
+					setResizedImage(uri)
+					console.log(uri)
+				},
+				"file"
+			)
+		} catch (err) {
+			console.log(err)
+		}
 	}
 
 	const author = user === "jelena@gmail.com" ? "jelena" : "bojan"
