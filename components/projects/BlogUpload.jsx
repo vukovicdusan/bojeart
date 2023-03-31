@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import dynamic from "next/dynamic"
 const ReactQuill = dynamic(import("react-quill"), { ssr: false })
 import "react-quill/dist/quill.snow.css"
@@ -8,6 +8,7 @@ import { storage, db } from "../../public/firebase/firebase"
 import { serverTimestamp } from "firebase/firestore"
 import { useRouter } from "next/router"
 import LoginCtx from "../../store/LoginCtx"
+import Resizer from "react-image-file-resizer"
 
 const date = new Date()
 const writeDate = date.toLocaleDateString("sr-RS")
@@ -46,24 +47,19 @@ const UploadBlog = () => {
 				(snapshot) => {
 					const progress =
 						(snapshot.bytesTransferred / snapshot.totalBytes) * 100
-					// console.log("Upload is " + progress + "% done")
+
 					setProgress(progress)
 					switch (snapshot.state) {
 						case "paused":
-							// console.log("Upload is paused")
 							break
 						case "running":
-							// console.log("Upload is running")
 							break
 					}
-					// setImgUploaded(true)
 				},
 				(error) => {
-					// Handle unsuccessful uploads
 					console.log(error)
 				},
 				() => {
-					// Handle successful uploads on complete
 					getDownloadURL(uploadTask.snapshot.ref).then(
 						async (downloadURL) => {
 							await addDoc(collection(db, "blog"), {
@@ -85,7 +81,22 @@ const UploadBlog = () => {
 	}
 
 	const imageInputHandler = (e) => {
-		setBlogImage(e.target.files[0])
+		try {
+			Resizer.imageFileResizer(
+				e.target.files[0],
+				400,
+				400,
+				"JPEG",
+				80,
+				0,
+				(uri) => {
+					setBlogImage(uri)
+				},
+				"file"
+			)
+		} catch (err) {
+			console.log(err)
+		}
 	}
 
 	return (

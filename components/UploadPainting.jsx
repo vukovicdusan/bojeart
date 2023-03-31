@@ -118,11 +118,10 @@ const UploadImage = () => {
 				800,
 				800,
 				"JPEG",
-				85,
+				80,
 				0,
 				(uri) => {
 					setResizedImage(uri)
-					console.log(uri)
 				},
 				"file"
 			)
