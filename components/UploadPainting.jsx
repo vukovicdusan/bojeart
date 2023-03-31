@@ -25,7 +25,6 @@ const UploadImage = () => {
 	const [progress, setProgress] = useState(null)
 	const [imageState, dispatch] = useReducer(ImageReducer, init_state)
 	const { user } = useContext(LoginCtx)
-	const [resizedImage, setResizedImage] = useState("")
 	const router = useRouter()
 
 	useEffect(() => {
@@ -36,13 +35,6 @@ const UploadImage = () => {
 			})
 		setImgUploaded(false)
 	}, [imgUploaded])
-
-	useEffect(() => {
-		dispatch({
-			type: "IMAGE_INPUT",
-			payload: resizedImage,
-		})
-	}, [resizedImage])
 
 	const uploadImageHandler = (e) => {
 		e.preventDefault()
@@ -121,7 +113,10 @@ const UploadImage = () => {
 				80,
 				0,
 				(uri) => {
-					setResizedImage(uri)
+					dispatch({
+						type: "IMAGE_INPUT",
+						payload: uri,
+					})
 				},
 				"file"
 			)
