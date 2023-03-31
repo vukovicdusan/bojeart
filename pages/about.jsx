@@ -2,8 +2,8 @@ import React, { useState } from "react"
 import Head from "next/head"
 import Image from "next/image"
 import * as styles from "../styles/About.module.css"
-import portrait1 from "../public/images/dushawn-jovic-2w7qbVHOqYU-unsplash.jpg"
-import portrait2 from "../public/images/kumpan-electric-4QhDfdkzHUY-unsplash.jpg"
+import portrait1 from "../public/images/jelena.jpeg"
+import portrait2 from "../public/images/bojan.jpeg"
 import Region from "../components/layout/Region"
 
 const about = () => {
