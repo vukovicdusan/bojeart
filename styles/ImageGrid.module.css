@@ -33,7 +33,7 @@
 .modalImgContainer {
 	position: relative;
 	inline-size: 80vw;
-	block-size: 60vh;
+	block-size: 80vh;
 }
 
 .modalImg {
@@ -42,8 +42,8 @@
 
 .modalImgDescription,
 .modalImgTitle {
-	position: absolute;
-	bottom: -15%;
+	position: fixed;
+	/* bottom: 15px; */
 	left: 50%;
 	transform: translateX(-50%);
 	color: var(--text-secondary);
@@ -57,8 +57,12 @@
 	font-size: var(--s0);
 }
 
+.modalImgDescription {
+ bottom: 15px;
+}
+
 .modalImgTitle {
-	bottom: 110%;
+	top: 15px;
 }
 .modalImgOpen {
 	opacity: 1;
