@@ -3,6 +3,11 @@
 	margin-block-start: var(--s4);
 }
 
+
+.bojanSocials, .jelenaSocials {
+	margin-inline: auto;
+}
+
 .bojanSocials svg {
 	fill: var(--text-primary);
 	transition: fill 0.2s ease-in-out;
@@ -29,8 +34,8 @@
 .footerBottom > * {
 	display: flex;
 }
-.footerBottom > *:nth-child(2),
-.footerBottom > *:nth-child(3) {
+.footerBottom > *:nth-child(3),
+.footerBottom > *:nth-child(4) {
 	display: flex;
 	justify-content: center;
 	align-items: center;
