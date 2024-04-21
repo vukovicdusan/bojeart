@@ -74,6 +74,11 @@
 	inline-size: 100%;
 }
 
+.mobileNavSocials > div {
+	--wrap-justify: center;
+	--wrap-align: center;
+	text-align: center;
+}
 .authorMenu {
 	border-block-start: 1px solid var(--text-primary);
 	padding-block-start: var(--s-1);
