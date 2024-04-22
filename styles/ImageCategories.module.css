@@ -1,0 +1,19 @@
+.delete {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.delete:hover svg {
+  fill: var(--secondary);
+  transform: translateY(2px);
+}
+
+.delete svg {
+  fill: indianred;
+  transition: fill 0.2s ease;
+}
+
+.newCategoryform button {
+  margin-top: 0.5rem;
+}
