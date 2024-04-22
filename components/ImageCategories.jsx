@@ -36,6 +36,7 @@ const ImageCategories = (props) => {
   return (
     <>
       <ul>
+        <h3>Kategorije</h3>
         {props.categories
           .filter((cat) => cat.author === author)
           .map((cat) => (

@@ -14,6 +14,11 @@
   transition: fill 0.2s ease;
 }
 
+.newCategoryform {
+  padding-top: var(--s0);
+  border-top: 1px solid var(--main);
+}
+
 .newCategoryform button {
   margin-top: 0.5rem;
 }
