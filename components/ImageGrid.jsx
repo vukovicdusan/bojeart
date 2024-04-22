@@ -135,7 +135,7 @@ const ImageGrid = (props) => {
     default:
       "";
   }
-
+  console.log(catFilterHandler);
   return (
     <Region>
       {openGeneralModal ? (
@@ -182,6 +182,7 @@ const ImageGrid = (props) => {
           <CategoryFilter
             catFilterHandler={catFilterHandler}
             filter={filter}
+            categories={props.categories}
           ></CategoryFilter>
         )}
         {categoriesFilter !== "projekti" ? (
