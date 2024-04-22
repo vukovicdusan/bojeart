@@ -32,12 +32,6 @@ const LoginReducer = (state, action) => {
             category: action.payload,
             author: action.author,
           };
-        // case "newCategory":
-        //   return {
-        //     ...state,
-        //     category: action.payload,
-        //     author: action.author,
-        //   };
         default:
           return state;
       }

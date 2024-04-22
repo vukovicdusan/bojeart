@@ -135,7 +135,7 @@ const ImageGrid = (props) => {
     default:
       "";
   }
-  console.log(catFilterHandler);
+
   return (
     <Region>
       {openGeneralModal ? (
