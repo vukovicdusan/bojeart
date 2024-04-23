@@ -4,7 +4,7 @@ import { db, storage } from "../public/firebase/firebase";
 import { useRouter } from "next/router";
 import LoginContext from "../store/LoginCtx";
 import categoriesPerAuthorHandler from "../helpers/categoriesPerAuthorHandlere";
-import { ref } from "firebase/storage";
+import { deleteObject, ref } from "firebase/storage";
 
 const EditImageModal = (props) => {
   const [imgName, setImgName] = useState(props.editModalData.imgName);
@@ -42,10 +42,20 @@ const EditImageModal = (props) => {
     router.reload({ shallow: true });
   };
 
-  const deleteImageHandler = async () => {
+  const deleteImageHandler = async (e) => {
+    e.preventDefault();
+    const deleteRef = ref(storage, props.editModalData.image);
+    deleteObject(deleteRef)
+      .then(() => {
+        // File deleted successfully
+      })
+      .catch((error) => {
+        // Uh-oh, an error occurred!
+      });
     await deleteDoc(doc(db, "slike", props.editModalData.id));
+    router.reload({ shallow: true });
   };
-  console.log(imgName);
+
   const author = ctx.user === "jelena@gmail.com" ? "jelena" : "bojan";
 
   return (
