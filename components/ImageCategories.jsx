@@ -19,8 +19,8 @@ const ImageCategories = (props) => {
     try {
       await setDoc(doc(db, "categories", slug), {
         author: author,
-        category: newCategory,
-        slug: slug,
+        category: newCategory.toLowerCase(),
+        slug: slug.toLowerCase(),
       });
       router.reload();
     } catch (err) {

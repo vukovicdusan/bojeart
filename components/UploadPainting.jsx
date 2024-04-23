@@ -6,6 +6,7 @@ import ImageReducer from "../reducers/ImageReducer";
 import { useRouter } from "next/router";
 import LoginCtx from "../store/LoginCtx";
 import Resizer from "react-image-file-resizer";
+import categoriesPerAuthorHandler from "../helpers/categoriesPerAuthorHandlere";
 
 const date = new Date();
 const writeDate = date.toLocaleDateString("sr-RS");
@@ -26,6 +27,7 @@ const UploadImage = (props) => {
   const [imageState, dispatch] = useReducer(ImageReducer, init_state);
   const { user } = useContext(LoginCtx);
   const router = useRouter();
+  const author = user === "jelena@gmail.com" ? "jelena" : "bojan";
 
   useEffect(() => {
     imgUploaded &&
@@ -71,11 +73,9 @@ const UploadImage = (props) => {
               image: downloadURL,
               year: imageState.year,
               category:
-                !imageState.category && author === "bojan"
-                  ? "brodovi"
-                  : !imageState.category && author === "jelena"
-                  ? "crtezi"
-                  : imageState.category,
+                imageState.category ||
+                categoriesPerAuthorHandler(props.categories, author)[0]
+                  .category,
               material: imageState.material,
               dimensions: imageState.dimensions,
             });
@@ -119,7 +119,11 @@ const UploadImage = (props) => {
     }
   };
 
-  const author = user === "jelena@gmail.com" ? "jelena" : "bojan";
+  // const categoriesPerAuthorHandler = () => {
+  //   return props.categories.filter((cat) => cat.author === author);
+  // };
+
+  categoriesPerAuthorHandler(props.categories, author);
 
   return (
     <form onSubmit={uploadImageHandler} className="[ stack ] [ z-top ]">
@@ -188,17 +192,19 @@ const UploadImage = (props) => {
       <div className="d-flex-c">
         <label htmlFor="category">Kategorija</label>
         <select
-          value={imageState.category}
+          defaultValue={
+            categoriesPerAuthorHandler(props.categories, author)[0].slug
+          }
           name="category"
           id="category"
           onChange={inputChangeHandler}
           required
         >
-          {props.categories
-            .filter((cat) => cat.author === author)
-            .map((cat) => (
-              <option key={cat.slug}>{cat.category}</option>
-            ))}
+          {categoriesPerAuthorHandler(props.categories, author).map((cat) => (
+            <option value={cat.slug} key={cat.slug}>
+              {cat.category}
+            </option>
+          ))}
         </select>
       </div>
 

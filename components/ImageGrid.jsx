@@ -46,7 +46,6 @@ const ImageGrid = (props) => {
   const catFilterHandler = (category) => {
     setCategoriesFilter(category);
   };
-  console.log(categoriesFilter);
   const gridListSwitcherHandler = (e) => {
     setGrid(e);
   };
@@ -80,7 +79,10 @@ const ImageGrid = (props) => {
 
     case "editPainting":
       modalContent = (
-        <EditImageModal editModalData={modalData}></EditImageModal>
+        <EditImageModal
+          categories={props.categories}
+          editModalData={modalData}
+        ></EditImageModal>
       );
       break;
 

@@ -3,7 +3,9 @@ import * as styles from "../styles/CategoryFilter.module.css";
 
 const CategoryFilter = (props) => {
   const changeFilterHandler = (e) => {
-    props.catFilterHandler(e.target.innerHTML.toLowerCase());
+    props.catFilterHandler(
+      e.target.innerHTML.toLowerCase().split(" ").join("-")
+    );
   };
   return (
     <ul className={`${styles.categoryWrap} [ wrap ]`}>
