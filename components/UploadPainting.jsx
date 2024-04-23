@@ -119,12 +119,6 @@ const UploadImage = (props) => {
     }
   };
 
-  // const categoriesPerAuthorHandler = () => {
-  //   return props.categories.filter((cat) => cat.author === author);
-  // };
-
-  categoriesPerAuthorHandler(props.categories, author);
-
   return (
     <form onSubmit={uploadImageHandler} className="[ stack ] [ z-top ]">
       <div className="d-flex-c">
