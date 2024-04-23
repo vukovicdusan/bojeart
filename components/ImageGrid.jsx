@@ -46,7 +46,7 @@ const ImageGrid = (props) => {
   const catFilterHandler = (category) => {
     setCategoriesFilter(category);
   };
-
+  console.log(categoriesFilter);
   const gridListSwitcherHandler = (e) => {
     setGrid(e);
   };
@@ -185,7 +185,7 @@ const ImageGrid = (props) => {
             categories={props.categories}
           ></CategoryFilter>
         )}
-        {categoriesFilter !== "projekti" ? (
+        {categoriesFilter !== "izložbe" ? (
           <GridListSwitcher
             switcher={gridListSwitcherHandler}
           ></GridListSwitcher>
@@ -196,7 +196,7 @@ const ImageGrid = (props) => {
             grid ? "[ grid ]" : "[ stack ]"
           } [ mr-bs-2 ]`}
         >
-          {categoriesFilter === "projekti"
+          {categoriesFilter === "izložbe"
             ? props.blogList?.map((post) => (
                 <ProjectItem
                   key={post.id}

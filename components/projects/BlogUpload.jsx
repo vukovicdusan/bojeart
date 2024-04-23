@@ -1,7 +1,7 @@
-import React, { useState, useContext, useEffect } from "react";
-// import dynamic from "next/dynamic"
-// const ReactQuill = dynamic(import("react-quill"), { ssr: false })
-// import "react-quill/dist/quill.snow.css"
+import React, { useState, useContext, useEffect, useMemo } from "react";
+import dynamic from "next/dynamic";
+
+import "react-quill/dist/quill.snow.css";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { collection, addDoc } from "firebase/firestore";
 import { storage, db } from "../../public/firebase/firebase";
@@ -20,7 +20,11 @@ const UploadBlog = () => {
   const [progress, setProgress] = useState(null);
   const { user } = useContext(LoginCtx);
   const router = useRouter();
-
+  const ReactQuill = useMemo(
+    () => dynamic(() => import("react-quill"), { ssr: false }),
+    []
+  );
+  // const ReactQuill = dynamic(import("react-quill"), { ssr: false });
   const author = user === "jelena@gmail.com" ? "jelena" : "bojan";
 
   const quillModules = {
@@ -99,13 +103,13 @@ const UploadBlog = () => {
 
   return (
     <div className="stack">
-      {/* <ReactQuill
+      <ReactQuill
         theme="snow"
         value={quillValue}
         onChange={setQuillValue}
         modules={quillModules}
         placeholder={"Piši ovde..."}
-      /> */}
+      />
 
       <form onSubmit={contentInputHandler} className="[ stack ] [ z-top ]">
         <div className="d-flex-c">
