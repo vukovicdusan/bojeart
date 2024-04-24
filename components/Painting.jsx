@@ -47,13 +47,19 @@ const Painting = (props) => {
   let showCat =
     props.catFilter && props.catFilter === props.imgProp.category.toLowerCase();
   let showImages = showCat === "" ? showAuthor : showAuthor && showCat;
-
+  // console.log("showCat:",showCat, props.catFilter );
   return (
+    // <div
+    //   ref={paintingRef}
+    //   className={`${styles.imgContainer} ${
+    //     showImages || props.filter === "" ? "p-relative" : "display-none"
+    //   } ${colorize ? styles.colorize : ""}`}
+    // >
     <div
       ref={paintingRef}
       className={`${styles.imgContainer} ${
-        showImages || props.filter === "" ? "p-relative" : "display-none"
-      } ${colorize ? styles.colorize : ""}`}
+        colorize ? styles.colorize : ""
+      } p-relative`}
     >
       {user && (
         <button

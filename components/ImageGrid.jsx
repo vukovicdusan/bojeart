@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
 import Region from "../components/layout/Region";
 import * as styles from "../styles/ImageGrid.module.css";
-import Painting from "./Painting";
+
 import GridListSwitcher from "./GridListSwitcher";
 import Modal from "./Modal";
 import EditImageModal from "./EditImageModal";
 import CategoryFilter from "./CategoryFilter";
-import ProjectItem from "./projects/ProjectItem";
+
 import Image from "next/image";
 import Loader from "../components/Loader";
 import ClientOnly from "./ClientOnly";
 import EditProjectModal from "./projects/EditProjectModal";
 import ChevronDown from "./svg/ChevronDown";
 import AnimationContainer from "./AnimationContainer";
+
+import ShowItems from "./ShowItems";
 
 const ImageGrid = (props) => {
   const [filter, setFilter] = useState("");
@@ -23,7 +25,7 @@ const ImageGrid = (props) => {
   const [openGeneralModal, setOpenGeneralModal] = useState(false);
   const [modalData, setModalData] = useState("");
   const [modalType, setModalType] = useState("");
-  const [imgsToShow, setImgsToShow] = useState(6);
+  const [itemsToShow, setItemsToShow] = useState(6);
 
   useEffect(() => {
     openGeneralModal
@@ -141,8 +143,8 @@ const ImageGrid = (props) => {
       "";
   }
 
-  const loadMoreImgsHandler = () => {
-    setImgsToShow(imgsToShow + 3);
+  const loadMoreItemsHandler = () => {
+    setItemsToShow(itemsToShow + 3);
   };
 
   return (
@@ -174,7 +176,7 @@ const ImageGrid = (props) => {
               }
               onClick={(e) => authorFilterHandler(e, "sve")}
             >
-              Sve
+              Mix
             </button>
             <button
               aria-label="autor filter"
@@ -207,29 +209,18 @@ const ImageGrid = (props) => {
             grid ? "[ grid ]" : "[ stack ]"
           } [ mr-bs-2 ]`}
         >
-          {categoriesFilter === "izložbe"
-            ? props.blogList?.map((post) => (
-                <ProjectItem
-                  key={post.id}
-                  filter={filter}
-                  postContent={post}
-                  // editProject={editProject}
-                  openModal={openModal}
-                ></ProjectItem>
-              ))
-            : props.imgList?.map((img) => (
-                <Painting
-                  openModal={openModal}
-                  // editImage={editImage}
-                  filter={filter}
-                  catFilter={categoriesFilter}
-                  key={img.id}
-                  imgProp={img}
-                ></Painting>
-              ))}
+          <ShowItems
+            itemsToShow={itemsToShow}
+            categoriesFilter={categoriesFilter}
+            // postContent={postContent}
+            imgList={props.imgList}
+            blogList={props.blogList}
+            openModal={openModal}
+            filter={filter}
+          ></ShowItems>
         </div>
-        {/* <button
-          onClick={loadMoreImgsHandler}
+        <button
+          onClick={loadMoreItemsHandler}
           className={`${styles.loadMoreBtn} [ button ]`}
         >
           Još slika molim
@@ -238,7 +229,7 @@ const ImageGrid = (props) => {
             height={15}
             fill={"var(--main)"}
           ></ChevronDown>
-        </button> */}
+        </button>
       </div>
     </Region>
   );
