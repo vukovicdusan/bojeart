@@ -11,6 +11,7 @@ import Image from "next/image";
 import Loader from "../components/Loader";
 import ClientOnly from "./ClientOnly";
 import EditProjectModal from "./projects/EditProjectModal";
+import ChevronDown from "./svg/ChevronDown";
 
 const ImageGrid = (props) => {
   const [filter, setFilter] = useState("");
@@ -21,6 +22,7 @@ const ImageGrid = (props) => {
   const [openGeneralModal, setOpenGeneralModal] = useState(false);
   const [modalData, setModalData] = useState("");
   const [modalType, setModalType] = useState("");
+  const [imgsToShow, setImgsToShow] = useState(6);
 
   useEffect(() => {
     openGeneralModal
@@ -138,6 +140,10 @@ const ImageGrid = (props) => {
       "";
   }
 
+  const loadMoreImgsHandler = () => {
+    setImgsToShow(imgsToShow + 3);
+  };
+
   return (
     <Region>
       {openGeneralModal ? (
@@ -208,7 +214,7 @@ const ImageGrid = (props) => {
                   openModal={openModal}
                 ></ProjectItem>
               ))
-            : props.imgList?.map((img) => (
+            : props.imgList?.slice(0, imgsToShow).map((img) => (
                 <Painting
                   openModal={openModal}
                   // editImage={editImage}
@@ -219,6 +225,17 @@ const ImageGrid = (props) => {
                 ></Painting>
               ))}
         </div>
+        <button
+          onClick={loadMoreImgsHandler}
+          className={`${styles.loadMoreBtn} [ button ]`}
+        >
+          Još slika molim
+          <ChevronDown
+            width={15}
+            height={15}
+            fill={"var(--main)"}
+          ></ChevronDown>
+        </button>
       </div>
     </Region>
   );
