@@ -1,6 +1,7 @@
 import React from "react";
 import * as styles from "../styles/CategoryFilter.module.css";
 import categoriesPerAuthorHandler from "../helpers/categoriesPerAuthorHandlere";
+import AnimationContainer from "./AnimationContainer";
 
 const CategoryFilter = (props) => {
   const changeFilterHandler = (e) => {
@@ -9,6 +10,7 @@ const CategoryFilter = (props) => {
     );
   };
   return (
+    // <AnimationContainer>
     <ul className={`${styles.categoryWrap} [ wrap ]`}>
       {categoriesPerAuthorHandler(props.categories, props.filter).map((cat) => (
         <li key={cat.slug}>
@@ -30,6 +32,7 @@ const CategoryFilter = (props) => {
         </button>
       </li>
     </ul>
+    // </AnimationContainer>
   );
 };
 

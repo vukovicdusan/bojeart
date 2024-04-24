@@ -12,6 +12,7 @@ import Loader from "../components/Loader";
 import ClientOnly from "./ClientOnly";
 import EditProjectModal from "./projects/EditProjectModal";
 import ChevronDown from "./svg/ChevronDown";
+import AnimationContainer from "./AnimationContainer";
 
 const ImageGrid = (props) => {
   const [filter, setFilter] = useState("");
@@ -153,39 +154,41 @@ const ImageGrid = (props) => {
       ) : null}
 
       <div className={`${styles.gridStack} [ stack ]`}>
-        <div className={`${styles.gridWrap} [ wrap ]`}>
-          <button
-            aria-label="autor filter"
-            className={
-              filter === "jelena"
-                ? `${styles.activeBtn} [ button ]`
-                : "[ button ]"
-            }
-            onClick={(e) => authorFilterHandler(e, "jelena")}
-          >
-            Jelena Tijanić Savić
-          </button>
-          <button
-            aria-label="autor filter"
-            className={
-              filter === "" ? `${styles.activeBtn} [ button ]` : "[ button ]"
-            }
-            onClick={(e) => authorFilterHandler(e, "sve")}
-          >
-            Sve
-          </button>
-          <button
-            aria-label="autor filter"
-            className={
-              filter === "bojan"
-                ? `${styles.activeBtn} [ button ]`
-                : "[ button ]"
-            }
-            onClick={(e) => authorFilterHandler(e, "bojan")}
-          >
-            Bojan Savić
-          </button>
-        </div>
+        <AnimationContainer>
+          <div className={`${styles.gridWrap} [ wrap ]`}>
+            <button
+              aria-label="autor filter"
+              className={
+                filter === "jelena"
+                  ? `${styles.activeBtn} [ button ]`
+                  : "[ button ]"
+              }
+              onClick={(e) => authorFilterHandler(e, "jelena")}
+            >
+              Jelena Tijanić Savić
+            </button>
+            <button
+              aria-label="autor filter"
+              className={
+                filter === "" ? `${styles.activeBtn} [ button ]` : "[ button ]"
+              }
+              onClick={(e) => authorFilterHandler(e, "sve")}
+            >
+              Sve
+            </button>
+            <button
+              aria-label="autor filter"
+              className={
+                filter === "bojan"
+                  ? `${styles.activeBtn} [ button ]`
+                  : "[ button ]"
+              }
+              onClick={(e) => authorFilterHandler(e, "bojan")}
+            >
+              Bojan Savić
+            </button>
+          </div>
+        </AnimationContainer>
         {filter !== "" && (
           <CategoryFilter
             catFilterHandler={catFilterHandler}
