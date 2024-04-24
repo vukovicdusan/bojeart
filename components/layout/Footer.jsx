@@ -34,7 +34,7 @@ const Footer = () => {
               <div>Terms of Use/Privacy Policy</div>
               <div className="stack">
                 <p>Bojan Savić</p>
-                <a href="tel:+381641506500">+381641506500</a>
+                <a href="tel:+381606773776">+381606773776</a>
                 <ul className={`${styles.bojanSocials} [ wrap ]`}>
                   <li>
                     <a
@@ -91,7 +91,7 @@ const Footer = () => {
               </div>
               <div className="stack">
                 <p>Jelena Tijanić Savić</p>
-                <a href="tel:+381606773776">+381606773776</a>
+                <a href="tel:+381641506500">+381641506500</a>
                 <ul className={`${styles.jelenaSocials} [ wrap ]`}>
                   <li>
                     <a

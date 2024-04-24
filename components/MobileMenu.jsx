@@ -75,7 +75,7 @@ const MobileMenu = (props) => {
         <div className={`${styles.mobileNavSocials} [ wrap ]`}>
           <div>
             <p>Bojan Savić</p>
-            <a href="tel:+381641506500">+381641506500</a>
+            <a href="tel:+381606773776">+381606773776</a>
             <ul onClick={closeMenu} className="wrap">
               <li>
                 <a href="https://www.instagram.com/bojanartsavic/">
@@ -117,7 +117,7 @@ const MobileMenu = (props) => {
           </div>
           <div>
             <p>Jelena Tijanić Savić</p>
-            <a href="tel:+381606773776">+381606773776</a>
+            <a href="tel:+381641506500">+381641506500</a>
             <ul onClick={closeMenu} className="wrap">
               <li>
                 <a href="https://www.instagram.com/tijanic_savic_jelena_art/">
