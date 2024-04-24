@@ -217,7 +217,7 @@ const ImageGrid = (props) => {
                   openModal={openModal}
                 ></ProjectItem>
               ))
-            : props.imgList?.slice(0, imgsToShow).map((img) => (
+            : props.imgList?.map((img) => (
                 <Painting
                   openModal={openModal}
                   // editImage={editImage}
@@ -228,7 +228,7 @@ const ImageGrid = (props) => {
                 ></Painting>
               ))}
         </div>
-        <button
+        {/* <button
           onClick={loadMoreImgsHandler}
           className={`${styles.loadMoreBtn} [ button ]`}
         >
@@ -238,7 +238,7 @@ const ImageGrid = (props) => {
             height={15}
             fill={"var(--main)"}
           ></ChevronDown>
-        </button>
+        </button> */}
       </div>
     </Region>
   );
