@@ -78,7 +78,12 @@ const MobileMenu = (props) => {
             <a href="tel:+381606773776">+381606773776</a>
             <ul onClick={closeMenu} className="wrap">
               <li>
-                <a href="https://www.instagram.com/bojanartsavic/">
+                <a
+                  title="instagram"
+                  target="_blank"
+                  rel="noopener"
+                  href="https://www.instagram.com/bojanartsavic/"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -102,7 +107,12 @@ const MobileMenu = (props) => {
 								</a>
 							</li> */}
               <li>
-                <a href="https://www.facebook.com/profile.php?id=100063528998678">
+                <a
+                  title="facebook"
+                  target="_blank"
+                  rel="noopener"
+                  href="https://www.facebook.com/profile.php?id=100063528998678"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -120,7 +130,12 @@ const MobileMenu = (props) => {
             <a href="tel:+381641506500">+381641506500</a>
             <ul onClick={closeMenu} className="wrap">
               <li>
-                <a href="https://www.instagram.com/tijanic_savic_jelena_art/">
+                <a
+                  title="instagram"
+                  target="_blank"
+                  rel="noopener"
+                  href="https://www.instagram.com/tijanic_savic_jelena_art/"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -144,7 +159,12 @@ const MobileMenu = (props) => {
 								</a>
 							</li> */}
               <li>
-                <a href="https://www.facebook.com/JelenaTijanicSavicOfficial/">
+                <a
+                  title="facebook"
+                  target="_blank"
+                  rel="noopener"
+                  href="https://www.facebook.com/JelenaTijanicSavicOfficial/"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"

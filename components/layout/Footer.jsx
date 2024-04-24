@@ -40,6 +40,8 @@ const Footer = () => {
                     <a
                       href="https://www.instagram.com/bojanartsavic/"
                       title="Instagram"
+                      target="_blank"
+                      rel="noopener"
                     >
                       <svg
                         aria-hidden="true"
@@ -73,6 +75,8 @@ const Footer = () => {
                     <a
                       href="https://www.facebook.com/profile.php?id=100063528998678"
                       title="Facebook"
+                      target="_blank"
+                      rel="noopener"
                     >
                       <svg
                         aria-hidden="true"
@@ -97,6 +101,8 @@ const Footer = () => {
                     <a
                       href="https://www.instagram.com/tijanic_savic_jelena_art/"
                       title="Instagram"
+                      target="_blank"
+                      rel="noopener"
                     >
                       <svg
                         aria-hidden="true"
@@ -130,6 +136,8 @@ const Footer = () => {
                     <a
                       href="https://www.facebook.com/JelenaTijanicSavicOfficial/"
                       title="Facebook"
+                      target="_blank"
+                      rel="noopener"
                     >
                       <svg
                         aria-hidden="true"
