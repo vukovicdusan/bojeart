@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import ProjectItem from "./projects/ProjectItem";
 import Painting from "./Painting";
 
@@ -15,7 +15,6 @@ const ShowItems = (props) => {
   };
 
   const allImagesShuffleHandler = (list) => {
-    // Shuffle the array using Fisher-Yates algorithm
     for (let i = list.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [list[i], list[j]] = [list[j], list[i]];
@@ -23,21 +22,24 @@ const ShowItems = (props) => {
     return list;
   };
 
+  const shuffledList = useMemo(
+    () => allImagesShuffleHandler(props.imgList),
+    [props.imgList]
+  );
+
   return (
     <>
       {props.filter === "" &&
-        allImagesShuffleHandler(props.imgList)
-          .slice(0, props.itemsToShow)
-          .map((img) => (
-            <Painting
-              openModal={props.openModal}
-              // editImage={editImage}
-              filter={props.filter}
-              catFilter={props.categoriesFilter}
-              key={img.id}
-              imgProp={img}
-            ></Painting>
-          ))}
+        shuffledList.slice(0, props.itemsToShow).map((img) => (
+          <Painting
+            openModal={props.openModal}
+            // editImage={editImage}
+            filter={props.filter}
+            catFilter={props.categoriesFilter}
+            key={img.id}
+            imgProp={img}
+          ></Painting>
+        ))}
       {props.categoriesFilter === "izložbe"
         ? filterItems(props.blogList)
             .slice(0, props.itemsToShow)
