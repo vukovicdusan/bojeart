@@ -9,12 +9,13 @@ export default function Home({ imgList, blogList, categories }) {
   return (
     <div>
       <Head>
-        <title>BojeArt</title>
+        <title>BojeArt - umetnost Jelene Tijanić Savić i Bojana Savića</title>
         <meta
           name="description"
-          content="Dobrodošli u svet umetnosti Jelene Tijanić Savić i Bojana Savića."
+          content="Svet umetnosti Jelene Tijanić Savić i Bojana Savića dvoje umetnika koji žive i rade u Beogradu."
         />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href="https://bojeart.com" key="canonical" />
       </Head>
       <BackToTop></BackToTop>
       <Hero></Hero>

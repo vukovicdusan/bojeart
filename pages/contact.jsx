@@ -1,117 +1,143 @@
-import React, { useState, useEffect } from "react"
-import Head from "next/head"
-import { sendContactForm } from "../lib/api"
-import Loader from "../components/Loader"
+import React, { useState, useEffect } from "react";
+import Head from "next/head";
+import { sendContactForm } from "../lib/api";
+import Loader from "../components/Loader";
+import Region from "../components/layout/Region";
+import Socials from "../components/Socials";
 
 const contact = () => {
-	const [hasMounted, setHasMounted] = useState(false)
-	const [contactFormData, setContactFormData] = useState({})
-	const [contactFormProccess, setContactFormProccess] = useState({
-		success: false,
-		error: false,
-		loading: false,
-	})
+  const [hasMounted, setHasMounted] = useState(false);
+  const [contactFormData, setContactFormData] = useState({});
+  const [contactFormProccess, setContactFormProccess] = useState({
+    success: false,
+    error: false,
+    loading: false,
+  });
 
-	useEffect(() => {
-		setHasMounted(true)
-	}, [])
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
 
-	if (!hasMounted) {
-		return null
-	}
+  if (!hasMounted) {
+    return null;
+  }
 
-	const onSubmitHandler = async (e) => {
-		e.preventDefault()
-		setContactFormProccess((prev) => ({ ...prev, loading: true }))
-		try {
-			await sendContactForm(contactFormData)
-			setContactFormProccess((prev) => ({
-				...prev,
-				success: true,
-				loading: false,
-			}))
-		} catch (err) {
-			console.log(err)
-			setContactFormProccess((prev) => ({
-				...prev,
-				error: true,
-				loading: false,
-			}))
-		}
-	}
+  const onSubmitHandler = async (e) => {
+    e.preventDefault();
+    setContactFormProccess((prev) => ({ ...prev, loading: true }));
+    try {
+      await sendContactForm(contactFormData);
+      setContactFormProccess((prev) => ({
+        ...prev,
+        success: true,
+        loading: false,
+      }));
+    } catch (err) {
+      console.log(err);
+      setContactFormProccess((prev) => ({
+        ...prev,
+        error: true,
+        loading: false,
+      }));
+    }
+  };
 
-	const inputHandler = (e) => {
-		e.target.name === "email"
-			? setContactFormData({ ...contactFormData, email: e.target.value })
-			: setContactFormData({
-					...contactFormData,
-					message: e.target.value,
-			  })
-	}
+  const inputHandler = (e) => {
+    e.target.name === "email"
+      ? setContactFormData({ ...contactFormData, email: e.target.value })
+      : setContactFormData({
+          ...contactFormData,
+          message: e.target.value,
+        });
+  };
 
-	return (
-		<div>
-			<Head>
-				<title>BojeArt - Kontakt</title>
-				<meta
-					name="description"
-					content="Kontakt stranica BojeArt.com"
-				/>
-				<link rel="icon" href="/favicon.ico" />
-			</Head>
-			<div className="stack">
-				<div className="center">
-					<h1>Ne budi stranac!</h1>
-					{!contactFormProccess.success &&
-					contactFormProccess.error ? (
-						<p className="signup-alert">
-							Došlo je do greške. Poruka nije poslata.
-						</p>
-					) : !contactFormProccess.success &&
-					  !contactFormProccess.error ? (
-						""
-					) : (
-						<p className="signup-success">
-							Hvala na poruci! Javljamo se!
-						</p>
-					)}
-					{contactFormProccess.loading ? <Loader></Loader> : ""}
-				</div>
-				<div className="center">
-					<form
-						onSubmit={onSubmitHandler}
-						className="[ stack ] [ z-top ]"
-					>
-						<div className="d-flex-c">
-							<label htmlFor="email">Tvoj Mail</label>
-							<input
-								type="text"
-								name="email"
-								id="email"
-								autoCapitalize="none"
-								autoCorrect="off"
-								required
-								pattern="[^@]+@[^\.]+\..+"
-								onChange={inputHandler}
-							/>
-						</div>
-						<div className="d-flex-c">
-							<label htmlFor="message">Poruka</label>
-							<textarea
-								name="message"
-								id="message"
-								type="text"
-								required
-								autoCorrect="off"
-								onChange={inputHandler}
-							/>
-						</div>
-						<button className="button">Pošalji</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	)
-}
+  return (
+    <div>
+      <Head>
+        <title>
+          BojeArt - umetnost Jelene Tijanić Savić i Bojana Savića - Kontakt
+        </title>
+        <meta
+          name="description"
+          content="Umetnost Jelene Tijanić Savić i Bojana Savića - Kontakt stranica BojeArt.com"
+        />
+        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="canonical"
+          href="https://bojeart.com/contact"
+          key="canonical"
+        />
+      </Head>
+      <Region>
+        <div className="stack">
+          <div className="[ stack ] [ center ] [ text-center ]">
+            <h1 className="[ h1-as-h3 ][ max-w-prose ] [ text-center ]">
+              Imate pitanje o nekoj slici? Zainteresovani ste za naručivanje
+              personalizovanog dela?
+            </h1>
+            <p className="[ max-w-prose ]">
+              Rado bismo se čuli sa Vama! Slobodno nas kontaktirajte putem naše
+              kontakt forme ili se povežite s nama na društvenim mrežama.{" "}
+            </p>
 
-export default contact
+            {!contactFormProccess.success && contactFormProccess.error ? (
+              <p className="signup-alert">
+                Došlo je do greške. Poruka nije poslata.
+              </p>
+            ) : !contactFormProccess.success && !contactFormProccess.error ? (
+              ""
+            ) : (
+              <p className="signup-success">Hvala na poruci! Javljamo se!</p>
+            )}
+            {contactFormProccess.loading ? <Loader></Loader> : ""}
+          </div>
+          <div className="center">
+            <h2 className="mr-bs-1 main-color">Ne budi stranac!</h2>
+            <Socials></Socials>
+            <form
+              onSubmit={onSubmitHandler}
+              className="[ stack ] [ z-top ] [ mr-bs-1 ]"
+            >
+              <div className="d-flex-c">
+                <label htmlFor="email">Tvoj Mail</label>
+                <input
+                  type="text"
+                  name="email"
+                  id="email"
+                  autoCapitalize="none"
+                  autoCorrect="off"
+                  required
+                  pattern="[^@]+@[^\.]+\..+"
+                  onChange={inputHandler}
+                />
+              </div>
+              <div className="d-flex-c">
+                <label htmlFor="message">Poruka</label>
+                <textarea
+                  name="message"
+                  id="message"
+                  type="text"
+                  required
+                  autoCorrect="off"
+                  onChange={inputHandler}
+                />
+              </div>
+              <button className="button">Pošalji</button>
+            </form>
+            <div className="[ stack ] [ center ] [ text-center ] [ mr-bs-4 ]">
+              <p className="[ max-w-prose ]">
+                Hvala vam što ste posetili našu galeriju. Nadamo se da naša
+                umetnost donosi radost i inspiraciju u Vaš dan.
+              </p>
+              <p className="[ max-w-prose ] [ bold ]">
+                Topli pozdravi od Jelene & Bojana.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Region>
+    </div>
+  );
+};
+
+export default contact;

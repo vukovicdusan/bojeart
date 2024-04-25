@@ -1,10 +1,9 @@
 .footer {
-	background-color: var(--text-secondary);
-	margin-block-start: var(--s4);
+  background-color: var(--text-secondary);
+  margin-block-start: var(--s4);
 }
 
-
-.bojanSocials, .jelenaSocials {
+/* .bojanSocials, .jelenaSocials {
 	margin-inline: auto;
 }
 
@@ -24,24 +23,24 @@
 
 .jelenaSocials svg:hover {
 	fill: var(--main);
-}
+} */
 
 .footerBottom {
-	display: flex;
-	justify-content: space-between !important;
+  display: flex;
+  justify-content: space-between !important;
 }
 
 .footerBottom > * {
-	display: flex;
+  display: flex;
 }
 .footerBottom > *:nth-child(3),
 .footerBottom > *:nth-child(4) {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .footerNavLink {
-	font-family: var(--amaticbold);
-	z-index: 8;
+  font-family: var(--amaticbold);
+  z-index: 8;
 }

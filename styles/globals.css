@@ -189,6 +189,12 @@ h6 {
 h1 {
   font-size: var(--s4);
 }
+.h1-as-h2 {
+  font-size: var(--s3);
+}
+.h1-as-h3 {
+  font-size: var(--s2);
+}
 h2 {
   font-size: var(--s3);
 }
@@ -208,6 +214,12 @@ h6 {
 @media (max-width: 450px) {
   h1 {
     font-size: var(--s2);
+  }
+  .h1-as-h2 {
+    font-size: var(--s2);
+  }
+  .h1-as-h3 {
+    font-size: var(--s1);
   }
   h2 {
     font-size: var(--s2);
@@ -377,6 +389,14 @@ select option {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.max-w-prose {
+  max-width: 60ch !important;
+}
+
+.text-center {
+  text-align: center !important;
 }
 
 .z-top {

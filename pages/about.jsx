@@ -29,12 +29,19 @@ const about = () => {
   return (
     <Region>
       <Head>
-        <title>BojeArt - O nama</title>
+        <title>
+          BojeArt - umetnost Jelene Tijanić Savić i Bojana Savića - O nama
+        </title>
         <meta
           name="description"
-          content="Stranica o Bojanu Saviću i Jeleni Tijanić Savić."
+          content="Umetnost Jelene Tijanić Savić i Bojana Savića - Stranica o Bojanu Saviću i Jeleni Tijanić Savić."
         />
         <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="canonical"
+          href="https://bojeart.com/about"
+          key="canonical"
+        />
       </Head>
       <div className="stack">
         <h1 className="center">Ovo smo mi.</h1>
