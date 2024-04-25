@@ -34,10 +34,6 @@ export const getServerSideProps = async () => {
   try {
     const catsQuery = query(collection(db, "categories"));
 
-    const catsQuerySnapshot = await getDocs(catsQuery);
-    catsQuerySnapshot.forEach((doc) => {
-      categories.push({ ...doc.data(), created_at: "" });
-    });
     const imageQuery = query(
       collection(db, "slike"),
       orderBy("created_at", "desc")
@@ -46,19 +42,32 @@ export const getServerSideProps = async () => {
       collection(db, "blog"),
       orderBy("created_at", "desc")
     );
+
+    const catsQuerySnapshot = await getDocs(catsQuery);
+    catsQuerySnapshot.forEach((doc) => {
+      categories.push({
+        ...doc.data(),
+      });
+    });
     const imageQuerySnapshot = await getDocs(imageQuery);
     imageQuerySnapshot.forEach((doc) => {
-      paintingsList.push({ id: doc.id, ...doc.data(), created_at: "" });
+      paintingsList.push({
+        id: doc.id,
+        ...doc.data(),
+      });
     });
     const blogQuerySnapshot = await getDocs(blogQuery);
     blogQuerySnapshot.forEach((doc) => {
-      projectsList.push({ id: doc.id, ...doc.data(), created_at: "" });
+      projectsList.push({
+        id: doc.id,
+        ...doc.data(),
+      });
     });
     return {
       props: {
-        imgList: paintingsList,
-        blogList: projectsList,
-        categories: categories,
+        imgList: JSON.parse(JSON.stringify(paintingsList)),
+        blogList: JSON.parse(JSON.stringify(projectsList)),
+        categories: JSON.parse(JSON.stringify(categories)),
       },
     };
   } catch (err) {

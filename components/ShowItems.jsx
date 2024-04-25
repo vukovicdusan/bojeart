@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import ProjectItem from "./projects/ProjectItem";
 import Painting from "./Painting";
+import { createdAtSerializator } from "../helpers/createdAtSerializator";
 
 const ShowItems = (props) => {
   let filterItems = (list) => {
@@ -14,7 +15,7 @@ const ShowItems = (props) => {
     return list && list.filter((item) => item.author === props.filter);
   };
 
-  // const allImagesShuffleHandler = (list) => {
+  // const imagesShuffleHandler = (list) => {
   //   for (let i = list.length - 1; i > 0; i--) {
   //     const j = Math.floor(Math.random() * (i + 1));
   //     [list[i], list[j]] = [list[j], list[i]];
@@ -23,14 +24,14 @@ const ShowItems = (props) => {
   // };
 
   // const shuffledList = useMemo(
-  //   () => allImagesShuffleHandler(props.imgList),
+  //   () => imagesShuffleHandler(props.imgList),
   //   [props.imgList]
   // );
 
   return (
     <>
       {props.filter === "" &&
-        props.imgList.slice(0, props.itemsToShow).map((img) => (
+        props.imgList.map((img) => (
           <Painting
             openModal={props.openModal}
             // editImage={editImage}
@@ -41,29 +42,25 @@ const ShowItems = (props) => {
           ></Painting>
         ))}
       {props.categoriesFilter === "izložbe"
-        ? filterItems(props.blogList)
-            .slice(0, props.itemsToShow)
-            .map((post) => (
-              <ProjectItem
-                key={post.id}
-                filter={props.filter}
-                postContent={props.post}
-                // editProject={editProject}
-                openModal={openModal}
-              ></ProjectItem>
-            ))
-        : filterItems(props.imgList)
-            .slice(0, props.itemsToShow)
-            .map((img) => (
-              <Painting
-                openModal={props.openModal}
-                // editImage={editImage}
-                filter={props.filter}
-                catFilter={props.categoriesFilter}
-                key={img.id}
-                imgProp={img}
-              ></Painting>
-            ))}
+        ? filterItems(props.blogList).map((post) => (
+            <ProjectItem
+              key={post.id}
+              filter={props.filter}
+              postContent={props.post}
+              // editProject={editProject}
+              openModal={openModal}
+            ></ProjectItem>
+          ))
+        : filterItems(props.imgList).map((img) => (
+            <Painting
+              openModal={props.openModal}
+              // editImage={editImage}
+              filter={props.filter}
+              catFilter={props.categoriesFilter}
+              key={img.id}
+              imgProp={img}
+            ></Painting>
+          ))}
     </>
   );
 };

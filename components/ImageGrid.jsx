@@ -143,9 +143,9 @@ const ImageGrid = (props) => {
       "";
   }
 
-  const loadMoreItemsHandler = () => {
-    setItemsToShow(itemsToShow + 3);
-  };
+  // const loadMoreItemsHandler = () => {
+  //   setItemsToShow(itemsToShow + 3);
+  // };
 
   return (
     <Region>
@@ -219,7 +219,7 @@ const ImageGrid = (props) => {
             filter={filter}
           ></ShowItems>
         </div>
-        <button
+        {/* <button
           onClick={loadMoreItemsHandler}
           className={`${styles.loadMoreBtn} [ button ]`}
         >
@@ -229,7 +229,7 @@ const ImageGrid = (props) => {
             height={15}
             fill={"var(--main)"}
           ></ChevronDown>
-        </button>
+        </button> */}
       </div>
     </Region>
   );
