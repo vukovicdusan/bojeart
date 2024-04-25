@@ -1,8 +1,13 @@
 .categoryWrap {
-	--wrap-justify: center;
-	background-color: #fff;
-	border: 1px dashed var(--secondary);
-	border-radius: 4px;
-	margin-inline: auto;
-	padding: 0.5rem 1rem;
+  --wrap-justify: center;
+  background-color: #fff;
+  border: 1px dashed var(--secondary);
+  border-radius: 4px;
+  margin-inline: auto;
+  padding: 0.5rem 1rem;
+}
+
+.active {
+  border: 1px dashed var(--main);
+  background-color: var(--secondary);
 }

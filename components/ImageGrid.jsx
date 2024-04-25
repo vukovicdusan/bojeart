@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Region from "../components/layout/Region";
 import * as styles from "../styles/ImageGrid.module.css";
-
 import GridListSwitcher from "./GridListSwitcher";
 import Modal from "./Modal";
 import EditImageModal from "./EditImageModal";
 import CategoryFilter from "./CategoryFilter";
-
 import Image from "next/image";
 import Loader from "../components/Loader";
 import ClientOnly from "./ClientOnly";
 import EditProjectModal from "./projects/EditProjectModal";
-import ChevronDown from "./svg/ChevronDown";
+// import ChevronDown from "./svg/ChevronDown";
 import AnimationContainer from "./AnimationContainer";
 
 import ShowItems from "./ShowItems";
@@ -25,7 +23,7 @@ const ImageGrid = (props) => {
   const [openGeneralModal, setOpenGeneralModal] = useState(false);
   const [modalData, setModalData] = useState("");
   const [modalType, setModalType] = useState("");
-  const [itemsToShow, setItemsToShow] = useState(6);
+  // const [itemsToShow, setItemsToShow] = useState(6);
 
   useEffect(() => {
     openGeneralModal
@@ -210,7 +208,7 @@ const ImageGrid = (props) => {
           } [ mr-bs-2 ]`}
         >
           <ShowItems
-            itemsToShow={itemsToShow}
+            // itemsToShow={itemsToShow}
             categoriesFilter={categoriesFilter}
             // postContent={postContent}
             imgList={props.imgList}

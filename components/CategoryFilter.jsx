@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import * as styles from "../styles/CategoryFilter.module.css";
 import categoriesPerAuthorHandler from "../helpers/categoriesPerAuthorHandlere";
 import AnimationContainer from "./AnimationContainer";
 
 const CategoryFilter = (props) => {
+  const [activeBtn, setActiveBtn] = useState();
   const changeFilterHandler = (e) => {
-    props.catFilterHandler(
-      e.target.innerHTML.toLowerCase().split(" ").join("-")
-    );
+    let btn = e.target.innerHTML;
+    setActiveBtn(btn.toLowerCase());
+    props.catFilterHandler(btn.toLowerCase().split(" ").join("-"));
   };
   return (
     // <AnimationContainer>
@@ -16,7 +17,9 @@ const CategoryFilter = (props) => {
         <li key={cat.slug}>
           <button
             onClick={changeFilterHandler}
-            className="[ button ] [ button-ghost ]"
+            className={`${
+              cat.category === activeBtn && styles.active
+            } [ button ] [ button-ghost ]`}
           >
             {cat.category}
           </button>
@@ -26,7 +29,9 @@ const CategoryFilter = (props) => {
       <li>
         <button
           onClick={changeFilterHandler}
-          className="[ button ] [ button-ghost ]"
+          className={`${
+            "izložbe" === activeBtn && styles.active
+          } [ button ] [ button-ghost ]`}
         >
           Izložbe
         </button>
