@@ -5,11 +5,11 @@ import AnimationContainer from "./AnimationContainer";
 const Hero = () => {
   return (
     <Region>
-      <AnimationContainer>
-        <h1 className={styles.heroTitle}>
+      <h1 className={styles.heroTitle}>
+        <AnimationContainer>
           BoJe<span className="main-color">Art</span>
-        </h1>
-      </AnimationContainer>
+        </AnimationContainer>
+      </h1>
     </Region>
   );
 };
