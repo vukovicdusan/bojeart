@@ -14,23 +14,23 @@ const ShowItems = (props) => {
     return list && list.filter((item) => item.author === props.filter);
   };
 
-  const allImagesShuffleHandler = (list) => {
-    for (let i = list.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [list[i], list[j]] = [list[j], list[i]];
-    }
-    return list;
-  };
+  // const allImagesShuffleHandler = (list) => {
+  //   for (let i = list.length - 1; i > 0; i--) {
+  //     const j = Math.floor(Math.random() * (i + 1));
+  //     [list[i], list[j]] = [list[j], list[i]];
+  //   }
+  //   return list;
+  // };
 
-  const shuffledList = useMemo(
-    () => allImagesShuffleHandler(props.imgList),
-    [props.imgList]
-  );
+  // const shuffledList = useMemo(
+  //   () => allImagesShuffleHandler(props.imgList),
+  //   [props.imgList]
+  // );
 
   return (
     <>
       {props.filter === "" &&
-        shuffledList.slice(0, props.itemsToShow).map((img) => (
+        props.imgList.slice(0, props.itemsToShow).map((img) => (
           <Painting
             openModal={props.openModal}
             // editImage={editImage}
