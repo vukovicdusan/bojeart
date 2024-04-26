@@ -76,17 +76,6 @@ const Contact = () => {
             Rado bismo se čuli sa Vama! Slobodno nas kontaktirajte putem naše
             kontakt forme ili se povežite s nama na društvenim mrežama.{" "}
           </p>
-
-          {!contactFormProccess.success && contactFormProccess.error ? (
-            <p className="signup-alert">
-              Došlo je do greške. Poruka nije poslata.
-            </p>
-          ) : !contactFormProccess.success && !contactFormProccess.error ? (
-            ""
-          ) : (
-            <p className="signup-success">Hvala na poruci! Javljamo se!</p>
-          )}
-          {contactFormProccess.loading ? <Loader></Loader> : ""}
         </div>
         <div className="center">
           <h2 className="mr-bs-1 main-color">Ne budi stranac!</h2>
@@ -121,12 +110,22 @@ const Contact = () => {
             </div>
             <button className="button">Pošalji</button>
           </form>
+          {!contactFormProccess.success && contactFormProccess.error ? (
+            <p className="signup-alert">
+              Došlo je do greške. Poruka nije poslata.
+            </p>
+          ) : !contactFormProccess.success && !contactFormProccess.error ? (
+            ""
+          ) : (
+            <p className="signup-success">Hvala na poruci! Javljamo se!</p>
+          )}
+          {contactFormProccess.loading ? <Loader></Loader> : ""}
           <div className="[ stack ] [ center ] [ text-center ] [ mr-bs-4 ]">
             <p className="[ max-w-prose ]">
               Hvala vam što ste posetili našu galeriju. Nadamo se da naša
               umetnost donosi radost i inspiraciju u Vaš dan.
             </p>
-            <p className="[ max-w-prose ] [ bold ]">
+            <p className="[ max-w-prose ] [ bold ] [ main-color ]">
               Topli pozdravi od Jelene & Bojana.
             </p>
           </div>

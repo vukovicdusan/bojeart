@@ -374,7 +374,7 @@ select option {
 }
 
 .main-color {
-  color: var(--main);
+  color: var(--main) !important;
 }
 
 .spacer {
