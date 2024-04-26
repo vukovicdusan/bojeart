@@ -69,9 +69,11 @@ const Contact = () => {
       <div className="stack">
         <div className="[ stack ] [ center ] [ text-center ]">
           <h1 className="[ h1-as-h3 ][ max-w-prose ] [ text-center ]">
-            Imate pitanje o nekoj slici? Zainteresovani ste za naručivanje
-            personalizovanog dela?
+            Imate pitanje o nekoj slici?{" "}
           </h1>
+          <p className="h1-as-h3">
+            Zainteresovani ste za naručivanje personalizovanog dela?
+          </p>
           <p className="[ max-w-prose ]">
             Rado bismo se čuli sa Vama! Slobodno nas kontaktirajte putem naše
             kontakt forme ili se povežite s nama na društvenim mrežama.{" "}

@@ -84,7 +84,7 @@ const About = () => {
             ></Image>
           </div>
           <div>
-            <h3>{filter === "jelena" ? "Jelena" : "Bojan"}</h3>
+            <h2>{filter === "jelena" ? "Jelena" : "Bojan"}</h2>
             <p>{filter === "jelena" ? jelenaAbout : bojanAbout}</p>
           </div>
         </div>
