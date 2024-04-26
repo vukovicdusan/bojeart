@@ -52,7 +52,7 @@ const contact = () => {
   };
 
   return (
-    <div>
+    <Region>
       <Head>
         <title>
           BojeArt - umetnost Jelene Tijanić Savić i Bojana Savića - Kontakt
@@ -64,79 +64,77 @@ const contact = () => {
         <link rel="icon" href="/favicon.ico" />
         <link
           rel="canonical"
-          href="https://www.bojeart.com/contact"
+          href="https://bojeart.com/contact"
           key="canonical"
         />
       </Head>
-      <Region>
-        <div className="stack">
-          <div className="[ stack ] [ center ] [ text-center ]">
-            <h1 className="[ h1-as-h3 ][ max-w-prose ] [ text-center ]">
-              Imate pitanje o nekoj slici? Zainteresovani ste za naručivanje
-              personalizovanog dela?
-            </h1>
-            <p className="[ max-w-prose ]">
-              Rado bismo se čuli sa Vama! Slobodno nas kontaktirajte putem naše
-              kontakt forme ili se povežite s nama na društvenim mrežama.{" "}
-            </p>
+      <div className="stack">
+        <div className="[ stack ] [ center ] [ text-center ]">
+          <h1 className="[ h1-as-h3 ][ max-w-prose ] [ text-center ]">
+            Imate pitanje o nekoj slici? Zainteresovani ste za naručivanje
+            personalizovanog dela?
+          </h1>
+          <p className="[ max-w-prose ]">
+            Rado bismo se čuli sa Vama! Slobodno nas kontaktirajte putem naše
+            kontakt forme ili se povežite s nama na društvenim mrežama.{" "}
+          </p>
 
-            {!contactFormProccess.success && contactFormProccess.error ? (
-              <p className="signup-alert">
-                Došlo je do greške. Poruka nije poslata.
-              </p>
-            ) : !contactFormProccess.success && !contactFormProccess.error ? (
-              ""
-            ) : (
-              <p className="signup-success">Hvala na poruci! Javljamo se!</p>
-            )}
-            {contactFormProccess.loading ? <Loader></Loader> : ""}
-          </div>
-          <div className="center">
-            <h2 className="mr-bs-1 main-color">Ne budi stranac!</h2>
-            <Socials></Socials>
-            <form
-              onSubmit={onSubmitHandler}
-              className="[ stack ] [ z-top ] [ mr-bs-1 ]"
-            >
-              <div className="d-flex-c">
-                <label htmlFor="email">Tvoj Mail</label>
-                <input
-                  type="text"
-                  name="email"
-                  id="email"
-                  autoCapitalize="none"
-                  autoCorrect="off"
-                  required
-                  pattern="[^@]+@[^\.]+\..+"
-                  onChange={inputHandler}
-                />
-              </div>
-              <div className="d-flex-c">
-                <label htmlFor="message">Poruka</label>
-                <textarea
-                  name="message"
-                  id="message"
-                  type="text"
-                  required
-                  autoCorrect="off"
-                  onChange={inputHandler}
-                />
-              </div>
-              <button className="button">Pošalji</button>
-            </form>
-            <div className="[ stack ] [ center ] [ text-center ] [ mr-bs-4 ]">
-              <p className="[ max-w-prose ]">
-                Hvala vam što ste posetili našu galeriju. Nadamo se da naša
-                umetnost donosi radost i inspiraciju u Vaš dan.
-              </p>
-              <p className="[ max-w-prose ] [ bold ]">
-                Topli pozdravi od Jelene & Bojana.
-              </p>
+          {!contactFormProccess.success && contactFormProccess.error ? (
+            <p className="signup-alert">
+              Došlo je do greške. Poruka nije poslata.
+            </p>
+          ) : !contactFormProccess.success && !contactFormProccess.error ? (
+            ""
+          ) : (
+            <p className="signup-success">Hvala na poruci! Javljamo se!</p>
+          )}
+          {contactFormProccess.loading ? <Loader></Loader> : ""}
+        </div>
+        <div className="center">
+          <h2 className="mr-bs-1 main-color">Ne budi stranac!</h2>
+          <Socials></Socials>
+          <form
+            onSubmit={onSubmitHandler}
+            className="[ stack ] [ z-top ] [ mr-bs-1 ]"
+          >
+            <div className="d-flex-c">
+              <label htmlFor="email">Tvoj Mail</label>
+              <input
+                type="text"
+                name="email"
+                id="email"
+                autoCapitalize="none"
+                autoCorrect="off"
+                required
+                pattern="[^@]+@[^\.]+\..+"
+                onChange={inputHandler}
+              />
             </div>
+            <div className="d-flex-c">
+              <label htmlFor="message">Poruka</label>
+              <textarea
+                name="message"
+                id="message"
+                type="text"
+                required
+                autoCorrect="off"
+                onChange={inputHandler}
+              />
+            </div>
+            <button className="button">Pošalji</button>
+          </form>
+          <div className="[ stack ] [ center ] [ text-center ] [ mr-bs-4 ]">
+            <p className="[ max-w-prose ]">
+              Hvala vam što ste posetili našu galeriju. Nadamo se da naša
+              umetnost donosi radost i inspiraciju u Vaš dan.
+            </p>
+            <p className="[ max-w-prose ] [ bold ]">
+              Topli pozdravi od Jelene & Bojana.
+            </p>
           </div>
         </div>
-      </Region>
-    </div>
+      </div>
+    </Region>
   );
 };
 

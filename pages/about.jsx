@@ -39,7 +39,7 @@ const about = () => {
         <link rel="icon" href="/favicon.ico" />
         <link
           rel="canonical"
-          href="https://www.bojeart.com/about"
+          href="https://bojeart.com/about"
           key="canonical"
         />
       </Head>
