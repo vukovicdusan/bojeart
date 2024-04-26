@@ -34,3 +34,11 @@
   justify-content: center;
   align-items: center;
 }
+
+.tel {
+  color: var(--main);
+}
+
+.tel:hover {
+  color: var(--secondary);
+}

@@ -64,7 +64,7 @@ const contact = () => {
         <link rel="icon" href="/favicon.ico" />
         <link
           rel="canonical"
-          href="https://bojeart.com/contact"
+          href="https://www.bojeart.com//contact"
           key="canonical"
         />
       </Head>

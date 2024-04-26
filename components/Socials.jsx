@@ -6,7 +6,9 @@ const Socials = () => {
     <div className={`${styles.socialsContainer} [ mr-bs-1 ] [ wrap ]`}>
       <div className="stack">
         <p>Bojan Savić</p>
-        <a href="tel:+381606773776">+381606773776</a>
+        <a className={styles.tel} href="tel:+381606773776">
+          +381606773776
+        </a>
         <ul className={`${styles.bojanSocials} [ wrap ]`}>
           <li>
             <a
@@ -67,7 +69,9 @@ const Socials = () => {
       </div>
       <div className="stack">
         <p>Jelena Tijanić Savić</p>
-        <a href="tel:+381641506500">+381641506500</a>
+        <a className={styles.tel} href="tel:+381641506500">
+          +381641506500
+        </a>
         <ul className={`${styles.jelenaSocials} [ wrap ]`}>
           <li>
             <a

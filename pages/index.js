@@ -15,7 +15,7 @@ export default function Home({ imgList, blogList, categories }) {
           content="Svet umetnosti Jelene Tijanić Savić i Bojana Savića dvoje umetnika koji žive i rade u Beogradu."
         />
         <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href="https://bojeart.com" key="canonical" />
+        <link rel="canonical" href="https://www.bojeart.com/" key="canonical" />
       </Head>
       <BackToTop></BackToTop>
       <Hero></Hero>
