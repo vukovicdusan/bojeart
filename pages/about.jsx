@@ -29,9 +29,7 @@ const About = () => {
   return (
     <Region>
       <Head>
-        <title>
-          BojeArt - umetnost Jelene Tijanić Savić i Bojana Savića - O nama
-        </title>
+        <title>BojeArt - o Jeleni Tijanić Savić i Bojanu Saviću</title>
         <meta
           name="description"
           content="Umetnost Jelene Tijanić Savić i Bojana Savića - Stranica o Bojanu Saviću i Jeleni Tijanić Savić."

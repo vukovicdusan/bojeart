@@ -54,9 +54,7 @@ const Contact = () => {
   return (
     <Region>
       <Head>
-        <title>
-          BojeArt - umetnost Jelene Tijanić Savić i Bojana Savića - Kontakt
-        </title>
+        <title>BojeArt - Kontaktirajte Jelenu i Bojana</title>
         <meta
           name="description"
           content="Umetnost Jelene Tijanić Savić i Bojana Savića - Kontakt stranica BojeArt.com"
