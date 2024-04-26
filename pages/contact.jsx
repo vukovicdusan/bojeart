@@ -5,8 +5,8 @@ import Loader from "../components/Loader";
 import Region from "../components/layout/Region";
 import Socials from "../components/Socials";
 
-const contact = () => {
-  const [hasMounted, setHasMounted] = useState(false);
+const Contact = () => {
+  // const [hasMounted, setHasMounted] = useState(false);
   const [contactFormData, setContactFormData] = useState({});
   const [contactFormProccess, setContactFormProccess] = useState({
     success: false,
@@ -14,13 +14,13 @@ const contact = () => {
     loading: false,
   });
 
-  useEffect(() => {
-    setHasMounted(true);
-  }, []);
+  // useEffect(() => {
+  //   setHasMounted(true);
+  // }, []);
 
-  if (!hasMounted) {
-    return null;
-  }
+  // if (!hasMounted) {
+  //   return null;
+  // }
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
@@ -138,4 +138,4 @@ const contact = () => {
   );
 };
 
-export default contact;
+export default Contact;

@@ -6,7 +6,7 @@ import portrait1 from "../public/images/jelena.jpeg";
 import portrait2 from "../public/images/bojan.jpeg";
 import Region from "../components/layout/Region";
 
-const about = () => {
+const About = () => {
   const [filter, setFilter] = useState("jelena");
 
   const authorFilterHandler = (e) => {
@@ -95,4 +95,4 @@ const about = () => {
   );
 };
 
-export default about;
+export default About;
