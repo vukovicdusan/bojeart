@@ -84,6 +84,7 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   font-size: var(--s1);
+  background-color: var(--background-light);
 }
 
 /* A elements that don't have a class get default styles */
