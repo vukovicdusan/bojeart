@@ -28,9 +28,6 @@
 
 .socialsContainer > * {
   display: flex;
-}
-.socialsContainer > * {
-  display: flex;
   justify-content: center;
   align-items: center;
 }

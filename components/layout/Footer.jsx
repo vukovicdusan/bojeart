@@ -32,12 +32,23 @@ const Footer = () => {
                   BoJe<span className="main-color">Art</span>
                 </div>
               </Link>
-              <div>Terms of Use/Privacy Policy</div>
               <Socials></Socials>
             </div>
           </div>
         </Region>
       </Wrapper>
+      <div className={styles.bottomBar}>
+        <p>
+          Website made by{" "}
+          <a
+            href="https://www.dusanvukovic.com/"
+            rel="noopener"
+            target="__blank"
+          >
+            DusanVukovic
+          </a>
+        </p>
+      </div>
     </footer>
   );
 };
