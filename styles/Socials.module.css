@@ -39,3 +39,9 @@
 .tel:hover {
   color: var(--secondary);
 }
+
+@media (max-width: 550px) {
+  .socialsContainer {
+    width: 100%;
+  }
+}
