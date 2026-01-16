@@ -6,12 +6,15 @@ const handler = async (req, res) => {
 		// if (!data.email || !data.message) {
 		// 	return res.status(400).json({ message: "Bad request" })
 		// }
+		if(data.website){
+			return res.status(200).json({ message: "Email Sent. Thank you for your message! I will get back to you ASAP!" })
+		}
 
 		try {
 			await transporter.sendMail({
 				...mailOptions,
-				subject: `Poruka od ${data.email}`,
-				html: `<h1>Poruka od ${data.email}</h1><p>${data.message}</p>`,
+				subject: `Poruka za Bojana i Jelenu od ${data.email}`,
+				html: `<h1>Poruka za Bojana i Jelenu od ${data.email}</h1><p>${data.message}</p>`,
 			})
 			return res.status(200).json({ success: true })
 		} catch (err) {

@@ -25,6 +25,10 @@ const Contact = () => {
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     setContactFormProccess((prev) => ({ ...prev, loading: true }));
+    console.log(contactFormData);
+    if (contactFormData.website) {
+      return;
+    }
     try {
       await sendContactForm(contactFormData);
       setContactFormProccess((prev) => ({
@@ -43,12 +47,11 @@ const Contact = () => {
   };
 
   const inputHandler = (e) => {
-    e.target.name === "email"
-      ? setContactFormData({ ...contactFormData, email: e.target.value })
-      : setContactFormData({
-          ...contactFormData,
-          message: e.target.value,
-        });
+    const { name, value } = e.target;
+    setContactFormData((prev) => ({
+    ...prev,
+    [name]: value,
+  }));
   };
 
   return (
@@ -99,6 +102,19 @@ const Contact = () => {
                 onChange={inputHandler}
               />
             </div>
+
+            <div className="d-flex-c absolute left-9999">
+              <label htmlFor="company_website">Kompani Mail</label>
+              <input
+                type="text"
+                name="website"
+                id="company_website"
+                autoComplete="off"
+                tabIndex="-1"
+                onChange={inputHandler}
+              />
+            </div>
+
             <div className="d-flex-c">
               <label htmlFor="message">Poruka</label>
               <textarea

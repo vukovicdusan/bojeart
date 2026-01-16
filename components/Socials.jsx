@@ -82,12 +82,7 @@ const Socials = () => {
                 height="24"
                 viewBox="0 0 512.00003 512"
                 xmlSpace="preserve"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlnsCc="http://creativecommons.org/ns#"
-                xmlnsInkscape="http://www.inkscape.org/namespaces/inkscape"
-                xmlnsRdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-                xmlnsSodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-                xmlnsSvg="http://www.w3.org/2000/svg"
+               
               >
                 <defs id="defs7" />
                 <rect
@@ -188,13 +183,7 @@ const Socials = () => {
                 width="24"
                 height="24"
                 viewBox="0 0 512.00003 512"
-                xmlSpace="preserve"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlnsCc="http://creativecommons.org/ns#"
-                xmlnsInkscape="http://www.inkscape.org/namespaces/inkscape"
-                xmlnsRdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-                xmlnsSodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-                xmlnsSvg="http://www.w3.org/2000/svg"
+                xmlSpace="preserve"              
               >
                 <defs id="defs7" />
                 <rect

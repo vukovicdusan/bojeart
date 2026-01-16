@@ -408,6 +408,14 @@ select option {
   font-family: var(--amaticbold);
 }
 
+.absolute {
+  position: absolute;
+}
+
+.left-9999 {
+  left: -9999px;
+}
+
 /** ==== BUTTON ==== */
 .button {
   -webkit-appearance: none;
