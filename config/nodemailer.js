@@ -1,17 +1,22 @@
 import nodemailer from "nodemailer"
 
-const email = process.env.NEXT_PUBLIC_EMAIL
-const pass = process.env.NEXT_PUBLIC_EMAIL_PASS
-
 export const transporter = nodemailer.createTransport({
-	service: "gmail",
-	auth: {
-		user: email,
-		pass: pass,
-	},
-})
+  host: "smtp-relay.brevo.com",
+  port: 587,
+  secure: false,
+  auth: {
+    user: process.env.BREVO_SMTP_USER,
+    pass: process.env.BREVO_SMTP_PASS,
+  },
+});
+
+// export const mailOptions = {
+// 	from: email,
+// 	to: to_email,
+// }
 
 export const mailOptions = {
-	from: email,
-	to: "dusan.v.vukovic@gmail.com",
-}
+  from: `Beojeart Website <${process.env.FROM_EMAIL}>`,
+  to: process.env.TO_EMAIL,
+};
+
