@@ -25,7 +25,7 @@ const Contact = () => {
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     setContactFormProccess((prev) => ({ ...prev, loading: true }));
-    console.log(contactFormData);
+    // console.log(contactFormData);
     if (contactFormData.website) {
       return;
     }

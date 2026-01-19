@@ -16,7 +16,7 @@ export const transporter = nodemailer.createTransport({
 // }
 
 export const mailOptions = {
-  from: `Beojeart Website <${process.env.FROM_EMAIL}>`,
+  from: `Bojeart Website <${process.env.FROM_EMAIL}>`,
   to: process.env.TO_EMAIL,
 };
 
