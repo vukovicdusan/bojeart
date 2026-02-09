@@ -1,0 +1,59 @@
+{
+  "nav": {
+    "gallery": "Slike",
+    "about": "O nama",
+    "contact": "Kontakt"
+  },
+  "header": {
+    "workshop": "Radionica",
+    "logout": "Odjavi se",
+    "openMenuAria": "Otvori meni",
+    "languageSr": "SR",
+    "languageEn": "EN"
+  },
+
+  "contact": {
+    "meta": {
+      "title": "BojeArt - Kontaktirajte Jelenu i Bojana",
+      "description": "Umetnost Jelene Tijanić Savić i Bojana Savića - Kontakt stranica BojeArt.com"
+    },
+    "hero": {
+      "title": "Imate pitanje o nekoj slici?",
+      "subtitle": "Zainteresovani ste za naručivanje personalizovanog dela?",
+      "text": "Rado bismo se čuli sa Vama! Slobodno nas kontaktirajte putem naše kontakt forme ili se povežite s nama na društvenim mrežama."
+    },
+    "sectionTitle": "Ne budi stranac!",
+    "form": {
+      "emailLabel": "Tvoj Mail",
+      "companyEmailLabel": "Kompani Mail",
+      "messageLabel": "Poruka",
+      "send": "Pošalji"
+    },
+    "feedback": {
+      "error": "Došlo je do greške. Poruka nije poslata.",
+      "success": "Hvala na poruci! Javljamo se!"
+    },
+    "footer": {
+      "thanks": "Hvala vam što ste posetili našu galeriju. Nadamo se da naša umetnost donosi radost i inspiraciju u Vaš dan.",
+      "signature": "Topli pozdravi od Jelene & Bojana."
+    }
+  },
+
+  "about": {
+    "meta": {
+      "title": "BojeArt - o Jeleni Tijanić Savić i Bojanu Saviću",
+      "description": "Umetnost Jelene Tijanić Savić i Bojana Savića - Stranica o Bojanu Saviću i Jeleni Tijanić Savić."
+    },
+    "title": "Ovo smo mi.",
+    "authors": {
+      "jelena": {
+        "name": "Jelena",
+        "bio": "Jelena je rođena u Užicu, 1976.godine. Diplomirala je na Fakultetu primenjenih umetnosti u Beogradu 2001.na odseku zidnog slikarstva, i magistrirala 2005. na istom fakultetu. Izlagala je na više samostalnih i grupnih izložbi u zemlji i inostranstvu. Učesnica je većeg broja likovnih kolonija i međunarodnih kampova. Živi i radi u Beogradu."
+      },
+      "bojan": {
+        "name": "Bojan",
+        "bio": "Bojan je rođen 1975. godine u Beogradu. Diplomirao je na Fakultetu primenjenih umetnosti 2001. na odseku za slikarstvo. Od 2018. godine radi kao stamostalni umetnik. Ostvario je više od 25 samostalnih i oko 100 grupnih izložbi. Njegove slike iz raznih opusa se nalaze u mnogim zemljama Evrope i sveta. Osim slikanja, bavi se i pedagoškim radom. Trenutno je posvećen art terapiji i radu sa ljudima obolelim od cerebralne paralize. Bojan živi i radi u Beogradu."
+      }
+    }
+  }
+}

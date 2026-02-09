@@ -1,0 +1,59 @@
+{
+  "nav": {
+    "gallery": "Gallery",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "header": {
+    "workshop": "Workshop",
+    "logout": "Sign out",
+    "openMenuAria": "Open menu",
+    "languageSr": "SR",
+    "languageEn": "EN"
+  },
+
+  "contact": {
+    "meta": {
+      "title": "BojeArt - Contact Jelena and Bojan",
+      "description": "Art by Jelena Tijanić Savić and Bojan Savić - BojeArt.com contact page"
+    },
+    "hero": {
+      "title": "Do you have a question about an artwork?",
+      "subtitle": "Interested in commissioning a personalized piece?",
+      "text": "We would love to hear from you! Feel free to contact us via our contact form or connect with us on social media."
+    },
+    "sectionTitle": "Don’t be a stranger!",
+    "form": {
+      "emailLabel": "Your Email",
+      "companyEmailLabel": "Company Email",
+      "messageLabel": "Message",
+      "send": "Send"
+    },
+    "feedback": {
+      "error": "Something went wrong. Your message was not sent.",
+      "success": "Thank you for your message! We’ll be in touch."
+    },
+    "footer": {
+      "thanks": "Thank you for visiting our gallery. We hope our art brings joy and inspiration to your day.",
+      "signature": "Warm regards from Jelena & Bojan."
+    }
+  },
+
+  "about": {
+    "meta": {
+      "title": "BojeArt - About Jelena Tijanić Savić and Bojan Savić",
+      "description": "Art by Jelena Tijanić Savić and Bojan Savić - About page."
+    },
+    "title": "This is us.",
+    "authors": {
+      "jelena": {
+        "name": "Jelena",
+        "bio": "Jelena was born in Užice in 1976. She graduated from the Faculty of Applied Arts in Belgrade in 2001, majoring in mural painting, and earned her master's degree in 2005 at the same institution. She has exhibited in numerous solo and group exhibitions both in Serbia and abroad. She has participated in many art colonies and international art camps. She lives and works in Belgrade."
+      },
+      "bojan": {
+        "name": "Bojan",
+        "bio": "Bojan was born in Belgrade in 1975. He graduated from the Faculty of Applied Arts in 2001, majoring in painting. Since 2018, he has been working as an independent artist. He has held more than 25 solo exhibitions and participated in around 100 group exhibitions. His artworks are part of collections across Europe and worldwide. In addition to painting, he is involved in educational work. He is currently dedicated to art therapy and working with people with cerebral palsy. Bojan lives and works in Belgrade."
+      }
+    }
+  }
+}

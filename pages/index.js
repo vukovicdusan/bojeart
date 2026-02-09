@@ -28,44 +28,43 @@ export default function Home({ imgList, blogList, categories }) {
   );
 }
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async (context) => {
+  const locale = context.locale || "sr";
+
   let paintingsList = [];
   let projectsList = [];
   let categories = [];
+
   try {
     const catsQuery = query(collection(db, "categories"));
 
     const imageQuery = query(
       collection(db, "slike"),
-      orderBy("created_at", "desc")
+      orderBy("created_at", "desc"),
     );
     const blogQuery = query(
       collection(db, "blog"),
-      orderBy("created_at", "desc")
+      orderBy("created_at", "desc"),
     );
 
     const catsQuerySnapshot = await getDocs(catsQuery);
     catsQuerySnapshot.forEach((doc) => {
-      categories.push({
-        ...doc.data(),
-      });
+      categories.push({ ...doc.data() });
     });
+
     const imageQuerySnapshot = await getDocs(imageQuery);
     imageQuerySnapshot.forEach((doc) => {
-      paintingsList.push({
-        id: doc.id,
-        ...doc.data(),
-      });
+      paintingsList.push({ id: doc.id, ...doc.data() });
     });
+
     const blogQuerySnapshot = await getDocs(blogQuery);
     blogQuerySnapshot.forEach((doc) => {
-      projectsList.push({
-        id: doc.id,
-        ...doc.data(),
-      });
+      projectsList.push({ id: doc.id, ...doc.data() });
     });
+
     return {
       props: {
+        messages: (await import(`../messages/${locale}.json`)).default,
         imgList: JSON.parse(JSON.stringify(paintingsList)),
         blogList: JSON.parse(JSON.stringify(projectsList)),
         categories: JSON.parse(JSON.stringify(categories)),
@@ -73,6 +72,10 @@ export const getServerSideProps = async () => {
     };
   } catch (err) {
     console.log(err);
-    return { props: {} };
+    return {
+      props: {
+        messages: (await import(`../messages/${locale}.json`)).default,
+      },
+    };
   }
 };

@@ -25,8 +25,9 @@ const Autor = ({ categories }) => {
 
 export default Autor;
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async (context) => {
   let categories = [];
+  const locale = context.locale || "sr";
 
   try {
     const catsQuery = query(collection(db, "categories"));
@@ -38,11 +39,16 @@ export const getServerSideProps = async () => {
 
     return {
       props: {
+        messages: (await import(`../../messages/${locale}.json`)).default,
         categories: categories,
       },
     };
   } catch (err) {
     console.log(err);
-    return { props: {} };
+    return {
+      props: {
+        messages: (await import(`../../messages/${locale}.json`)).default,
+      },
+    };
   }
 };

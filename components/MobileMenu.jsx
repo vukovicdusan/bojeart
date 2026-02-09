@@ -7,9 +7,12 @@ import { useRouter } from "next/router";
 import { auth } from "../public/firebase/firebase";
 import { signOut } from "firebase/auth";
 import Socials from "./Socials";
+import { useTranslations } from "next-intl";
 
 const MobileMenu = (props) => {
   const [animate, setAnimate] = useState(false);
+  const tNav = useTranslations("nav");
+  const tHeader = useTranslations("header");
 
   useEffect(() => {
     props.isOpen
@@ -44,13 +47,34 @@ const MobileMenu = (props) => {
       <nav className={`${styles.mobileNav} [ stack ]`}>
         <ul onClick={closeMenu} className="stack">
           <li>
-            <Link href={"/"}>Slike</Link>
+            <Link href={"/"}>{tNav("gallery")}</Link>
           </li>
           <li>
-            <Link href={"/about"}>O nama</Link>
+            <Link href={"/about"}>{tNav("about")}</Link>
           </li>
           <li>
-            <Link href={"/contact"}>Kontakt</Link>
+            <Link href={"/contact"}> {tNav("contact")}</Link>
+          </li>
+          {/* Language toggle (SR/EN) */}
+          <li className=" language-toggle">
+            <button
+              type="button"
+              className="[ button-ghost ]"
+              onClick={() => switchLocale("sr")}
+              aria-label={tHeader("languageSr")}
+              disabled={router.locale === "sr"}
+            >
+              {tHeader("languageSr")}
+            </button>
+            <button
+              type="button"
+              className="[ button-ghost ]"
+              onClick={() => switchLocale("en")}
+              aria-label={tHeader("languageEn")}
+              disabled={router.locale === "en"}
+            >
+              {tHeader("languageEn")}
+            </button>
           </li>
           <li>
             <ClientOnly>

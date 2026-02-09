@@ -2,6 +2,8 @@ import "../styles/globals.css";
 import Layout from "../components/layout/Layout";
 import { LoginContextProvider } from "../store/LoginCtx";
 import Head from "next/head";
+import { NextIntlClientProvider } from "next-intl";
+import { Router } from "next/router";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -33,11 +35,17 @@ function MyApp({ Component, pageProps }) {
           content="EjsFsgqPf65CBx--tDgvLgIGhKumHZZ50FBePUZFt-4"
         />
       </Head>
-      <LoginContextProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </LoginContextProvider>
+      <NextIntlClientProvider
+        locale={Router.locale || "sr"}
+        messages={pageProps.messages}
+        timeZone="Europe/Belgrade"
+      >
+        <LoginContextProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </LoginContextProvider>
+      </NextIntlClientProvider>
     </>
   );
 }
