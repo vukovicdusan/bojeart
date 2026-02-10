@@ -40,6 +40,14 @@ const MobileMenu = (props) => {
     props.close(true);
   };
 
+  const switchLocale = (nextLocale) => {
+    router.push(
+      { pathname: router.pathname, query: router.query },
+      router.asPath,
+      { locale: nextLocale },
+    );
+  };
+
   return (
     <div
       className={`${styles.mobileMenu} ${animate ? styles.mobileMenuOpen : ""}`}
