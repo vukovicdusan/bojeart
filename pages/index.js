@@ -1,11 +1,23 @@
 import Head from "next/head";
 import ImageGrid from "../components/ImageGrid";
 import Hero from "../components/Hero";
-import { collection, getDocs, query, orderBy } from "firebase/firestore";
+// import { collection, getDocs, query, orderBy } from "firebase/firestore";
+// import { collection, getDocs, query, orderBy, limit } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  query,
+  orderBy,
+  limit,
+  documentId,
+} from "firebase/firestore";
+
 import { db } from "../public/firebase/firebase";
 import BackToTop from "../components/svg/BackToTop";
 
-export default function Home({ imgList, blogList, categories }) {
+const PAGE_SIZE = 24;
+
+export default function Home({ imgList, blogList, categories, imgCursor }) {
   return (
     <>
       <Head>
@@ -23,17 +35,16 @@ export default function Home({ imgList, blogList, categories }) {
         imgList={imgList}
         blogList={blogList}
         categories={categories}
+        imgCursor={imgCursor}
       ></ImageGrid>
     </>
   );
 }
 
-export const getServerSideProps = async (context) => {
-  const locale = context.locale || "sr";
+// export const getServerSideProps = async (context) => {
 
-  let paintingsList = [];
-  let projectsList = [];
-  let categories = [];
+export const getStaticProps = async (context) => {
+  const locale = context.locale || "sr";
 
   try {
     const catsQuery = query(collection(db, "categories"));
@@ -41,26 +52,36 @@ export const getServerSideProps = async (context) => {
     const imageQuery = query(
       collection(db, "slike"),
       orderBy("created_at", "desc"),
+      orderBy(documentId(), "desc"), // ✅ add this (important for paging)
+      limit(PAGE_SIZE),
     );
+
     const blogQuery = query(
       collection(db, "blog"),
       orderBy("created_at", "desc"),
+      limit(10),
     );
 
-    const catsQuerySnapshot = await getDocs(catsQuery);
-    catsQuerySnapshot.forEach((doc) => {
-      categories.push({ ...doc.data() });
-    });
+    const [catsSnap, imageSnap, blogSnap] = await Promise.all([
+      getDocs(catsQuery),
+      getDocs(imageQuery),
+      getDocs(blogQuery),
+    ]);
 
-    const imageQuerySnapshot = await getDocs(imageQuery);
-    imageQuerySnapshot.forEach((doc) => {
-      paintingsList.push({ id: doc.id, ...doc.data() });
-    });
+    const categories = catsSnap.docs.map((d) => ({ ...d.data() }));
+    const paintingsList = imageSnap.docs.map((d) => ({
+      id: d.id,
+      ...d.data(),
+    }));
+    const projectsList = blogSnap.docs.map((d) => ({ id: d.id, ...d.data() }));
 
-    const blogQuerySnapshot = await getDocs(blogQuery);
-    blogQuerySnapshot.forEach((doc) => {
-      projectsList.push({ id: doc.id, ...doc.data() });
-    });
+    const last = imageSnap.docs[imageSnap.docs.length - 1];
+    const lastCursor = last
+      ? {
+          createdAtMs: last.data().created_at?.toMillis?.() ?? null,
+          id: last.id,
+        }
+      : null;
 
     return {
       props: {
@@ -68,14 +89,21 @@ export const getServerSideProps = async (context) => {
         imgList: JSON.parse(JSON.stringify(paintingsList)),
         blogList: JSON.parse(JSON.stringify(projectsList)),
         categories: JSON.parse(JSON.stringify(categories)),
+        imgCursor: lastCursor,
       },
+      revalidate: 300,
     };
   } catch (err) {
     console.log(err);
     return {
       props: {
         messages: (await import(`../messages/${locale}.json`)).default,
+        imgList: [],
+        blogList: [],
+        categories: [],
+        imgCursor: null,
       },
+      revalidate: 300,
     };
   }
 };

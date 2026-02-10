@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { fetchMorePaintings } from "../lib/fetchMorePaintings";
 import Region from "../components/layout/Region";
 import * as styles from "../styles/ImageGrid.module.css";
 import GridListSwitcher from "./GridListSwitcher";
@@ -23,6 +24,18 @@ const ImageGrid = (props) => {
   const [openGeneralModal, setOpenGeneralModal] = useState(false);
   const [modalData, setModalData] = useState("");
   const [modalType, setModalType] = useState("");
+  const [allImages, setAllImages] = useState(props.imgList || []);
+  const [cursor, setCursor] = useState(props.imgCursor || null);
+  const [isFetchingMore, setIsFetchingMore] = useState(false);
+  const [hasMore, setHasMore] = useState(Boolean(props.imgCursor));
+  const sentinelRef = useRef(null);
+
+  useEffect(() => {
+    setAllImages(props.imgList || []);
+    setCursor(props.imgCursor || null);
+    setHasMore(Boolean(props.imgCursor));
+  }, [props.imgList, props.imgCursor]);
+
   // const [itemsToShow, setItemsToShow] = useState(6);
 
   useEffect(() => {
@@ -104,9 +117,11 @@ const ImageGrid = (props) => {
             className={styles.modalImg}
             fill
             src={modalData.image}
-            alt="slika"
+            alt={modalData.imgName ?? "slika"}
+            sizes="(max-width: 768px) 100vw, 80vw"
             // quality={90}
             onLoadingComplete={onLoadCallback}
+            unoptimized
           ></Image>
           {isLoaded ? (
             <ClientOnly>
@@ -144,6 +159,48 @@ const ImageGrid = (props) => {
   // const loadMoreItemsHandler = () => {
   //   setItemsToShow(itemsToShow + 3);
   // };
+  const shouldAutoLoad = filter === "" && categoriesFilter === "";
+
+  useEffect(() => {
+    if (!sentinelRef.current) return;
+    if (!hasMore) return;
+    if (!shouldAutoLoad) return;
+
+    const el = sentinelRef.current;
+
+    const obs = new IntersectionObserver(
+      (entries) => {
+        const first = entries[0];
+        if (first.isIntersecting) {
+          loadMore();
+        }
+      },
+      { root: null, rootMargin: "800px", threshold: 0 },
+    );
+
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [hasMore, shouldAutoLoad, cursor, isFetchingMore]);
+
+  const loadMore = async () => {
+    if (isFetchingMore || !hasMore) return;
+
+    setIsFetchingMore(true);
+    try {
+      const { items, nextCursor } = await fetchMorePaintings(cursor);
+
+      if (items.length > 0) {
+        setAllImages((prev) => [...prev, ...items]);
+      }
+
+      setCursor(nextCursor);
+      setHasMore(Boolean(nextCursor) && items.length > 0);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setIsFetchingMore(false);
+    }
+  };
 
   return (
     <Region>
@@ -208,15 +265,17 @@ const ImageGrid = (props) => {
           } [ mr-bs-2 ]`}
         >
           <ShowItems
-            // itemsToShow={itemsToShow}
             categoriesFilter={categoriesFilter}
-            // postContent={postContent}
-            imgList={props.imgList}
+            imgList={allImages}
             blogList={props.blogList}
             openModal={openModal}
             filter={filter}
           ></ShowItems>
         </div>
+        <div ref={sentinelRef} style={{ height: 1 }} />
+
+        {isFetchingMore ? <Loader /> : null}
+
         {/* <button
           onClick={loadMoreItemsHandler}
           className={`${styles.loadMoreBtn} [ button ]`}

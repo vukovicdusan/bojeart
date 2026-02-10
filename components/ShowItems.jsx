@@ -9,7 +9,7 @@ const ShowItems = (props) => {
       return list.filter(
         (item) =>
           item.author === props.filter &&
-          item.category === props.categoriesFilter
+          item.category === props.categoriesFilter,
       );
     }
     return list && list.filter((item) => item.author === props.filter);
@@ -48,7 +48,7 @@ const ShowItems = (props) => {
               filter={props.filter}
               postContent={props.post}
               // editProject={editProject}
-              openModal={openModal}
+              openModal={props.openModal}
             ></ProjectItem>
           ))
         : filterItems(props.imgList).map((img) => (
